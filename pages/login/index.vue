@@ -1,11 +1,8 @@
 <script lang="ts" setup>
-
 const loginForm = {
-  email: null,
-  password: null,
+  email: "hi@devburna.com",
+  password: "devburna",
 };
-
-const loginHandler = () => {};
 </script>
 
 <template>
@@ -13,7 +10,7 @@ const loginHandler = () => {};
     <div class="container h-100">
       <div class="row align-items-center justify-content-center h-100">
         <div class="col-lg-5">
-          <form @submit.prevent="loginHandler" class="row g-3">
+          <form @submit.prevent="useAuth().login(loginForm)" class="row g-3">
             <div class="col-lg-12">
               <h3>Login</h3>
               <p>Sign in to your abbeylinko account</p>
@@ -24,6 +21,7 @@ const loginHandler = () => {};
                 class="form-control"
                 placeholder="Email address"
                 v-model="loginForm.email"
+                required
               />
             </div>
             <div class="col-lg-12">
@@ -31,7 +29,8 @@ const loginHandler = () => {};
                 type="password"
                 class="form-control"
                 placeholder="Password"
-                v-model="loginForm.email"
+                v-model="loginForm.password"
+                required
               />
             </div>
             <div class="col-lg-12">

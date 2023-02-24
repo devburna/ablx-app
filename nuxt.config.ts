@@ -42,5 +42,12 @@ export default defineNuxtConfig({
         }
     },
 
-    css: ['@/assets/css/main.css']
+    css: ['@/assets/css/main.css'],
+
+    runtimeConfig: {
+        apiKey: process.env.APP_KEY,
+        public: {
+            baseURL: process.env.APP_URL
+        }
+    }
 })

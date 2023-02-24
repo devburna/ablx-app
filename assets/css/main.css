@@ -30,6 +30,10 @@ form small a {
     font-weight: 500;
 }
 
+#loading {
+    background: rgba(0, 0, 0, 0.8);
+}
+
 #splash .logo {
     height: 200px;
     width: 200px;
