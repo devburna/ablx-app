@@ -115,12 +115,12 @@ const defaultFeature = ref(features[0]);
 }
 
 .indicator {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 .indicator-inner {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 </style>
