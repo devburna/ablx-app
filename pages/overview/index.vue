@@ -31,18 +31,8 @@ const defaultFeature = ref(features[0]);
       :key="index"
       id="overview"
     >
-      <div class="container py-4 h-100">
-        <div class="row g-0 align-items-center justify-content-center h-100">
-          <div class="col-lg-5 align-self-start text-end">
-            <button
-              type="button"
-              class="btn btn-link text-white p-0"
-              @click="defaultFeature = features[features.length - 1]"
-            >
-              Skip
-            </button>
-          </div>
-          <div></div>
+      <div class="container py-5 h-100">
+        <div class="row g-3 align-items-center justify-content-center h-100">
           <div class="col-lg-5">
             <img
               src="https://abbeylinkoxchange.com/wp-content/uploads/2020/11/abbeylinko-logo-scaled.jpg"
