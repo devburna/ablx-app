@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+definePageMeta({});
+
 const loginForm = {
   email: "hi@devburna.com",
   password: "devburna",

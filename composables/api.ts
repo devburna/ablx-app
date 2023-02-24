@@ -32,7 +32,7 @@ export const useApi = () => {
     get: async (url: string, data?: any) => {
       return await useFetch(config.public.baseURL + url, {
         ...interceptors,
-        method: 'post',
+        method: 'get',
         query: data,
       })
     },

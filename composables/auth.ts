@@ -36,5 +36,10 @@ export const useAuth = () => {
         user.value = res.data.value.data;
       });
     },
+    logout: async () => {
+      user.value = null;
+      localStorage.clear()
+      return navigateTo('/login');
+    },
   }
 }
