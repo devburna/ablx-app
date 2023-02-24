@@ -31,12 +31,19 @@ const defaultFeature = ref(features[0]);
       :key="index"
       id="overview"
     >
-      <div class="container py-3 h-100">
+      <div class="container py-4 h-100">
         <div class="row g-0 align-items-center justify-content-center h-100">
-          <div class="col-lg-6 align-self-start text-end">
-            <NuxtLink to="/home" class="text-white"> Skip </NuxtLink>
+          <div class="col-lg-5 align-self-start text-end">
+            <button
+              type="button"
+              class="btn btn-link text-white p-0"
+              @click="defaultFeature = features[features.length - 1]"
+            >
+              Skip
+            </button>
           </div>
-          <div class="col-lg-6">
+          <div></div>
+          <div class="col-lg-5">
             <img
               src="https://abbeylinkoxchange.com/wp-content/uploads/2020/11/abbeylinko-logo-scaled.jpg"
               alt="logo"
@@ -44,7 +51,8 @@ const defaultFeature = ref(features[0]);
               class="img-fluid"
             />
           </div>
-          <div class="col-lg-6">
+          <div></div>
+          <div class="col-lg-5">
             <div class="d-flex align-items-center justify-content-center gap-2">
               <div
                 class="indicator d-flex align-items-center justify-content-center bg-white"
@@ -60,14 +68,17 @@ const defaultFeature = ref(features[0]);
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div></div>
+          <div class="col-lg-5">
             <h4 class="text-white mb-3">{{ item.title }}</h4>
             <p class="mb-0 text-white">
               {{ item.caption }}
             </p>
           </div>
-          <div class="col-lg-6">
+          <div></div>
+          <div class="col-lg-5">
             <button
+              type="button"
               class="btn btn-warning w-100"
               @click="defaultFeature = features[index + 1]"
               v-if="index !== features.length - 1"
@@ -76,12 +87,14 @@ const defaultFeature = ref(features[0]);
             </button>
             <div v-else>
               <button
+                type="button"
                 class="btn btn-warning w-100 mb-3"
                 @click="$router.push('/login')"
               >
                 Login
               </button>
               <button
+                type="button"
                 class="btn btn-outline-light w-100"
                 @click="$router.push('/register')"
               >

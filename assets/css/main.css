@@ -12,7 +12,7 @@ html, body, #devburna {
     font-family: 'Outfit', sans-serif;
 }
 
-a {
+a, .btn-link {
     text-decoration: none;
 }
 
