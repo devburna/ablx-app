@@ -2,8 +2,8 @@
 definePageMeta({});
 
 const loginForm = {
-  email: "hi@devburna.com",
-  password: "devburna",
+  email: null,
+  password: null,
 };
 </script>
 
@@ -11,7 +11,7 @@ const loginForm = {
   <div class="container-fluid py-5 h-100">
     <div class="container h-100">
       <div class="row align-items-center justify-content-center h-100">
-        <div class="col-lg-5">
+        <div class="col-lg-4">
           <form @submit.prevent="useAuth().login(loginForm)" class="row g-3">
             <div class="col-lg-12">
               <h3>Login</h3>
