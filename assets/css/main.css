@@ -14,17 +14,40 @@ html, body, #devburna {
 
 a, .btn-link {
     text-decoration: none;
+    color: var(--bs-info);
 }
 
-button {
+form p {
+    font-size: 15px;
+    color: var(--bs-secondary);
+}
+
+form small {
+    color: var(--bs-secondary);
+}
+
+form small a {
     font-weight: 500;
-    height: 46px;
-    border-radius: 4px;
 }
 
 #splash .logo {
     height: 200px;
     width: 200px;
+}
+
+.btn {
+    font-weight: 500;
+}
+
+.btn, .form-control {
+    box-shadow: unset !important;
+    height: 48px;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+.form-control {
+    font-size: 15px;
 }
 
 .bg-pattern {

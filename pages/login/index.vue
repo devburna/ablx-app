@@ -1,8 +1,57 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+
+const loginForm = {
+  email: null,
+  password: null,
+};
+
+const loginHandler = () => {};
+</script>
 
 <template>
-  <div>
-    Page: foo
+  <div class="container-fluid py-5 h-100">
+    <div class="container h-100">
+      <div class="row align-items-center justify-content-center h-100">
+        <div class="col-lg-5">
+          <form @submit.prevent="loginHandler" class="row g-3">
+            <div class="col-lg-12">
+              <h3>Login</h3>
+              <p>Sign in to your abbeylinko account</p>
+            </div>
+            <div class="col-lg-12">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email address"
+                v-model="loginForm.email"
+              />
+            </div>
+            <div class="col-lg-12">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                v-model="loginForm.email"
+              />
+            </div>
+            <div class="col-lg-12">
+              <NuxtLink class="fs-14" to="/recover">Need help?</NuxtLink>
+            </div>
+            <div class="col-lg-12">
+              <button type="submit" class="btn btn-primary w-100">
+                Continue
+              </button>
+            </div>
+            <div class="col-lg-12 text-center py-3">
+              <small
+                >Don't have an account?
+                <NuxtLink to="/register">Create an account</NuxtLink></small
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
