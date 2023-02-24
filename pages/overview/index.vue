@@ -61,7 +61,7 @@ const defaultFeature = ref(features[0]);
           <div></div>
           <div class="col-lg-5">
             <h4 class="text-white mb-3">{{ item.title }}</h4>
-            <p class="mb-0 text-white">
+            <p class="text-white">
               {{ item.caption }}
             </p>
           </div>
@@ -105,12 +105,12 @@ const defaultFeature = ref(features[0]);
 }
 
 .indicator {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 .indicator-inner {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 </style>
