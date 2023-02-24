@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --bs-primary: #00468b;
+    --bs-warning: #fdb633;
+    --bs-info: #019ce3;
+}
+
+
+html, body, #devburna {
+    height: 100%;
+    font-family: 'Outfit', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font-weight: 500;
+    height: 46px;
+    border-radius: 4px;
+}
+
+#splash .logo {
+    height: 200px;
+    width: 200px;
+}
+
+.bg-pattern {
+    background: url('@/assets/img/pattern.webp'), var(--bs-primary);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+.text-info {
+    color: var(--bs-info) !important;
+}
+
+.text-warning {
+    color: var(--bs-warning) !important;
+}
+
+.bg-primary {
+    background: var(--bs-primary) !important;
+}
+
+.bg-info {
+    background: var(--bs-info) !important;
+}
+
+.bg-warning {
+    background: var(--bs-warning) !important;
+}
+
+.btn-primary {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+.btn-info {
+    background-color: var(--bs-info) !important;
+    border-color: var(--bs-info) !important;
+}
+
+.btn-warning {
+    background-color: var(--bs-warning) !important;
+    border-color: var(--bs-warning) !important;
+    color: var(--bs-dark) !important;
+}
+
+.layout-enter-active,
+.layout-leave-active {
+    transition: all 0.4s;
+}
+
+.layout-enter-from,
+.layout-leave-to {
+    filter: grayscale(1);
+}
