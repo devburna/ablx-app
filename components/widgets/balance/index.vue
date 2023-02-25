@@ -45,9 +45,9 @@ const quickActions = [
                 @click="$router.push(item.route)"
               >
                 <div
-                  class="ic-holder d-flex align-items-center justify-content-center rounded-circle bg-white"
+                  class="ic-holder d-flex align-items-center justify-content-center rounded-circle bg-warning"
                 >
-                  <i :class="`bi bi-${item.icon}-fill text-info icon`"></i>
+                  <i :class="`bi bi-${item.icon}-fill text-white icon`"></i>
                 </div>
                 {{ item.name }}
               </button>
