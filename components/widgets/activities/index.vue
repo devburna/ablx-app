@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-const listViewProps = useAttrs();
+const activitiesProps = useAttrs();
 </script>
 
 <template>
   <div class="list-group" id="listView">
     <div
       class="list-group-item rounded-0 border-0 border-bottom border-light"
-      v-if="listViewProps.header"
+      v-if="activitiesProps.header"
     >
       <div class="row gy-0 g-3 align-items-center justify-content-between py-1">
         <div class="col-auto"><span>Recent</span></div>
@@ -17,7 +17,7 @@ const listViewProps = useAttrs();
     </div>
     <div
       class="list-group-item rounded-0 border-0 border-bottom border-light"
-      v-for="(item, index) in listViewProps.data"
+      v-for="(item, index) in activitiesProps.data"
       :key="index"
     >
       <div class="row gy-0 g-3 align-items-center justify-content-center py-1">
@@ -67,7 +67,7 @@ small {
 }
 
 .ic-holder {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
 }
 </style>
