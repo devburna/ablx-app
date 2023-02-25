@@ -9,7 +9,9 @@ const appbarProps = useAttrs();
     id="appbar"
   >
     <div class="list-group-item text-center w-100" v-if="appbarProps.title">
-      <span class="title text-capitalize">{{ appbar.name }}</span>
+      <span class="title text-capitalize">{{
+        appbarProps.name || appbar.name
+      }}</span>
     </div>
     <div class="position-absolute">
       <button

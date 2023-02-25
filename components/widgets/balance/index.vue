@@ -10,12 +10,12 @@ const quickActions = [
   {
     icon: "file-earmark-text",
     name: "Pay Bills",
-    route: "/transfer",
+    route: "/bills",
   },
   {
     icon: "send",
     name: "Transfer",
-    route: "/activities",
+    route: "/transfer",
   },
 ];
 </script>

@@ -113,6 +113,11 @@ form .btn, form .form-control {
     border-color: var(--bs-info) !important;
 }
 
+.btn-success {
+    background-color: var(--bs-success) !important;
+    border-color: var(--bs-success) !important;
+}
+
 .btn-warning {
     background-color: var(--bs-warning) !important;
     border-color: var(--bs-warning) !important;

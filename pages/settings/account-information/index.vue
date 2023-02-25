@@ -6,7 +6,7 @@ definePageMeta({
 
 <template>
   <div class="h-100 bg-light">
-    <Appbar :hasPrev="true" :title="true" />
+    <Appbar :hasPrev="true" :title="true" name="Account Information" />
     <div class="container-fluid h-100 py-3" id="trade">
       <div class="container p-1">
         <div class="row g-0 align-items-center justify-content-center">
