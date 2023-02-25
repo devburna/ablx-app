@@ -15,4 +15,8 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+#loading {
+  background: rgba(0, 0, 0, 0.8);
+}
+</style>

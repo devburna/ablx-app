@@ -5,8 +5,8 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="container-fluid p-0">
-    <Appbar />
+  <div>
+    <WidgetsBalance />
   </div>
 </template>
 

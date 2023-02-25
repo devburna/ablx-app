@@ -24,6 +24,14 @@ const appbarProps = useAttrs();
 </template>
 
 <style scoped>
+#appbar {
+  height: 52px;
+}
+.title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .list-group,
 .list-group-item {
   border-radius: 0 !important;

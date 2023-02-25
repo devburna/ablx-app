@@ -21,4 +21,9 @@ setTimeout(() => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.logo {
+  height: 200px;
+  width: 200px;
+}
+</style>

@@ -35,29 +35,11 @@ form small a {
     font-weight: 500;
 }
 
-#loading {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-#splash .logo {
-    height: 200px;
-    width: 200px;
-}
-
-#appbar {
-    height: 52px;
-}
-
-#appbar .title {
-    font-size: 18px;
-    font-weight: 500;
-}
-
 .btn {
     font-weight: 500;
 }
 
-.btn, .form-control {
+form .btn, form .form-control {
     box-shadow: unset !important;
     height: 48px;
     font-size: 15px;
