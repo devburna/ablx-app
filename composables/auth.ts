@@ -5,26 +5,46 @@ export const useAuth = () => {
   return {
     register: async (payload: any) => {
       await useApi().post("/register", payload).then((res: any) => {
-        token.value = res.data.value.data.token;
-        localStorage.setItem('token', token.value)
+        if (res.data.value) {
+          token.value = res.data.value.data.token;
+          localStorage.setItem('token', token.value)
 
-        user.value = res.data.value.data.user;
-        navigateTo('/home')
+          user.value = res.data.value.data.user;
+          navigateTo('/home')
+        }
       });
     },
     login: async (payload: any) => {
       await useApi().post("/login", payload).then((res: any) => {
-        token.value = res.data.value.data.token;
-        localStorage.setItem('token', token.value)
+        if (res.data.value) {
 
-        user.value = res.data.value.data.user;
+          token.value = res.data.value.data.token;
+          localStorage.setItem('token', token.value)
 
-        navigateTo('/home')
+          user.value = res.data.value.data.user;
+
+          navigateTo('/home')
+        }
+      });
+    },
+    recover: async (payload: any) => {
+      await useApi().post("/recover", payload).then((res: any) => {
+        if (res.data.value) {
+
+          token.value = res.data.value.data.token;
+          localStorage.setItem('token', token.value)
+
+          user.value = res.data.value.data.user;
+
+          navigateTo('/home')
+        }
       });
     },
     me: async () => {
       await useApi().get("/me").then((res: any) => {
-        user.value = res.data.value.data;
+        if (res.data.value) {
+          user.value = res.data.value.data;
+        }
       });
     },
     emailVerificationRequest: async (payload: any) => {
@@ -32,8 +52,9 @@ export const useAuth = () => {
     },
     verifyEmailVerificationCode: async (payload: any) => {
       await useApi().post("/verify-email", payload).then((res: any) => {
-
-        user.value = res.data.value.data;
+        if (res.data.value) {
+          user.value = res.data.value.data;
+        }
       });
     },
     logout: async () => {

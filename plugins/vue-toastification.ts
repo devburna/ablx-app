@@ -6,9 +6,10 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     nuxtApp.vueApp.use(Toast, {
         transition: "Vue-Toastification__slideBlurred",
+        maxToasts: 1,
         newestOnTop: true,
         position: "top-right",
-        timeout: 5000,
+        timeout: 2000,
         closeOnClick: true,
         pauseOnFocusLoss: true,
         pauseOnHover: true,

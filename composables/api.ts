@@ -18,7 +18,8 @@ export const useApi = () => {
     onResponse({ request, response, options }) {
       // Process the response data
       isLoading.value = false;
-      useToast('success', response._data.message)
+      if (response._data.status) useToast('success', response._data.message);
+
       return response._data
     },
     onResponseError({ request, response, options }) {
