@@ -10,16 +10,19 @@ const options = [
     icon: "headset",
     title: "Help Center",
     caption: "Have an issue? Speak to our team",
+    route: "/help",
   },
   {
     icon: "gift",
     title: "Refer & Earn",
     caption: "Invite your friends and get a bonus",
+    route: "/earn",
   },
   {
     icon: "lock",
     title: "Update Password",
     caption: null,
+    route: "/settings/password",
   },
 ];
 </script>
@@ -42,14 +45,15 @@ const options = [
             <button
               type="button"
               class="btn btn-success btn-sm"
-              @click="$router.push('/settings/account-information')"
+              @click="$router.push('/settings/account')"
             >
               Edit Profile
             </button>
           </div>
           <div class="col-lg-5 py-3">
             <div class="list-group gap-3">
-              <div
+              <NuxtLink
+                :to="item.route"
                 class="list-group-item rounded-4"
                 v-for="(item, index) in options"
                 :key="index"
@@ -74,7 +78,7 @@ const options = [
                     <i class="bi bi-chevron-right caption"></i>
                   </div>
                 </div>
-              </div>
+              </NuxtLink>
               <button
                 type="button"
                 class="list-group-item rounded-4"
