@@ -27,16 +27,29 @@ const loginForm = {
               />
             </div>
             <div class="col-lg-12">
-              <input
-                type="password"
-                class="form-control"
-                placeholder="Password"
-                v-model="loginForm.password"
-                required
-              />
+              <div class="position-relative">
+                <button
+                  type="button"
+                  class="btn btn-link w-auto position-absolute end-0"
+                  @click="useIsHidden().value = !useIsHidden().value"
+                >
+                  <i
+                    :class="`bi bi-${
+                      useIsHidden().value ? 'eye' : 'eye-slash'
+                    }-fill text-muted`"
+                  ></i>
+                </button>
+                <input
+                  :type="useIsHidden().value ? 'password' : 'text'"
+                  class="form-control"
+                  placeholder="Password"
+                  v-model="loginForm.password"
+                  required
+                />
+              </div>
             </div>
             <div class="col-lg-12">
-              <NuxtLink class="fs-14" to="/recover">Need help?</NuxtLink>
+              <NuxtLink to="/recover">Need help?</NuxtLink>
             </div>
             <div class="col-lg-12">
               <button type="submit" class="btn btn-primary w-100">

@@ -22,11 +22,16 @@ form p {
     color: var(--bs-secondary);
 }
 
+form a {
+    font-size: 15px;
+}
+
 form small {
     color: var(--bs-secondary);
 }
 
 form small a {
+    font-size: 14px;
     font-weight: 500;
 }
 
