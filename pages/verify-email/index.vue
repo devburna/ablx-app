@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-definePageMeta({});
+definePageMeta({
+  middleware: "is-logged-in",
+});
 
 const verifyEmailForm = {
   code: null,

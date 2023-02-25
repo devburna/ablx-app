@@ -44,6 +44,15 @@ form small a {
     width: 200px;
 }
 
+#appbar {
+    height: 52px;
+}
+
+#appbar .title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
 .btn {
     font-weight: 500;
 }
