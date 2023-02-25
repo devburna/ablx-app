@@ -67,12 +67,20 @@ form .btn, form .form-control {
     color: var(--bs-info) !important;
 }
 
-.text-warning {
+.text-warning, .text-Pending {
     color: var(--bs-warning) !important;
 }
 
 .text-muted {
     color: var(--bs-secondary) !important;
+}
+
+.text-success, .text-Success, .text-Approved {
+    color: var(--bs-success) !important;
+}
+
+.text-danger, .text-Failed {
+    color: var(--bs-danger) !important;
 }
 
 .bg-primary {
@@ -83,15 +91,15 @@ form .btn, form .form-control {
     background: var(--bs-info) !important;
 }
 
-.bg-warning {
+.bg-warning, .bg-Pending {
     background: var(--bs-warning) !important;
 }
 
-.bg-success {
+.bg-success, .bg-Success, .bg-Approved {
     background: var(--bs-success) !important;
 }
 
-.bg-danger {
+.bg-danger, .bg-Failed {
     background: var(--bs-danger) !important;
 }
 

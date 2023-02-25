@@ -11,6 +11,7 @@
     "nuxt": "^3.2.2"
   },
   "dependencies": {
+    "javascript-time-ago": "^2.5.9",
     "vue-toastification": "^2.0.0-rc.5"
   }
 }
