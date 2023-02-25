@@ -9,7 +9,7 @@ const navItems = [
   },
   {
     icon: "lightning",
-    name: "Rates",
+    name: "Trade",
     route: "/trade",
   },
   {
