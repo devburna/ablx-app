@@ -1,4 +1,8 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+definePageMeta({
+  middleware: "is-logged-in",
+});
+</script>
 
 <template>
   <div class="h-100 bg-light">

@@ -1,4 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+definePageMeta({
+  middleware: "is-logged-in",
+});
+
+const settings = useUser();
+console.log(settings);
+</script>
 
 <template>
   <div class="h-100 bg-light">
@@ -6,7 +13,10 @@
     <div class="container-fluid h-100 py-3" id="settings">
       <div class="container p-1">
         <div class="row g-0 align-items-center justify-content-center">
-          <div class="col-lg-5"></div>
+          <div class="col-lg-5">
+            {{ settings }}
+            <img src="" alt="" />
+          </div>
         </div>
       </div>
     </div>
