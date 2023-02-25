@@ -2,41 +2,32 @@ export const useAuth = () => {
   const token = useToken();
   const user = useUser();
 
+  const grantAccess = (data: any) => {
+    token.value = data.token;
+    localStorage.setItem('token', token.value)
+    user.value = data.data.user;
+    navigateTo('/home')
+  }
+
   return {
     register: async (payload: any) => {
       await useApi().post("/register", payload).then((res: any) => {
         if (res.data.value) {
-          token.value = res.data.value.data.token;
-          localStorage.setItem('token', token.value)
-
-          user.value = res.data.value.data.user;
-          navigateTo('/home')
+          grantAccess(res.data.value.data);
         }
       });
     },
     login: async (payload: any) => {
       await useApi().post("/login", payload).then((res: any) => {
         if (res.data.value) {
-
-          token.value = res.data.value.data.token;
-          localStorage.setItem('token', token.value)
-
-          user.value = res.data.value.data.user;
-
-          navigateTo('/home')
+          grantAccess(res.data.value);
         }
       });
     },
     recover: async (payload: any) => {
       await useApi().post("/recover", payload).then((res: any) => {
         if (res.data.value) {
-
-          token.value = res.data.value.data.token;
-          localStorage.setItem('token', token.value)
-
-          user.value = res.data.value.data.user;
-
-          navigateTo('/home')
+          grantAccess(res.data.value);
         }
       });
     },
