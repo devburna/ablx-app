@@ -44,7 +44,7 @@ const options = [
             <small class="d-block text-muted mb-3">{{ settings?.email }}</small>
             <button
               type="button"
-              class="btn btn-success btn-sm"
+              class="btn btn-info btn-sm text-white"
               @click="$router.push('/settings/account')"
             >
               Edit Profile
