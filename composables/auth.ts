@@ -1,11 +1,13 @@
 export const useAuth = () => {
-  const token = useToken();
+  const userToken = useToken();
   const user = useUser();
 
   const grantAccess = (data: any) => {
-    token.value = data.token;
-    localStorage.setItem('token', token.value)
-    user.value = data.data.user;
+    const { token, user } = data;
+
+    userToken.value = token;
+    localStorage.setItem('token', token)
+    user.value = user;
     navigateTo('/home')
   }
 
@@ -20,14 +22,14 @@ export const useAuth = () => {
     login: async (payload: any) => {
       await useApi().post("/login", payload).then((res: any) => {
         if (res.data.value) {
-          grantAccess(res.data.value);
+          grantAccess(res.data.value.data);
         }
       });
     },
     recover: async (payload: any) => {
       await useApi().post("/recover", payload).then((res: any) => {
         if (res.data.value) {
-          grantAccess(res.data.value);
+          grantAccess(res.data.value.data);
         }
       });
     },
