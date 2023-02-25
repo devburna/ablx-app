@@ -27,7 +27,7 @@ const navItems = [
 
 <template>
   <div
-    class="container-fluid bg-white sticky-bottom text-center py-2"
+    class="container-fluid bg-white fixed-bottom text-center py-2"
     id="bottomNav"
   >
     <div class="container">

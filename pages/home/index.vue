@@ -7,7 +7,7 @@ definePageMeta({
 <template>
   <div class="h-100 bg-light">
     <WidgetsBalance />
-    <div class="container-fluid py-3 h-100">
+    <div class="container-fluid py-3">
       <div class="container p-1">
         <div class="row g-0 align-items-center justify-content-center">
           <div class="col-lg-5">
