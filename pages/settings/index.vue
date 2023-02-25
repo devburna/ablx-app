@@ -4,15 +4,33 @@ definePageMeta({
 });
 
 const settings = useUser();
+
+const options = [
+  {
+    icon: "headset",
+    title: "Help Center",
+    caption: "Have an issue? Speak to our team",
+  },
+  {
+    icon: "gift",
+    title: "Refer & Earn",
+    caption: "Invite your friends and get a bonus",
+  },
+  {
+    icon: "lock",
+    title: "Update Password",
+    caption: null,
+  },
+];
 </script>
 
 <template>
-  <div class="h-100 bg-light">
+  <div class="bg-light">
     <Appbar :title="true" />
-    <div class="container-fluid h-100 py-3" id="settings">
+    <div class="container-fluid py-3" id="settings">
       <div class="container p-1">
-        <div class="row g-0 align-items-center justify-content-center">
-          <div class="col-lg-5 text-center">
+        <div class="row g-4 align-items-center justify-content-center">
+          <div class="col-lg-5 text-center pt-3">
             <img
               src="https://i.pinimg.com/originals/09/26/3d/09263d5d8d9c10aa4cbc45c725485632.jpg"
               :alt="settings?.name"
@@ -29,6 +47,59 @@ const settings = useUser();
               Edit Profile
             </button>
           </div>
+          <div class="col-lg-5 py-3">
+            <div class="list-group gap-3">
+              <div
+                class="list-group-item rounded-4"
+                v-for="(item, index) in options"
+                :key="index"
+              >
+                <div
+                  class="row row-cols-3 g-3 align-items-center justify-content-between py-2"
+                >
+                  <div class="col-auto">
+                    <div
+                      class="ic-holder d-flex align-items-center justify-content-center rounded-circle bg-light"
+                    >
+                      <i :class="`bi bi-${item.icon} icon`"></i>
+                    </div>
+                  </div>
+                  <div class="col-auto me-auto">
+                    <p class="title mb-0">{{ item.title }}</p>
+                    <p class="caption mb-0 text-muted" v-if="item.caption">
+                      {{ item.caption }}
+                    </p>
+                  </div>
+                  <div class="col-auto text-end">
+                    <i class="bi bi-chevron-right caption"></i>
+                  </div>
+                </div>
+              </div>
+              <button
+                type="button"
+                class="list-group-item rounded-4"
+                @click="useAuth().logout()"
+              >
+                <div
+                  class="row row-cols-3 g-3 align-items-center justify-content-between py-2"
+                >
+                  <div class="col-auto">
+                    <div
+                      class="ic-holder d-flex align-items-center justify-content-center rounded-circle bg-light"
+                    >
+                      <i class="bi bi-box-arrow-right icon"></i>
+                    </div>
+                  </div>
+                  <div class="col-auto me-auto">
+                    <p class="title mb-0">Logout</p>
+                  </div>
+                  <div class="col-auto text-end">
+                    <i class="bi bi-chevron-right caption"></i>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -41,5 +112,22 @@ const settings = useUser();
   width: 40px;
   height: 40px;
   object-fit: cover;
+}
+
+.list-group {
+  overflow: hidden;
+}
+
+.list-group-item {
+  border: 0;
+}
+
+.ic-holder {
+  width: 36px;
+  height: 36px;
+}
+
+.icon {
+  font-size: 15px;
 }
 </style>

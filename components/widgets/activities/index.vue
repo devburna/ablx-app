@@ -4,15 +4,17 @@ useActivities();
 </script>
 
 <template>
-  <div class="list-group" id="listView">
+  <div class="list-group rounded-4" id="listView">
     <div
       class="list-group-item rounded-0 border-0 border-bottom border-light"
       v-if="activitiesProps.header"
     >
       <div class="row gy-0 g-3 align-items-center justify-content-between py-1">
-        <div class="col-auto"><span>Recent</span></div>
+        <div class="col-auto"><span class="title">Recent</span></div>
         <div class="col-auto">
-          <span><NuxtLink to="/activities">Show all</NuxtLink></span>
+          <span class="caption"
+            ><NuxtLink to="/activities">Show all</NuxtLink></span
+          >
         </div>
       </div>
     </div>
@@ -21,7 +23,7 @@ useActivities();
       v-for="(item, index) in activitiesProps.data"
       :key="index"
     >
-      <div class="row gy-0 g-3 align-items-center justify-content-center py-1">
+      <div class="row gy-0 g-3 align-items-center justify-content-center py-2">
         <div class="col-auto">
           <div
             :class="`ic-holder d-flex align-items-center justify-content-center rounded-circle bg-${item.status}`"
@@ -38,17 +40,17 @@ useActivities();
           </div>
         </div>
         <div class="col-6 me-auto">
-          <p class="mb-0 text-truncate">
+          <p class="title mb-0 text-truncate">
             {{
               ["Order"].includes(item.kind)
                 ? item.rate.asset.name
                 : item.narration
             }}
           </p>
-          <small>{{ $timeAgo(item.created_at) }}</small>
+          <p class="caption mb-0">{{ $timeAgo(item.created_at) }}</p>
         </div>
         <div class="col-auto text-end">
-          <p class="mb-0">
+          <p class="title mb-0">
             {{
               Number(item.amount).toLocaleString("en-NG", {
                 style: "currency",
@@ -67,16 +69,6 @@ useActivities();
   overflow: hidden;
 }
 
-p,
-span {
-  font-size: 14px;
-}
-
-small {
-  font-size: 12px;
-  color: var(--bs-secondary);
-}
-
 .list-group-item:last-of-type {
   border-bottom: 0 !important;
 }
@@ -91,6 +83,6 @@ small {
 }
 
 .icon {
-  font-size: 12px;
+  font-size: 13px;
 }
 </style>

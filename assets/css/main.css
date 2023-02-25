@@ -48,6 +48,15 @@ form .btn, form .form-control {
     border-radius: 4px;
 }
 
+.title {
+    font-size: 15px;
+}
+
+.caption {
+    font-size: 13px;
+    color: var(--bs-secondary);
+}
+
 .form-control {
     font-size: 15px;
 }
