@@ -13,7 +13,7 @@ definePageMeta({
           <div class="col-lg-5">
             <WidgetsActivities
               class="rounded rounded-4"
-              :data="useActivity().value.slice(0, 5)"
+              :data="useActivity().value.slice(0, 10)"
               :header="true"
             />
           </div>
