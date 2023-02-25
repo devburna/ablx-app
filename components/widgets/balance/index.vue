@@ -47,7 +47,7 @@ const quickActions = [
                 <div
                   class="ic-holder d-flex align-items-center justify-content-center rounded-circle bg-white"
                 >
-                  <i :class="`bi bi-${item.icon}-fill text-primary icon`"></i>
+                  <i :class="`bi bi-${item.icon}-fill text-info icon`"></i>
                 </div>
                 {{ item.name }}
               </button>
