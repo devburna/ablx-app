@@ -44,16 +44,21 @@ export const useAuth = () => {
       await useApi().get("/me").then((res: any) => {
         if (res.data.value) {
           user.value = res.data.value.data;
+
+          if (!user.value.email_verified_at) {
+            navigateTo('verify-email');
+          }
         }
       });
     },
-    emailVerificationRequest: async (payload: any) => {
-      await useApi().get("/verify-email", payload);
+    emailVerificationRequest: async () => {
+      await useApi().get("/verify-email");
     },
     verifyEmailVerificationCode: async (payload: any) => {
       await useApi().post("/verify-email", payload).then((res: any) => {
         if (res.data.value) {
           user.value = res.data.value.data;
+          navigateTo('/home')
         }
       });
     },
