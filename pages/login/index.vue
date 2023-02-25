@@ -40,7 +40,7 @@ const loginForm = {
                   ></i>
                 </button>
                 <input
-                  :type="useIsHidden().value ? 'password' : 'text'"
+                  :type="useIsHidden().value ? 'text' : 'password'"
                   class="form-control"
                   placeholder="Password"
                   v-model="loginForm.password"
