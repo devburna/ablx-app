@@ -134,4 +134,8 @@ const options = [
 .icon {
   font-size: 15px;
 }
+
+.title {
+  font-weight: 500;
+}
 </style>

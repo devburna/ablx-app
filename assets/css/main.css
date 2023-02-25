@@ -48,6 +48,10 @@ form .btn, form .form-control {
     border-radius: 4px;
 }
 
+label {
+    font-size: 13px;
+}
+
 .title {
     font-size: 15px;
 }
