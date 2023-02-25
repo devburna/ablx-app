@@ -20,6 +20,7 @@ definePageMeta({
         </div>
       </div>
     </div>
+    <BottomNav />
   </div>
 </template>
 

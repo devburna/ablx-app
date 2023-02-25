@@ -1,18 +1,20 @@
 <script lang="ts" setup>
+const userBalance = useUser();
+
 const quickActions = [
   {
-    icon: "lightning-charge",
-    name: "Rates",
-    route: "/explore",
+    icon: "lightning",
+    name: "Trade",
+    route: "/trade",
+  },
+  {
+    icon: "file-earmark-text",
+    name: "Pay Bills",
+    route: "/transfer",
   },
   {
     icon: "send",
     name: "Transfer",
-    route: "/transfer",
-  },
-  {
-    icon: "bar-chart",
-    name: "History",
     route: "/activities",
   },
 ];
@@ -24,8 +26,12 @@ const quickActions = [
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-5 text-center">
           <div class="mb-3">
-            <small class="caption d-block mb-1">Available balance</small>
-            <strong class="balance text-white"> ₦5,000.00 </strong>
+            <small class="caption d-block mb-1"
+              >Available balance ({{ userBalance?.wallet.currency }})</small
+            >
+            <strong class="balance text-white">
+              {{ userBalance?.wallet.balance }}
+            </strong>
           </div>
           <hr class="mb-3 border-white" />
           <div class="row align-items-center justify-content-center">
