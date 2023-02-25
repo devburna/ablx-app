@@ -14,7 +14,7 @@ const appbarProps = useAttrs();
     <div class="position-absolute">
       <button
         onclick="history.back()"
-        class="list-group-item w-auto pe-0"
+        class="list-group-item w-auto pe-0 bg-transparent"
         v-if="appbarProps.hasPrev"
       >
         <i class="bi bi-chevron-left fs-4"></i>
