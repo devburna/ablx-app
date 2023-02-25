@@ -4,12 +4,18 @@
     --bs-primary: #00468b;
     --bs-warning: #fdb633;
     --bs-info: #019ce3;
+    --bs-success: #38BC5D;
+    --bs-danger: #FF6060;
+    --bs-secondary: #8D949E;
+    --border-light: #dee2e663;
 }
 
 
 html, body, #devburna {
     height: 100%;
     font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    background: var(--bs-light)
 }
 
 a, .btn-link {
@@ -32,10 +38,6 @@ form small {
 
 form small a {
     font-size: 14px;
-    font-weight: 500;
-}
-
-.btn {
     font-weight: 500;
 }
 
@@ -69,6 +71,10 @@ form .btn, form .form-control {
     color: var(--bs-warning) !important;
 }
 
+.text-muted {
+    color: var(--bs-secondary) !important;
+}
+
 .bg-primary {
     background: var(--bs-primary) !important;
 }
@@ -79,6 +85,14 @@ form .btn, form .form-control {
 
 .bg-warning {
     background: var(--bs-warning) !important;
+}
+
+.bg-success {
+    background: var(--bs-success) !important;
+}
+
+.bg-danger {
+    background: var(--bs-danger) !important;
 }
 
 .btn-primary {
@@ -97,6 +111,10 @@ form .btn, form .form-control {
     color: var(--bs-dark) !important;
 }
 
+.border-light {
+    border-color: var(--border-light) !important;
+}
+
 .layout-enter-active,
 .layout-leave-active {
     transition: all 0.4s;
@@ -105,4 +123,17 @@ form .btn, form .form-control {
 .layout-enter-from,
 .layout-leave-to {
     filter: grayscale(1);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html, body {
+    -ms-overflow-style: none !important;
+    /* IE and Edge */
+    scrollbar-width: none !important;
+    /* Firefox */
 }
