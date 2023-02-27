@@ -109,6 +109,10 @@ label {
     color: var(--bs-primary) !important;
 }
 
+.text-primary-dark {
+    color: var(--bs-primary-dark) !important;
+}
+
 .text-info {
     color: var(--bs-info) !important;
 }
