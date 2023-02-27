@@ -3,7 +3,7 @@ const appDrawerContent = useAttrs();
 </script>
 
 <template>
-  <div>
+  <div class="pb-5">
     <div class="py-3 text-center">
       <h5 class="mb-1 fw-bold">
         {{ appDrawerContent.data.amount }}
