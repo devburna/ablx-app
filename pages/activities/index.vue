@@ -20,6 +20,17 @@ definePageMeta({
       </div>
     </div>
     <BottomNav />
+    <div v-if="useActivity().value.length">
+      <AppDrawer
+        v-for="(item, index) in useActivity().value"
+        :key="index"
+        :uuid="index"
+        :content="`activity-${index}`"
+        :data="item"
+        title="Activity Details"
+        dialog="offcanvas-bottom h-75"
+      />
+    </div>
   </div>
 </template>
 

@@ -22,7 +22,7 @@ const quickActions = [
 
 <template>
   <div class="container-fluid bg-pattern py-5" id="balance">
-    <div class="container pt-5">
+    <div class="container pt-4">
       <div class="row align-items-center justify-content-center">
         <div class="col-lg-5 text-center">
           <div class="mb-3">
@@ -34,7 +34,7 @@ const quickActions = [
             </strong>
           </div>
           <hr class="mb-3 border-white" />
-          <div class="row align-items-center justify-content-center">
+          <div class="row align-items-center justify-content-center pt-1">
             <div
               class="col-auto"
               v-for="(item, index) in quickActions"

@@ -7,7 +7,7 @@
     --bs-success: #38BC5D;
     --bs-danger: #FF6060;
     --bs-secondary: #8D949E;
-    --border-light: #dee2e663;
+    --border-light: #dee2e642;
 }
 
 
@@ -41,28 +41,36 @@ form small a {
     font-weight: 500;
 }
 
-form .btn, form .form-control {
-    box-shadow: unset !important;
+form .btn, form .form-control, .btn-lg {
     height: 48px;
     font-size: 15px;
-    border-radius: 4px;
+    border-radius: 16px;
+}
+
+.btn, .form-control, .form-select {
+    box-shadow: unset !important;
 }
 
 label {
     font-size: 13px;
 }
 
+.form-control {
+    border-color: var(--border-light) !important;
+}
+
+.list-group {
+    overflow: hidden;
+}
+
 .title {
     font-size: 15px;
+    font-weight: 500;
 }
 
 .caption {
     font-size: 13px;
     color: var(--bs-secondary);
-}
-
-.form-control {
-    font-size: 15px;
 }
 
 .bg-pattern {
@@ -139,6 +147,14 @@ label {
 
 .border-light {
     border-color: var(--border-light) !important;
+}
+
+.rounded-4 {
+    border-radius: 16px !important;
+}
+
+.shadow-sm {
+    box-shadow: 0px 20px 40px rgba(211, 211, 211, 0.25), 0px -20px 20px rgba(231, 231, 231, 0.25) !important;
 }
 
 .layout-enter-active,

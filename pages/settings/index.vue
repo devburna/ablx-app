@@ -33,7 +33,7 @@ const options = [
     <div class="container-fluid py-3" id="settings">
       <div class="container p-1">
         <div class="row g-4 align-items-center justify-content-center">
-          <div class="col-lg-5 text-center pt-3">
+          <div class="col-lg-5 text-center pt-2">
             <img
               src="https://i.pinimg.com/originals/09/26/3d/09263d5d8d9c10aa4cbc45c725485632.jpg"
               :alt="settings?.name"
@@ -44,14 +44,14 @@ const options = [
             <small class="d-block text-muted mb-3">{{ settings?.email }}</small>
             <button
               type="button"
-              class="btn btn-info btn-sm text-white"
+              class="btn btn-info btn-sm rounded-pill px-3 text-white"
               @click="$router.push('/settings/account')"
             >
               Edit Profile
             </button>
           </div>
-          <div class="col-lg-5 py-3">
-            <div class="list-group gap-3">
+          <div class="col-lg-5 py-2">
+            <div class="list-group rounded-4 gap-3">
               <NuxtLink
                 :to="item.route"
                 class="list-group-item rounded-4"
@@ -81,7 +81,7 @@ const options = [
               </NuxtLink>
               <button
                 type="button"
-                class="list-group-item rounded-4"
+                class="list-group-item rounded-4 "
                 @click="useAuth().logout()"
               >
                 <div

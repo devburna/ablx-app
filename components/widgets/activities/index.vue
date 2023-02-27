@@ -18,8 +18,10 @@ useActivities();
         </div>
       </div>
     </div>
-    <div
-      class="list-group-item rounded-0 border-0 border-bottom border-light"
+    <button
+      class="list-group-item rounded-0 border-0 border-bottom border-light text-start activity"
+      data-bs-toggle="offcanvas"
+      :data-bs-target="`#activity-${index}`"
       v-for="(item, index) in activitiesProps.data"
       :key="index"
     >
@@ -33,7 +35,7 @@ useActivities();
             >
               <i
                 :class="`bi bi-${
-                  ['Order'].includes(item.kind) ? 'lightning' : 'send'
+                  ['Order'].includes(item.channel) ? 'lightning' : 'send'
                 }-fill text-${item.status} icon`"
               ></i>
             </div>
@@ -41,26 +43,17 @@ useActivities();
         </div>
         <div class="col-6 me-auto">
           <p class="title mb-0 text-truncate">
-            {{
-              ["Order"].includes(item.kind)
-                ? item.rate.asset.name
-                : item.narration
-            }}
+            {{ item.narration }}
           </p>
           <p class="caption mb-0">{{ $timeAgo(item.created_at) }}</p>
         </div>
         <div class="col-auto text-end">
           <p class="title mb-0">
-            {{
-              Number(item.amount).toLocaleString("en-NG", {
-                style: "currency",
-                currency: "NGN",
-              })
-            }}
+            {{ item.amount }}
           </p>
         </div>
       </div>
-    </div>
+    </button>
   </div>
 </template>
 
@@ -69,8 +62,8 @@ useActivities();
   overflow: hidden;
 }
 
-.list-group-item:last-of-type {
-  border-bottom: 0 !important;
+.activity:last-of-type {
+  border-bottom: 0!important;
 }
 
 .ic-holder {
