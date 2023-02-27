@@ -15,11 +15,19 @@ const tradeForm = ref({
 const setValue = (amount: number, rate: number) => {
   tradeForm.value.value = amount * rate;
 };
+
+const tradeHandler = () => {
+  return;
+};
 </script>
 
 <template>
   <div>
-    <form class="row g-3 py-2 px-1" v-if="assetContent.data.rates.length">
+    <form
+      @submit.prevent="tradeHandler"
+      class="row g-3 py-2 px-1"
+      v-if="assetContent.data.rates.length"
+    >
       <div class="col-lg-12">
         <div class="dropdown">
           <button
