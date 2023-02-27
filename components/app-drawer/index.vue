@@ -8,6 +8,7 @@ const appDrawer = useAttrs();
     tabindex="-1"
     :id="`${appDrawer.content}`"
     :aria-labelledby="`${appDrawer.content}Label`"
+    :data-bs-backdrop="appDrawer.backdrop"
   >
     <div class="offcanvas-header">
       <div class="offcanvas-title">
