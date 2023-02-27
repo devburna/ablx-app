@@ -4,9 +4,9 @@ useActivities();
 </script>
 
 <template>
-  <div class="list-group rounded-4" id="listView">
+  <div class="list-group rounded-4 py-1 bg-white" id="listView">
     <div
-      class="list-group-item rounded-0 border-0 border-bottom border-light"
+      class="list-group-item border-0 rounded-0 py-2"
       v-if="activitiesProps.header"
     >
       <div class="row gy-0 g-3 align-items-center justify-content-between py-1">
@@ -19,13 +19,13 @@ useActivities();
       </div>
     </div>
     <button
-      class="list-group-item rounded-0 border-0 border-bottom border-light text-start activity"
+      class="list-group-item border-0 rounded-0 py-2 activity"
       data-bs-toggle="offcanvas"
       :data-bs-target="`#activity-${index}`"
       v-for="(item, index) in activitiesProps.data"
       :key="index"
     >
-      <div class="row gy-0 g-3 align-items-center justify-content-center py-2">
+      <div class="row gy-0 g-3 align-items-center justify-content-center py-1">
         <div class="col-auto">
           <div
             :class="`ic-holder d-flex align-items-center justify-content-center rounded-circle bg-${item.status}`"
@@ -41,7 +41,7 @@ useActivities();
             </div>
           </div>
         </div>
-        <div class="col-6 me-auto">
+        <div class="col-6 me-auto text-start">
           <p class="title mb-0 text-truncate">
             {{ item.narration }}
           </p>
@@ -63,7 +63,7 @@ useActivities();
 }
 
 .activity:last-of-type {
-  border-bottom: 0!important;
+  border-bottom: 0 !important;
 }
 
 .ic-holder {

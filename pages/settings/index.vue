@@ -54,12 +54,12 @@ const options = [
             <div class="list-group rounded-4 gap-3">
               <NuxtLink
                 :to="item.route"
-                class="list-group-item rounded-4"
+                class="list-group-item rounded-4 py-2"
                 v-for="(item, index) in options"
                 :key="index"
               >
                 <div
-                  class="row row-cols-3 g-3 align-items-center justify-content-between py-2"
+                  class="row row-cols-3 g-3 align-items-center justify-content-between py-1"
                 >
                   <div class="col-auto">
                     <div
