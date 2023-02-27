@@ -6,7 +6,7 @@
     --bs-info: #019ce3;
     --bs-success: #38BC5D;
     --bs-danger: #FF6060;
-    --bs-secondary: #8D949E;
+    --bs-secondary: #BFBFBF;
     --border-light: #dee2e642;
 }
 
@@ -45,6 +45,8 @@ form .btn, form .form-control, .btn-lg {
     height: 48px;
     font-size: 15px;
     border-radius: 16px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .btn, .form-control, .form-select {
@@ -155,6 +157,11 @@ label {
 
 .shadow-sm {
     box-shadow: 0px 20px 40px rgba(211, 211, 211, 0.25), 0px -20px 20px rgba(231, 231, 231, 0.25) !important;
+}
+
+.input-group-text:last-child {
+    border-top-right-radius: 16px !important;
+    border-bottom-right-radius: 16px !important;
 }
 
 .layout-enter-active,

@@ -36,7 +36,7 @@ const appDrawer = useAttrs();
             :data="appDrawer.data"
           />
           <ContentsAsset
-            v-if="appDrawer.content === `trade-${appDrawer.uuid}`"
+            v-if="appDrawer.content === `trade-${appDrawer.data.type}-${appDrawer.uuid}`"
             :content="appDrawer.content"
             :data="appDrawer.data"
           />
