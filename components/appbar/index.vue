@@ -5,14 +5,14 @@ const appbarProps = useAttrs();
 
 <template>
   <div
-    class="list-group list-group-horizontal align-items-center position-relative sticky-top bg-white"
+    class="list-group list-group-horizontal align-items-center"
     id="appbar"
   >
     <div class="list-group-item text-center w-100" v-if="appbarProps.title">
-      <p class="title text-capitalize mb-0 lh-1">
+      <p class="title text-capitalize mb-0 lh-1 text-white">
         {{ appbarProps.name || appbar.name }}
       </p>
-      <p class="caption mb-0" v-if="appbarProps.caption">
+      <p class="caption mb-0 text-white" v-if="appbarProps.caption">
         {{ appbarProps.caption }}
       </p>
     </div>
@@ -22,7 +22,7 @@ const appbarProps = useAttrs();
         class="list-group-item w-auto pe-0 bg-transparent"
         v-if="appbarProps.hasPrev"
       >
-        <i class="bi bi-chevron-left fs-4"></i>
+        <i class="bi bi-chevron-left fs-4 text-white"></i>
       </button>
     </div>
   </div>
@@ -40,6 +40,7 @@ const appbarProps = useAttrs();
 .list-group,
 .list-group-item {
   border-radius: 0 !important;
+  background: transparent;
 }
 .list-group-item {
   border: 0;

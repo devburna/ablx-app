@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
+    --bs-white: aliceblue;
     --bs-primary: #00468b;
     --bs-primary-dark: #002140;
     --bs-warning: #fdb633;
@@ -17,10 +18,7 @@ html, body, #devburna {
     height: 100%;
     font-family: 'Outfit', sans-serif;
     font-weight: 500;
-    background: url('@/assets/img/pattern.webp'), var(--bs-primary);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: var(--bs-light);
 }
 
 a, .btn-link {
@@ -60,20 +58,27 @@ form .btn, form .form-control, .btn-lg {
     font-weight: 500;
 }
 
-.btn {
-    font-weight: 500;
-}
-
 textarea {
     height: unset !important;
+}
+
+label {
+    font-size: 13px;
+}
+
+.btn {
+    font-weight: 500;
 }
 
 .btn, .form-control, .form-select {
     box-shadow: unset !important;
 }
 
-label {
-    font-size: 13px;
+.auth {
+    background: url('@/assets/img/pattern.webp'), var(--bs-primary);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .form-control {
@@ -111,6 +116,10 @@ label {
 
 .text-primary-dark {
     color: var(--bs-primary-dark) !important;
+}
+
+.text-white {
+    color: var(--bs-white) !important;
 }
 
 .text-info {

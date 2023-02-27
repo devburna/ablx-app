@@ -8,7 +8,7 @@ const trade = useTrade();
 
 <template>
   <div class="h-100 bg-light">
-    <div class="bg-white">
+    <div class="bg-primary">
       <Appbar :title="true" caption="What do you want to trade?" />
       <nav v-if="trade">
         <div
@@ -17,7 +17,7 @@ const trade = useTrade();
           role="tablist"
         >
           <button
-            :class="`nav-link border-end border-light w-50 ${
+            :class="`nav-link border-0 border-light w-50 ${
               index.toString() === 'Giftcard' ? 'active' : ''
             }`"
             :id="`nav-${index}-tab`"
@@ -109,11 +109,15 @@ const trade = useTrade();
   font-size: 15px;
   border-radius: 0;
   background-color: transparent !important;
-  color: var(--bs-secondary);
+  color: aliceblue;
+}
+
+.nav-link:first-of-type {
+  border-right: 1px solid var(--border-light) !important;
 }
 
 .nav-tabs .nav-link.active {
-  color: var(--bs-info);
+  color: var(--bs-warning);
 }
 
 .logo {

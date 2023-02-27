@@ -29,7 +29,7 @@ const options = [
 
 <template>
   <div class="bg-light h-100">
-    <Appbar :title="true" />
+    <Appbar :title="true" class="bg-primary sticky-top" />
     <div class="container-fluid py-3" id="settings">
       <div class="container p-1">
         <div class="row g-4 align-items-center justify-content-center">

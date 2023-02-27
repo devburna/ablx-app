@@ -18,7 +18,7 @@ const verifyEmailForm = {
 </script>
 
 <template>
-  <div class="container-fluid py-5 h-100">
+  <div class="container-fluid py-5 auth h-100">
     <div class="container h-100">
       <div class="row align-items-center justify-content-center h-100">
         <div class="col-lg-4">

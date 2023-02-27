@@ -13,7 +13,12 @@ const accountForm = {
 
 <template>
   <div class="h-100 bg-light">
-    <Appbar :hasPrev="true" :title="true" name="Account Information" />
+    <Appbar
+      :title="true"
+      :hasPrev="true"
+      class="bg-primary sticky-top"
+      name="Account Information"
+    />
     <div class="container-fluid h-100 py-4" id="account">
       <div class="container py-1">
         <div class="row g-0 align-items-center justify-content-center">

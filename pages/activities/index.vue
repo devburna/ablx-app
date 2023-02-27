@@ -6,7 +6,7 @@ definePageMeta({
 
 <template>
   <div class="h-100 bg-light">
-    <Appbar :title="true" />
+    <Appbar :title="true" class="bg-primary sticky-top" />
     <div class="container-fluid h-100 py-3" id="activities">
       <div class="container p-1">
         <div class="row g-0 align-items-center justify-content-center">

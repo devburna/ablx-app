@@ -10,8 +10,8 @@ const loginForm = {
 </script>
 
 <template>
-  <div>
-    <Appbar :hasPrev="true" />
+  <div class="auth h-100">
+    <Appbar :hasPrev="true" class="bg-transparent fixed-top" />
     <div class="container-fluid py-5 h-100">
       <div class="container h-100">
         <div class="row align-items-center justify-content-center h-100">
