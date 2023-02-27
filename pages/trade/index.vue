@@ -10,7 +10,7 @@ const trade = useTrade();
   <div class="h-100 bg-light">
     <div class="bg-primary">
       <Appbar :title="true" caption="What do you want to trade?" />
-      <nav v-if="trade">
+      <nav v-if="typeof trade === 'object'">
         <div
           class="nav nav-tabs border-top border-light lh-lg"
           id="nav-tab"
@@ -39,7 +39,7 @@ const trade = useTrade();
       <div class="container px-1">
         <div class="row g-0 align-items-center justify-content-center">
           <div class="col-lg-5">
-            <div v-if="trade">
+            <div v-if="typeof trade === 'object'">
               <div v-for="(item, index) in trade" :key="index">
                 <div class="tab-content" id="nav-tabContent">
                   <div
