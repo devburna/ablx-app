@@ -51,6 +51,9 @@ useActivities();
           <p class="title mb-0">
             {{ item.amount }}
           </p>
+          <p :class="`caption text-${item.status} mb-0`">
+            {{ item.status }}
+          </p>
         </div>
       </div>
     </button>
