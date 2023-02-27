@@ -4224,6 +4224,11 @@ vue-devtools-stub@^0.1.0:
   resolved "https://registry.yarnpkg.com/vue-devtools-stub/-/vue-devtools-stub-0.1.0.tgz#a65b9485edecd4273cedcb8102c739b83add2c81"
   integrity sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==
 
+vue-dropify@^0.8.3:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/vue-dropify/-/vue-dropify-0.8.3.tgz#bf5b98d7869b9293c2b818a16ac3d2da50fb00d4"
+  integrity sha512-H8mBXKcrBGzhCgvIMpFDQgAM5KnEoFupXaps1m8Hk44OUeF84j6886AfBl02p3Q4IFE/2xV5FKvdppqwiDqIug==
+
 vue-router@^4.1.6:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.1.6.tgz#b70303737e12b4814578d21d68d21618469375a1"

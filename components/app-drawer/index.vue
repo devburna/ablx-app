@@ -27,16 +27,19 @@ const appDrawer = useAttrs();
         <i class="bi bi-x-circle-fill"></i>
       </button>
     </div>
-    <div class="offcanvas-body pt-0 pb-5">
-      <div class="row justify-content-center">
-        <div class="col-lg-5">
+    <div class="offcanvas-body py-0">
+      <div class="row justify-content-center h-100">
+        <div class="col-lg-5 h-100">
           <ContentsActivity
             v-if="appDrawer.content === `activity-${appDrawer.uuid}`"
             :content="appDrawer.content"
             :data="appDrawer.data"
           />
           <ContentsAsset
-            v-if="appDrawer.content === `trade-${appDrawer.data.type}-${appDrawer.uuid}`"
+            v-if="
+              appDrawer.content ===
+              `trade-${appDrawer.data.type}-${appDrawer.uuid}`
+            "
             :content="appDrawer.content"
             :data="appDrawer.data"
           />

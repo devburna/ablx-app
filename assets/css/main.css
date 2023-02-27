@@ -4,6 +4,7 @@
     --bs-primary: #00468b;
     --bs-warning: #fdb633;
     --bs-info: #019ce3;
+    --bs-info-soft: #019ce322;
     --bs-success: #38BC5D;
     --bs-danger: #FF6060;
     --bs-secondary: #BFBFBF;
@@ -47,6 +48,10 @@ form .btn, form .form-control, .btn-lg {
     border-radius: 16px;
     padding-right: 15px;
     padding-left: 15px;
+}
+
+textarea {
+    height: unset!important;
 }
 
 .btn, .form-control, .form-select {
@@ -112,6 +117,10 @@ label {
 
 .bg-info {
     background: var(--bs-info) !important;
+}
+
+.bg-info-soft {
+    background: var(--bs-info-soft);
 }
 
 .bg-warning, .bg-Pending {
