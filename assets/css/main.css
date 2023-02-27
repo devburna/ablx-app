@@ -60,6 +60,10 @@ form .btn, form .form-control, .btn-lg {
     font-weight: 500;
 }
 
+.btn {
+    font-weight: 500;
+}
+
 textarea {
     height: unset !important;
 }
