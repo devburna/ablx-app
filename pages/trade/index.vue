@@ -95,7 +95,7 @@ const trade = useTrade();
             :title="asset.name"
             :caption="asset.type"
             dialog="offcanvas-bottom h-75"
-            backdrop="static"
+            backdrop="n"
           />
         </div>
       </div>
