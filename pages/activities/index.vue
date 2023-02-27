@@ -16,6 +16,7 @@ definePageMeta({
               :data="useActivity().value"
               v-if="useActivity().value"
             />
+            <Message caption="No activity found 😥" v-else />
           </div>
         </div>
       </div>
