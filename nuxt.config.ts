@@ -8,7 +8,11 @@ export default defineNuxtConfig({
             viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
             title: 'Abbeylinko Xchange',
             meta: [
-                { name: 'description', content: 'Making trading easy and stress-less. Trade your digital currency and redeem your cards with us for the fastest payment, in minutes.' }
+                { name: 'description', content: 'Making trading easy and stress-less. Trade your digital currency and redeem your cards with us for the fastest payment, in minutes.' },
+                {
+                    name: 'theme-color',
+                    content: '#00468b'
+                }
             ],
             link: [
                 {
