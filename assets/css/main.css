@@ -2,6 +2,7 @@
 
 :root {
     --bs-primary: #00468b;
+    --bs-primary-dark: #002140;
     --bs-warning: #fdb633;
     --bs-info: #019ce3;
     --bs-info-soft: #019ce322;
@@ -51,7 +52,7 @@ form .btn, form .form-control, .btn-lg {
 }
 
 textarea {
-    height: unset!important;
+    height: unset !important;
 }
 
 .btn, .form-control, .form-select {
@@ -68,6 +69,10 @@ label {
 
 .list-group {
     overflow: hidden;
+}
+
+.modal-title, .offcanvas-title, .title {
+    color: var(--bs-primary-dark);
 }
 
 .title {

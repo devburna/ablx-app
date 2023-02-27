@@ -70,7 +70,7 @@ const setValue = (amount: number, rate: number) => {
               currency: "NGN",
             })
           }}</strong>
-          <span class="title">{{ tradeForm.rate.buying_at }}</span>
+          <strong>{{ tradeForm.rate.buying_at }}</strong>
         </div>
       </div>
       <div class="col-lg-12">
