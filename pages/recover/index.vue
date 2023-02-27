@@ -62,7 +62,7 @@ const loginForm = {
                 <NuxtLink to="/login">Remembered password?</NuxtLink>
               </div>
               <div class="col-lg-12">
-                <button type="submit" class="btn btn-primary w-100">
+                <button type="submit" class="btn btn-warning w-100">
                   Continue
                 </button>
               </div>

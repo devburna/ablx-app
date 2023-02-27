@@ -67,7 +67,7 @@ const registerForm = {
               </div>
               <div class="col-lg-12"></div>
               <div class="col-lg-12">
-                <button type="submit" class="btn btn-primary w-100">
+                <button type="submit" class="btn btn-warning w-100">
                   Continue
                 </button>
               </div>

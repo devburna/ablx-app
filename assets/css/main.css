@@ -17,17 +17,25 @@ html, body, #devburna {
     height: 100%;
     font-family: 'Outfit', sans-serif;
     font-weight: 500;
-    background: var(--bs-light)
+    background: url('@/assets/img/pattern.webp'), var(--bs-primary);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 a, .btn-link {
     text-decoration: none;
-    color: var(--bs-info);
+    color: var(--bs-warning);
+}
+
+form h3 {
+    font-weight: 700;
+    color: var(--bs-white);
 }
 
 form p {
     font-size: 15px;
-    color: var(--bs-secondary);
+    color: var(--bs-white);
 }
 
 form a {
@@ -49,6 +57,7 @@ form .btn, form .form-control, .btn-lg {
     border-radius: 16px;
     padding-right: 15px;
     padding-left: 15px;
+    font-weight: 500;
 }
 
 textarea {
@@ -64,7 +73,7 @@ label {
 }
 
 .form-control {
-    border-color: var(--border-light) !important;
+    border-color: var(--bs-white) !important;
 }
 
 .list-group {
