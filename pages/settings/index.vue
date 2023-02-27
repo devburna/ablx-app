@@ -81,11 +81,11 @@ const options = [
               </NuxtLink>
               <button
                 type="button"
-                class="list-group-item rounded-4 "
+                class="list-group-item rounded-4 py-2"
                 @click="useAuth().logout()"
               >
                 <div
-                  class="row row-cols-3 g-3 align-items-center justify-content-between py-2"
+                  class="row row-cols-3 g-3 align-items-center justify-content-between py-1"
                 >
                   <div class="col-auto">
                     <div
