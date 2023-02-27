@@ -28,7 +28,7 @@ const options = [
 </script>
 
 <template>
-  <div class="bg-light">
+  <div class="bg-light h-100">
     <Appbar :title="true" />
     <div class="container-fluid py-3" id="settings">
       <div class="container p-1">
