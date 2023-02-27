@@ -14,6 +14,7 @@ definePageMeta({
             <WidgetsActivities
               class="rounded rounded-4"
               :data="useActivity().value"
+              v-if="useActivity().value"
             />
           </div>
         </div>

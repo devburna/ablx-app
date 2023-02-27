@@ -10,7 +10,7 @@ const trade = useTrade();
   <div class="h-100 bg-light">
     <div class="bg-white">
       <Appbar :title="true" caption="What do you want to trade?" />
-      <nav>
+      <nav v-if="trade">
         <div
           class="nav nav-tabs border-top border-light lh-lg"
           id="nav-tab"
@@ -35,7 +35,7 @@ const trade = useTrade();
         </div>
       </nav>
     </div>
-    <div class="container-fluid py-3 h-100" id="trade">
+    <div class="container-fluid py-3 h-100" id="trade" v-if="trade">
       <div class="container px-1">
         <div class="row g-0 align-items-center justify-content-center">
           <div class="col-lg-5">
@@ -78,6 +78,9 @@ const trade = useTrade();
           </div>
         </div>
       </div>
+    </div>
+    <div class="p-5 text-center" v-else>
+      <span class="caption">No trade available at the moment 😥</span>
     </div>
     <BottomNav />
     <div v-if="trade">
