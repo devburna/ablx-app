@@ -33,17 +33,6 @@ export const useAuth = () => {
         }
       });
     },
-    me: async () => {
-      await useApi().get("/me").then((res: any) => {
-        if (res.data.value) {
-          user.value = res.data.value.data;
-
-          if (!user.value.email_verified_at) {
-            navigateTo('verify-email');
-          }
-        }
-      });
-    },
     emailVerificationRequest: async () => {
       await useApi().get("/verify-email");
     },

@@ -8,7 +8,6 @@ const account = useUser();
 const accountForm = {
   name: account?.value?.name,
   email: account?.value?.email,
-  password_confirmation: null,
 };
 </script>
 
@@ -20,7 +19,7 @@ const accountForm = {
         <div class="row g-0 align-items-center justify-content-center">
           <div class="col-lg-5">
             <form
-              @submit.prevent="useAuth().login(accountForm)"
+              @submit.prevent="useAccount().profile(accountForm)"
               class="row g-3"
             >
               <div class="col-lg-12">

@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
         return useAuth().logout()
     } else {
         if (!user.value) {
-            useAuth().me()
+            useAccount().me()
         }
     };
 })

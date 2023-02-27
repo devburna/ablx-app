@@ -10,12 +10,14 @@ const appDrawer = useAttrs();
     :aria-labelledby="`${appDrawer.content}Label`"
   >
     <div class="offcanvas-header">
-      <h6
-        class="offcanvas-title mb-0 fw-bold"
-        :id="`${appDrawer.content}Label`"
-      >
-        {{ appDrawer.title }}
-      </h6>
+      <div class="offcanvas-title">
+        <h6 class="mb-1 fw-bold" :id="`${appDrawer.content}Label`">
+          {{ appDrawer.title }}
+        </h6>
+        <p class="caption mb-0" v-if="appDrawer.caption">
+          {{ appDrawer.caption }}
+        </p>
+      </div>
       <button
         type="button"
         class="btn btn-sm p-0 border-0"
@@ -30,6 +32,11 @@ const appDrawer = useAttrs();
         <div class="col-lg-5">
           <ContentsActivity
             v-if="appDrawer.content === `activity-${appDrawer.uuid}`"
+            :content="appDrawer.content"
+            :data="appDrawer.data"
+          />
+          <ContentsAsset
+            v-if="appDrawer.content === `trade-${appDrawer.uuid}`"
             :content="appDrawer.content"
             :data="appDrawer.data"
           />

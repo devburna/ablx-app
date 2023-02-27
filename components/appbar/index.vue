@@ -5,13 +5,16 @@ const appbarProps = useAttrs();
 
 <template>
   <div
-    class="list-group list-group-horizontal align-items-center position-relative sticky-top lh-lg"
+    class="list-group list-group-horizontal align-items-center position-relative sticky-top bg-white"
     id="appbar"
   >
     <div class="list-group-item text-center w-100" v-if="appbarProps.title">
-      <span class="title text-capitalize">{{
-        appbarProps.name || appbar.name
-      }}</span>
+      <p class="title text-capitalize mb-0 lh-1">
+        {{ appbarProps.name || appbar.name }}
+      </p>
+      <p class="caption mb-0" v-if="appbarProps.caption">
+        {{ appbarProps.caption }}
+      </p>
     </div>
     <div class="position-absolute">
       <button

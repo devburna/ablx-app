@@ -18,7 +18,7 @@ const passwordForm = {
         <div class="row g-0 align-items-center justify-content-center">
           <div class="col-lg-5">
             <form
-              @submit.prevent="useAuth().login(passwordForm)"
+              @submit.prevent="useAccount().password(passwordForm)"
               class="row g-3"
             >
               <div class="col-lg-12">
