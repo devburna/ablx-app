@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-definePageMeta({});
+definePageMeta({
+  middleware: "authenticated",
+});
 
 const registerForm = {
   name: null,

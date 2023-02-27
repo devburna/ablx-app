@@ -1,6 +1,15 @@
 <script lang="ts" setup>
 definePageMeta({
   middleware: "is-logged-in",
+  validate: async () => {
+    await useAccount().me();
+    const user = useUser();
+
+    if (user.value.email_verified_at) {
+      return false;
+    }
+    return true;
+  },
 });
 
 const verifyEmailForm = {

@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-definePageMeta({});
+definePageMeta({
+  middleware: "authenticated",
+});
 
 const loginForm = {
   email: null,
