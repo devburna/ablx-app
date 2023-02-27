@@ -8,6 +8,8 @@ const tradeForm = ref({
     name: "Choose Rate",
     buying_at: 0,
   },
+  comment: null,
+  receipt: null,
 });
 
 const setValue = (amount: number, rate: number) => {
@@ -35,7 +37,7 @@ const setValue = (amount: number, rate: number) => {
             <li>
               <button
                 type="button"
-                class="dropdown-item bg-transparent"
+                class="dropdown-item bg-transparent text-muted"
                 @click="
                   tradeForm.rate = item;
                   setValue(tradeForm.amount, tradeForm.rate.buying_at);
@@ -73,15 +75,22 @@ const setValue = (amount: number, rate: number) => {
           <strong>{{ tradeForm.rate.buying_at }}</strong>
         </div>
       </div>
-      <div class="col-lg-12">
+      <div
+        class="col-lg-12"
+        v-if="['Giftcard'].includes(assetContent.data.type)"
+      >
         <textarea
           type="text"
           class="form-control pt-2"
           rows="3"
           placeholder="Optional Comment e.g You can type your code here"
+          v-model="tradeForm.comment"
         />
       </div>
-      <div class="col-lg-12">
+      <div
+        class="col-lg-12"
+        v-if="['Giftcard'].includes(assetContent.data.type)"
+      >
         <input type="file" class="form-control" id="upload" multiple />
       </div>
       <div class="col-lg-12">
