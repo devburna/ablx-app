@@ -7,7 +7,7 @@ const settings = useUser();
 
 const options = [
   {
-    icon: "headset",
+    icon: "chat-dots",
     title: "Help Center",
     caption: "Have an issue? Speak to our team",
     route: "/help",
@@ -65,7 +65,7 @@ const options = [
                     <div
                       class="ic-holder d-flex align-items-center justify-content-center rounded-circle bg-light"
                     >
-                      <i :class="`bi bi-${item.icon} icon`"></i>
+                      <i :class="`bi bi-${item.icon}-fill icon text-primary-dark`"></i>
                     </div>
                   </div>
                   <div class="col-auto me-auto">
@@ -91,7 +91,7 @@ const options = [
                     <div
                       class="ic-holder d-flex align-items-center justify-content-center rounded-circle bg-light"
                     >
-                      <i class="bi bi-box-arrow-right icon"></i>
+                      <i class="bi bi-door-closed-fill icon"></i>
                     </div>
                   </div>
                   <div class="col-auto me-auto">
