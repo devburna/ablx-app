@@ -13,22 +13,26 @@ const appModal = useAttrs();
     <div :class="`modal-dialog ${appModal.dialog}`">
       <div class="modal-content">
         <div class="modal-header border-light">
-          <div class="modal-title">
-            <h6 class="mb-1" :id="`${appModal.content}Label`">
+          <div class="modal-title w-100 p-1">
+            <h6
+              class="mb-1 d-flex align-items-center justify-content-between"
+              :id="`${appModal.content}Label`"
+            >
               {{ appModal.title }}
+
+              <button
+                type="button"
+                class="btn btn-sm p-0 border-0"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              >
+                <i class="bi bi-x-circle-fill fs-6"></i>
+              </button>
             </h6>
             <p class="caption mb-0" v-if="appModal.caption">
               {{ appModal.caption }}
             </p>
           </div>
-          <button
-            type="button"
-            class="btn btn-sm p-0 border-0"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          >
-            <i class="bi bi-x-circle-fill fs-6"></i>
-          </button>
         </div>
         <div class="modal-body py-0">
           <div class="row justify-content-center h-100">

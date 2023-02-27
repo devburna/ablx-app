@@ -14,7 +14,7 @@ definePageMeta({
             <WidgetsActivities
               class="rounded rounded-4"
               :data="useActivity().value"
-              v-if="useActivity().value.length"
+              v-if="useActivity().value"
             />
             <Message caption="No activity found 😥" v-else />
           </div>

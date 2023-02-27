@@ -10,23 +10,27 @@ const appDrawer = useAttrs();
     :aria-labelledby="`${appDrawer.content}Label`"
     :data-bs-backdrop="appDrawer.backdrop"
   >
-    <div class="offcanvas-header">
-      <div class="offcanvas-title">
-        <h6 class="mb-1" :id="`${appDrawer.content}Label`">
+    <div class="offcanvas-header align-items-start">
+      <div class="offcanvas-title w-100 p-1">
+        <h6
+          class="mb-1 d-flex align-items-center justify-content-between"
+          :id="`${appDrawer.content}Label`"
+        >
           {{ appDrawer.title }}
+
+          <button
+            type="button"
+            class="btn btn-sm p-0 border-0"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
+            <i class="bi bi-x-circle-fill fs-6"></i>
+          </button>
         </h6>
         <p class="caption mb-0" v-if="appDrawer.caption">
           {{ appDrawer.caption }}
         </p>
       </div>
-      <button
-        type="button"
-        class="btn btn-sm p-0 border-0"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      >
-        <i class="bi bi-x-circle-fill fs-6"></i>
-      </button>
     </div>
     <div class="offcanvas-body py-0">
       <div class="row justify-content-center h-100">
