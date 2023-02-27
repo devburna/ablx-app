@@ -11,7 +11,7 @@ const appDrawer = useAttrs();
   >
     <div class="offcanvas-header">
       <div class="offcanvas-title">
-        <h6 class="mb-1 fw-bold" :id="`${appDrawer.content}Label`">
+        <h6 class="mb-1" :id="`${appDrawer.content}Label`">
           {{ appDrawer.title }}
         </h6>
         <p class="caption mb-0" v-if="appDrawer.caption">

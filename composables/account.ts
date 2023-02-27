@@ -14,14 +14,14 @@ export const useAccount = () => {
       });
     },
     profile: async (payload: any) => {
-      useApi().patch("/me/profile", payload).then((res: any) => {
+      await useApi().patch("/me/profile", payload).then((res: any) => {
         if (res.data.value) {
           _user.value = res.data.value.data;
         }
       });
     },
     password: async (payload: any) => {
-      useApi().patch("/me/password", payload).then((res: any) => {
+      await useApi().patch("/me/password", payload).then((res: any) => {
         if (res.data.value) {
           _user.value = res.data.value.data;
         }
