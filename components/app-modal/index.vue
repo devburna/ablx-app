@@ -27,7 +27,7 @@ const appModal = useAttrs();
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           >
-            <i class="bi bi-x-circle-fill"></i>
+            <i class="bi bi-x-circle-fill fs-6"></i>
           </button>
         </div>
         <div class="modal-body py-0">
