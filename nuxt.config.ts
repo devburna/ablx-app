@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     app: {
         head: {
             charset: 'utf-16',
-            viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+            viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
             title: 'Abbeylinko Xchange',
             meta: [
                 { name: 'description', content: 'Making trading easy and stress-less. Trade your digital currency and redeem your cards with us for the fastest payment, in minutes.' },
