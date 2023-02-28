@@ -8,6 +8,7 @@ const tradeForm = ref({
   rate: {
     name: "Choose Rate",
     buying_at: 0,
+    receipt: null,
   },
   comment: null,
   receipt: null,
@@ -21,7 +22,7 @@ const preview = ref(false);
 const response = ref();
 
 const tradeHandler = async () => {
-  preview.value = !preview.value
+  preview.value = !preview.value;
   const { data } = await useOrder().create(tradeForm);
   if (data.value) {
     response.value = data.value;
@@ -109,7 +110,7 @@ const tradeHandler = async () => {
             class="col-lg-12"
             v-if="['Giftcard'].includes(assetContent.data.type)"
           >
-            <input type="file" class="form-control" id="upload" multiple />
+            <input type="file" class="form-control dropify dropify-receipt" id="upload" multiple />
           </div>
           <div class="col-lg-12">
             <span class="caption">Usually takes 5 minutes ⚡️ </span>
