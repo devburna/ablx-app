@@ -4,7 +4,7 @@ const appDrawer = useAttrs();
 
 <template>
   <div
-    :class="`offcanvas ${appDrawer.dialog} rounded-top rounded-4 bg-light border-0`"
+    :class="`offcanvas ${appDrawer.dialog} rounded-top rounded-4 bg-light border-0 shadow`"
     tabindex="-1"
     :id="`${appDrawer.content}`"
     :aria-labelledby="`${appDrawer.content}Label`"
