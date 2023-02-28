@@ -50,18 +50,4 @@ const quickActions = [
 .list-group-item:last-of-type {
   border: 0 !important;
 }
-
-.ic-holder {
-  width: 40px;
-  height: 40px;
-}
-
-.ic-holder-inner {
-  width: 24px;
-  height: 24px;
-}
-
-.ic-holder .icon {
-  font-size: 13px;
-}
 </style>

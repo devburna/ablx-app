@@ -68,17 +68,4 @@ useActivities();
 .activity:last-of-type {
   border-bottom: 0 !important;
 }
-
-.ic-holder {
-  width: 36px;
-  height: 36px;
-}
-.ic-holder-inner {
-  width: 23px;
-  height: 23px;
-}
-
-.icon {
-  font-size: 13px;
-}
 </style>
