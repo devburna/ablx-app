@@ -21,11 +21,9 @@ const preview = ref(false);
 const response = ref();
 
 const tradeHandler = async () => {
-  if (confirm("Are you sure you want to proceed?")) {
-    const { data } = await useOrder().create(tradeForm);
-    if (data.value) {
-      response.value = data.value;
-    }
+  const { data } = await useOrder().create(tradeForm);
+  if (data.value) {
+    response.value = data.value;
   }
 };
 </script>
