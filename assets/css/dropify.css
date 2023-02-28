@@ -4,6 +4,7 @@
 
 .dropify {
   height: 120px !important;
+  color: var(--bs-secondary);
 }
 
 .dropify::before {
