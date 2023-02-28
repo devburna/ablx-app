@@ -6,7 +6,7 @@ const userBalance = useUser();
   <div class="container-fluid bg-pattern py-5" id="balance">
     <div class="container mb-5">
       <div
-        class="row g-1 align-items-center justify-content-center text-center"
+        class="row g-0 align-items-center justify-content-center text-center"
       >
         <div class="col-lg-12">
           <strong class="balance text-white">
