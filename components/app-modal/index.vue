@@ -15,7 +15,7 @@ const appModal = useAttrs();
         <div class="modal-header border-light">
           <div class="modal-title w-100 p-1">
             <h6
-              class="mb-1 d-flex align-items-center justify-content-between"
+              class="mb-0 d-flex align-items-center justify-content-between"
               :id="`${appModal.content}Label`"
             >
               {{ appModal.title }}
