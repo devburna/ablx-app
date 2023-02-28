@@ -106,7 +106,7 @@ const trade = useTrade();
 <style scoped>
 .nav-link {
   border: 0;
-  font-size: 15px;
+  font-size: 14px;
   border-radius: 0;
   background-color: transparent !important;
   color: aliceblue;
