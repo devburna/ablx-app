@@ -13,7 +13,7 @@ const userBalance = useUser();
             {{ userBalance?.wallet.balance }}
           </strong>
         </div>
-        <div class="col-lg-12 mb-2">
+        <div class="col-lg-12 mb-3">
           <small class="caption d-block"
             >Available balance ({{ userBalance?.wallet.currency }})</small
           >
