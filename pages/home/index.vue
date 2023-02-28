@@ -16,7 +16,7 @@ definePageMeta({
               class="rounded rounded-4"
               :data="useActivity().value.slice(0, 10)"
               :header="true"
-              v-if="useActivity().value.length"
+              v-if="useActivity().value"
             />
             <Message caption="No activity found 😥" v-else />
           </div>
