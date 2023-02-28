@@ -16,7 +16,7 @@ const appDrawerContent = useAttrs();
       <div v-for="(item, index) in appDrawerContent.data" :key="index">
         <div class="list-group-item border-0" v-if="typeof item === 'string'">
           <div
-            class="row g-0 align-items-center justify-content-between px-1 lh-lg"
+            class="row g-0 gx-4 align-items-center justify-content-between px-1"
           >
             <div class="col-auto">
               <span class="caption text-capitalize">{{ index }}</span>
