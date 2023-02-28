@@ -56,7 +56,7 @@ const tradeHandler = async () => {
                 <li>
                   <button
                     type="button"
-                    class="dropdown-item bg-transparent text-muted"
+                    class="dropdown-item title bg-transparent text-muted"
                     @click="
                       tradeForm.rate = item;
                       setValue(tradeForm.amount, tradeForm.rate.buying_at);
