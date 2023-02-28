@@ -3,6 +3,7 @@ const assetContent = useAttrs();
 
 const tradeForm = ref({
   amount: null,
+  type: "Sell",
   value: 0,
   rate: {
     name: "Choose Rate",
@@ -16,8 +17,15 @@ const setValue = (amount: number, rate: number) => {
   tradeForm.value.value = amount * rate;
 };
 
-const tradeHandler = () => {
-  return;
+const response = ref({});
+
+const tradeHandler = async () => {
+  const { data } = await useOrder().create(tradeForm);
+  console.log(data.value);
+
+  if (data.value) {
+    response.value = data.value;
+  }
 };
 </script>
 
