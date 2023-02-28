@@ -17,110 +17,202 @@ const setValue = (amount: number, rate: number) => {
   tradeForm.value.value = amount * rate;
 };
 
-const response = ref({});
+const preview = ref(false);
+const response = ref();
 
 const tradeHandler = async () => {
-  const { data } = await useOrder().create(tradeForm);
-  console.log(data.value);
-
-  if (data.value) {
-    response.value = data.value;
+  if (confirm("Are you sure you want to proceed?")) {
+    const { data } = await useOrder().create(tradeForm);
+    if (data.value) {
+      response.value = data.value;
+    }
   }
 };
 </script>
 
 <template>
   <div>
-    <form
-      @submit.prevent="tradeHandler"
-      class="row g-3 py-2 px-1"
-      v-if="assetContent.data.rates.length"
-    >
-      <div class="col-lg-12">
-        <div class="dropdown">
-          <button
-            class="form-control d-flex align-items-center justify-content-between dropdown-toggle w-100"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            {{ tradeForm.rate.name }}
-          </button>
-          <ul
-            class="dropdown-menu border-light rounded-4 w-100 lh-lg"
-            v-if="assetContent.data.rates.length"
-          >
-            <li>
-              <button
-                type="button"
-                class="dropdown-item bg-transparent text-muted"
-                @click="
-                  tradeForm.rate = item;
-                  setValue(tradeForm.amount, tradeForm.rate.buying_at);
-                "
-                v-for="(item, index) in assetContent.data.rates"
-                :key="index"
-              >
-                {{ item.name }}
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-lg-12">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Enter Trade Amount"
-          v-model="tradeForm.amount"
-          v-on:keyup="setValue(tradeForm.amount, tradeForm.rate.buying_at)"
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-          required
-        />
-      </div>
-      <div class="col-lg-12">
-        <div
-          class="form-control d-flex align-items-center justify-content-between text-primary bg-info-soft border-info"
+    <div v-if="!response">
+      <div v-if="!preview">
+        <form
+          @submit.prevent="preview = !preview"
+          class="row g-3 py-2 px-1"
+          v-if="assetContent.data.rates.length"
         >
-          <strong class="fs-6">{{
-            (tradeForm.value || 0).toLocaleString("en-NG", {
-              style: "currency",
-              currency: "NGN",
-            })
-          }}</strong>
-          <strong>{{ tradeForm.rate.buying_at }}</strong>
+          <div class="col-lg-12">
+            <div class="dropdown">
+              <button
+                class="form-control d-flex align-items-center justify-content-between dropdown-toggle w-100"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {{ tradeForm.rate.name }}
+              </button>
+              <ul
+                class="dropdown-menu border-light rounded-4 w-100 lh-lg"
+                v-if="assetContent.data.rates.length"
+              >
+                <li>
+                  <button
+                    type="button"
+                    class="dropdown-item bg-transparent text-muted"
+                    @click="
+                      tradeForm.rate = item;
+                      setValue(tradeForm.amount, tradeForm.rate.buying_at);
+                    "
+                    v-for="(item, index) in assetContent.data.rates"
+                    :key="index"
+                  >
+                    {{ item.name }}
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Trade Amount"
+              v-model="tradeForm.amount"
+              v-on:keyup="setValue(tradeForm.amount, tradeForm.rate.buying_at)"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+              required
+            />
+          </div>
+          <div class="col-lg-12">
+            <div
+              class="form-control d-flex align-items-center justify-content-between text-primary bg-info-soft border-info"
+            >
+              <strong class="fs-6">{{
+                (tradeForm.value || 0).toLocaleString("en-NG", {
+                  style: "currency",
+                  currency: "NGN",
+                })
+              }}</strong>
+              <strong>{{ tradeForm.rate.buying_at }}</strong>
+            </div>
+          </div>
+          <div
+            class="col-lg-12"
+            v-if="['Giftcard'].includes(assetContent.data.type)"
+          >
+            <textarea
+              type="text"
+              class="form-control pt-2"
+              rows="3"
+              placeholder="Optional Comment e.g You can type your code here"
+              v-model="tradeForm.comment"
+            />
+          </div>
+          <div
+            class="col-lg-12"
+            v-if="['Giftcard'].includes(assetContent.data.type)"
+          >
+            <input type="file" class="form-control" id="upload" multiple />
+          </div>
+          <div class="col-lg-12">
+            <span class="caption">Usually takes 5 minutes ⚡️ </span>
+          </div>
+          <div class="col-lg-12">
+            <button type="submit" class="btn btn-primary w-100">
+              Start Trade
+            </button>
+          </div>
+        </form>
+        <div class="text-center py-5" v-else>
+          <span class="caption">No rates available for this trade 🥲</span>
         </div>
       </div>
-      <div
-        class="col-lg-12"
-        v-if="['Giftcard'].includes(assetContent.data.type)"
-      >
-        <textarea
-          type="text"
-          class="form-control pt-2"
-          rows="3"
-          placeholder="Optional Comment e.g You can type your code here"
-          v-model="tradeForm.comment"
-        />
+      <div v-else>
+        <div class="list-group bg-white rounded-4 py-2 lh-lg mb-4">
+          <div class="list-group-item border-0">
+            <p class="caption mb-0">Item</p>
+            <p class="caption text-dark mb-0">{{ tradeForm.rate.name }}</p>
+          </div>
+          <div class="list-group-item border-0">
+            <p class="caption mb-0">Category</p>
+            <p class="caption text-dark mb-0">{{ assetContent.data.name }}</p>
+          </div>
+          <div class="list-group-item border-0">
+            <p class="caption mb-0">Type</p>
+            <p class="caption text-dark mb-0">{{ tradeForm.type }}</p>
+          </div>
+          <div class="list-group-item border-0">
+            <p class="caption mb-0">Amount</p>
+            <p class="caption text-dark mb-0">
+              {{
+                Number(tradeForm.amount).toLocaleString("en-NG", {
+                  style: "currency",
+                  currency: "NGn",
+                })
+              }}
+            </p>
+          </div>
+          <div class="list-group-item border-0">
+            <p class="caption mb-0">Rate</p>
+            <p class="caption text-dark mb-0">{{ tradeForm.rate.buying_at }}</p>
+          </div>
+          <div class="list-group-item border-0">
+            <p class="caption mb-0">Comment</p>
+            <p class="caption text-dark mb-0">
+              {{ tradeForm.comment || "---" }}
+            </p>
+          </div>
+          <div
+            class="list-group-item d-block border-0"
+            v-if="tradeForm.rate.receipt"
+          >
+            <p class="caption mb-0">Uploads</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          @click="tradeHandler"
+          class="btn btn-primary btn-lg w-100 mb-3"
+        >
+          Complete Trade
+        </button>
+        <button
+          type="button"
+          @click="preview = !preview"
+          class="btn btn-link text-muted btn-lg w-100"
+        >
+          Go Back
+        </button>
       </div>
-      <div
-        class="col-lg-12"
-        v-if="['Giftcard'].includes(assetContent.data.type)"
-      >
-        <input type="file" class="form-control" id="upload" multiple />
+    </div>
+    <div class="text-center p-5" v-else>
+      <h6 class="mb-3">Congratulations!</h6>
+      <p
+        class="caption mb-4"
+        v-html="response.data.comment || response.message"
+      ></p>
+      <div class="btn-group gap-3">
+        <button
+          type="button"
+          class="btn btn-success btn-sm rounded-4 lh-lg px-4"
+          v-if="response.data.invoice"
+        >
+          Copy
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-sm rounded-4 lh-lg px-4"
+          @click="response = null"
+        >
+          Trade again
+        </button>
       </div>
-      <div class="col-lg-12">
-        <span class="caption">Usually takes 5 minutes ⚡️ </span>
-      </div>
-      <div class="col-lg-12"></div>
-      <div class="col-lg-12">
-        <button type="submit" class="btn btn-primary w-100">Start Trade</button>
-      </div>
-    </form>
-    <div class="text-center py-5" v-else>
-      <span class="caption">No rates available for this trade 🥲</span>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+</style>

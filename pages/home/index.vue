@@ -10,10 +10,10 @@ definePageMeta({
     <div class="container-fluid py-3">
       <div class="container p-1">
         <div class="row g-0 align-items-center justify-content-center">
-          <div class="col-lg-5">
+          <div class="col-lg-5 mb-3">
             <WidgetsQuickActions style="margin-top: -92.2px" class="mb-4"/>
             <WidgetsActivities
-              class="rounded rounded-4"
+              class="rounded rounded-4 mb-5"
               :data="useActivity().value.slice(0, 10)"
               :header="true"
               v-if="useActivity().value"
