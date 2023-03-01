@@ -4,10 +4,7 @@ const appbarProps = useAttrs();
 </script>
 
 <template>
-  <div
-    class="list-group list-group-horizontal align-items-center"
-    id="appbar"
-  >
+  <div class="list-group list-group-horizontal align-items-center" id="appbar">
     <div class="list-group-item text-center w-100" v-if="appbarProps.title">
       <p class="title text-capitalize mb-0 lh-1 text-white">
         {{ appbarProps.name || appbar.name }}
@@ -19,7 +16,7 @@ const appbarProps = useAttrs();
     <div class="position-absolute">
       <button
         onclick="history.back()"
-        class="list-group-item w-auto pe-0 bg-transparent"
+        class="list-group-item w-auto px-2 bg-transparent"
         v-if="appbarProps.hasPrev"
       >
         <i class="bi bi-chevron-left fs-4 text-white"></i>

@@ -9,9 +9,8 @@ definePageMeta({
     <Appbar :title="true" class="bg-primary sticky-top" />
     <div class="container-fluid py-3" id="activities">
       <div class="row g-0 align-items-center justify-content-center">
-        <div class="col-lg-5 mb-4">
+        <div class="col-lg-5">
           <WidgetsActivities
-            class="rounded rounded-4 mb-5"
             :data="useActivity().value"
             v-if="useActivity().value"
           />

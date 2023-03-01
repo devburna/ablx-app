@@ -20,43 +20,41 @@ const accountForm = {
       name="Account Information"
     />
     <div class="container-fluid h-100 py-4" id="account">
-      <div class="container py-1">
-        <div class="row g-0 align-items-center justify-content-center">
-          <div class="col-lg-5">
-            <form
-              @submit.prevent="useAccount().profile(accountForm)"
-              class="row g-3"
-            >
-              <div class="col-lg-12">
-                <label for="name" class="mb-1">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  class="form-control"
-                  :placeholder="account?.name"
-                  v-model="accountForm.name"
-                  required
-                />
-              </div>
-              <div class="col-lg-12">
-                <label for="email" class="mb-1">Email address</label>
-                <input
-                  type="email"
-                  id="email"
-                  class="form-control"
-                  :placeholder="account?.email"
-                  v-model="accountForm.email"
-                  required
-                />
-              </div>
-              <div class="col-lg-12"></div>
-              <div class="col-lg-12">
-                <button type="submit" class="btn btn-primary w-100">
-                  Update
-                </button>
-              </div>
-            </form>
-          </div>
+      <div class="row g-0 align-items-center justify-content-center">
+        <div class="col-lg-5">
+          <form
+            @submit.prevent="useAccount().profile(accountForm)"
+            class="row g-3"
+          >
+            <div class="col-lg-12">
+              <label for="name" class="mb-1">Name</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                :placeholder="account?.name"
+                v-model="accountForm.name"
+                required
+              />
+            </div>
+            <div class="col-lg-12">
+              <label for="email" class="mb-1">Email address</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                :placeholder="account?.email"
+                v-model="accountForm.email"
+                required
+              />
+            </div>
+            <div class="col-lg-12"></div>
+            <div class="col-lg-12">
+              <button type="submit" class="btn btn-primary w-100">
+                Update
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

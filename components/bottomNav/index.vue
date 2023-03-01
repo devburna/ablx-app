@@ -26,25 +26,30 @@ const navItems = [
 </script>
 
 <template>
-  <div
-    class="container-fluid bg-white fixed-bottom text-center py-2"
-    id="bottomNav"
-  >
-    <div class="container">
-      <div class="row row-cols-4 g-4 align-items-center justify-content-around">
-        <NuxtLink
-          :to="item.route"
-          :class="`col text-${
-            bottomNav.name === item.name.toLowerCase() ? 'primary' : 'muted'
-          }`"
-          v-for="(item, index) in navItems"
-          :key="index"
+  <div>
+    <div
+      class="container-fluid bg-white fixed-bottom text-center py-2"
+      id="bottomNav"
+    >
+      <div class="container">
+        <div
+          class="row row-cols-4 g-4 align-items-center justify-content-around"
         >
-          <i :class="`bi bi-${item.icon}-fill icon`"></i>
-          <small class="d-block">{{ item.name }}</small>
-        </NuxtLink>
+          <NuxtLink
+            :to="item.route"
+            :class="`col text-${
+              bottomNav.name === item.name.toLowerCase() ? 'primary' : 'muted'
+            }`"
+            v-for="(item, index) in navItems"
+            :key="index"
+          >
+            <i :class="`bi bi-${item.icon}-fill icon`"></i>
+            <small class="d-block">{{ item.name }}</small>
+          </NuxtLink>
+        </div>
       </div>
     </div>
+    <div class="h-64"></div>
   </div>
 </template>
 
@@ -54,5 +59,9 @@ small {
 }
 .icon {
   font-size: 20px;
+}
+
+.h-64 {
+  height: 65px;
 }
 </style>
