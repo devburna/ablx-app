@@ -4,7 +4,20 @@ const appDrawerContent = useAttrs();
 
 <template>
   <div class="pb-5">
-    <div class="py-3 text-center">
+    <div class="py-2 text-center">
+      <div
+        :class="`ic-holder d-flex align-items-center justify-content-center rounded-circle bg-${appDrawerContent.data.status} mx-auto mb-3`"
+      >
+        <div
+          class="ic-holder-inner d-flex align-items-center justify-content-center rounded-circle bg-white"
+        >
+          <i
+            :class="`bi bi-${
+              ['Order'].includes(appDrawerContent.data.channel) ? 'lightning' : 'send'
+            }-fill text-${appDrawerContent.data.status} icon`"
+          ></i>
+        </div>
+      </div>
       <h6 class="mb-1">
         {{ appDrawerContent.data.amount }}
       </h6>
