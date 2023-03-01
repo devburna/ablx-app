@@ -42,18 +42,18 @@ useActivities();
           </div>
         </div>
         <div class="col-6 me-auto text-start">
-          <p class="title mb-0 text-truncate">
+          <h6 class="title mb-0 text-truncate">
             {{ item.narration }}
-          </p>
-          <p class="caption mb-0">{{ $timeAgo(item.created_at) }}</p>
+          </h6>
+          <small class="caption">{{ $timeAgo(item.created_at) }}</small>
         </div>
         <div class="col-auto text-end">
-          <p class="title mb-0">
+          <h6 class="title mb-0">
             {{ item.amount }}
-          </p>
-          <p :class="`caption text-${item.status} mb-0`">
+          </h6>
+          <small :class="`caption text-${item.status}`">
             {{ item.status }}
-          </p>
+          </small>
         </div>
       </div>
     </button>

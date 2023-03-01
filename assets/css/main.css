@@ -66,6 +66,10 @@ label {
     font-size: 13px;
 }
 
+h6 {
+    font-size: 15px;
+}
+
 .btn {
     font-weight: 500;
 }

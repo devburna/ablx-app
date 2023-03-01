@@ -5,30 +5,24 @@ const appDrawerContent = useAttrs();
 <template>
   <div class="pb-5">
     <div class="py-3 text-center">
-      <h5 class="mb-1 fw-bold">
+      <h6 class="mb-1">
         {{ appDrawerContent.data.amount }}
-      </h5>
-      <p class="mb-2 caption text-muted">
+      </h6>
+      <p class="caption">
         {{ appDrawerContent.data.narration }}
       </p>
     </div>
-    <div class="list-group rounded-4 bg-white py-2 mb-4">
+    <div class="list-group rounded-4 py-1 bg-white mb-4">
       <div v-for="(item, index) in appDrawerContent.data" :key="index">
         <div class="list-group-item border-0" v-if="typeof item === 'string'">
-          <div
-            class="row g-0 gx-4 align-items-center justify-content-between px-1"
-          >
-            <div class="col-auto">
-              <span class="caption text-capitalize">{{ index }}</span>
-            </div>
-            <div class="col text-end">
-              <span :class="`caption text-${item} text-dark text-capitalize`">{{ item }}</span>
-            </div>
-          </div>
+          <h6 class="caption text-capitalize mb-1">{{ index }}</h6>
+          <p class="title text-dark mb-0">{{ item }}</p>
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-lg w-100">Share Receipt</button>
+    <button type="submit" class="btn btn-primary btn-lg w-100">
+      Share Receipt
+    </button>
   </div>
 </template>
 

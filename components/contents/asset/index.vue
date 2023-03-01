@@ -138,7 +138,7 @@ const tradeHandler = async () => {
             loading="lazy"
             class="ic-holder mb-3"
           />
-          <p class="title mb-1">{{ tradeForm.rate.name }}</p>
+          <h6 class="mb-1">{{ tradeForm.rate.name }}</h6>
           <p class="caption">
             {{
               Number(tradeForm.amount).toLocaleString("en-NG", {
@@ -149,40 +149,23 @@ const tradeHandler = async () => {
           </p>
         </div>
         <div class="list-group rounded-4 py-1 bg-white mb-4">
-          <div class="list-group-item border-0">
-            <p class="caption mb-0">Category</p>
-            <p class="caption text-dark mb-0">{{ assetContent.data.name }}</p>
+          <div v-for="(item, index) in tradeForm" :key="index">
+            <div
+              class="list-group-item border-0"
+              v-if="typeof item === 'string'"
+            >
+              <h6 class="caption text-capitalize mb-1">{{ index }}</h6>
+              <p class="title text-dark mb-0">{{ item }}</p>
+            </div>
           </div>
-          <div class="list-group-item border-0">
-            <p class="caption mb-0">Type</p>
-            <p class="caption text-dark mb-0">{{ tradeForm.type }}</p>
-          </div>
-          <div class="list-group-item border-0">
-            <p class="caption mb-0">Amount</p>
-            <p class="caption text-dark mb-0">
-              {{
-                Number(tradeForm.amount).toLocaleString("en-NG", {
-                  style: "currency",
-                  currency: "NGn",
-                })
-              }}
-            </p>
-          </div>
-          <div class="list-group-item border-0">
-            <p class="caption mb-0">Rate</p>
-            <p class="caption text-dark mb-0">{{ tradeForm.rate.buying_at }}</p>
-          </div>
-          <div class="list-group-item border-0">
-            <p class="caption mb-0">Comment</p>
-            <p class="caption text-dark mb-0">
-              {{ tradeForm.comment || "---" }}
-            </p>
-          </div>
-          <div
-            class="list-group-item d-block border-0"
-            v-if="tradeForm.rate.receipt"
-          >
-            <p class="caption mb-0">Uploads</p>
+          <div v-for="(item, index) in tradeForm.rate" :key="index">
+            <div
+              class="list-group-item border-0"
+              v-if="typeof item === 'string'"
+            >
+              <h6 class="caption text-capitalize mb-1">{{ index }}</h6>
+              <p class="title text-dark mb-0">{{ item }}</p>
+            </div>
           </div>
         </div>
         <button
@@ -227,10 +210,4 @@ const tradeHandler = async () => {
   </div>
 </template>
 
-<style scoped>
-.list-group-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-</style>
+<style scoped></style>

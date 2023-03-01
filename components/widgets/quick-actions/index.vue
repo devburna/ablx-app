@@ -40,8 +40,8 @@ const quickActions = [
           </div>
         </div>
         <div class="text-start">
-          <p class="title mb-0">{{ item.title }}</p>
-          <p class="caption mb-0">{{ item.caption }}</p>
+          <h6 class="title mb-0">{{ item.title }}</h6>
+          <small class="caption">{{ item.caption }}</small>
         </div>
       </div>
     </button>

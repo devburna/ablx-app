@@ -72,10 +72,10 @@ const options = [
                   </div>
                 </div>
                 <div class="col-auto me-auto">
-                  <p class="title mb-0">{{ item.title }}</p>
-                  <p class="caption mb-0 text-muted" v-if="item.caption">
+                  <h6 class="title mb-0">{{ item.title }}</h6>
+                  <small class="caption text-muted" v-if="item.caption">
                     {{ item.caption }}
-                  </p>
+                  </small>
                 </div>
                 <div class="col-auto text-end">
                   <i class="bi bi-chevron-right caption"></i>
@@ -98,7 +98,7 @@ const options = [
                   </div>
                 </div>
                 <div class="col-auto me-auto">
-                  <p class="title mb-0">Logout</p>
+                  <h6 class="title mb-0">Logout</h6>
                 </div>
                 <div class="col-auto text-end">
                   <i class="bi bi-chevron-right caption"></i>
