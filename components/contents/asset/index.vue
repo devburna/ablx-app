@@ -138,14 +138,16 @@ const tradeHandler = async () => {
             loading="lazy"
             class="ic-holder mb-3"
           />
-          <h6 class="mb-1">{{ tradeForm.rate.name }}</h6>
-          <p class="caption">
+          <h6 class="mb-1">
             {{
               Number(tradeForm.amount).toLocaleString("en-NG", {
                 style: "currency",
                 currency: "NGn",
               })
             }}
+          </h6>
+          <p class="caption">
+            {{ tradeForm.rate.name }}
           </p>
         </div>
         <div class="list-group rounded-4 py-1 bg-white mb-4">
