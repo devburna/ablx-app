@@ -110,7 +110,12 @@ const tradeHandler = async () => {
             class="col-lg-12"
             v-if="['Giftcard'].includes(assetContent.data.type)"
           >
-            <input type="file" class="form-control dropify dropify-receipt" id="upload" multiple />
+            <input
+              type="file"
+              class="form-control dropify dropify-receipt"
+              id="upload"
+              multiple
+            />
           </div>
           <div class="col-lg-12">
             <span class="caption">Usually takes 5 minutes ⚡️ </span>
@@ -126,11 +131,24 @@ const tradeHandler = async () => {
         </div>
       </div>
       <div v-else>
-        <div class="list-group bg-white rounded-4 py-2 lh-lg mb-4">
-          <div class="list-group-item border-0">
-            <p class="caption mb-0">Item</p>
-            <p class="caption text-dark mb-0">{{ tradeForm.rate.name }}</p>
-          </div>
+        <div class="text-center mb-4">
+          <img
+            :src="assetContent.data.image.secure_url"
+            :alt="assetContent.data.name"
+            loading="lazy"
+            class="ic-holder mb-3"
+          />
+          <p class="title mb-1">{{ tradeForm.rate.name }}</p>
+          <p class="caption">
+            {{
+              Number(tradeForm.amount).toLocaleString("en-NG", {
+                style: "currency",
+                currency: "NGn",
+              })
+            }}
+          </p>
+        </div>
+        <div class="list-group rounded-4 py-1 bg-white mb-4">
           <div class="list-group-item border-0">
             <p class="caption mb-0">Category</p>
             <p class="caption text-dark mb-0">{{ assetContent.data.name }}</p>

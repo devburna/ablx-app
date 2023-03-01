@@ -66,7 +66,7 @@ const trade = useTrade();
                             :src="asset.image.secure_url"
                             :alt="asset.name"
                             loading="lazy"
-                            class="logo"
+                            class="ic-holder"
                           />
                         </div>
                       </div>
@@ -116,10 +116,5 @@ const trade = useTrade();
 
 .nav-tabs .nav-link.active {
   color: var(--bs-warning);
-}
-
-.logo {
-  width: 40px;
-  height: 40px;
 }
 </style>
