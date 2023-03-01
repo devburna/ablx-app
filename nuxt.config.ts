@@ -46,6 +46,13 @@ export default defineNuxtConfig({
         }
     },
 
+    router: {
+        options: {
+            linkActiveClass: 'active-class-link',
+            linkExactActiveClass: 'exact-active-class-link',
+        }
+    },
+
     css: ['@/assets/css/dropify.css', '@/assets/css/main.css'],
 
     runtimeConfig: {

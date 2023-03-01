@@ -37,9 +37,7 @@ const navItems = [
         >
           <NuxtLink
             :to="item.route"
-            :class="`col text-${
-              bottomNav.name === item.name.toLowerCase() ? 'primary' : 'muted'
-            }`"
+            class="col link"
             v-for="(item, index) in navItems"
             :key="index"
           >
@@ -54,6 +52,14 @@ const navItems = [
 </template>
 
 <style scoped>
+.link {
+  color: var(--bs-secondary);
+}
+
+.exact-active-class-link {
+  color: var(--bs-primary);
+}
+
 small {
   font-size: 12px;
 }
