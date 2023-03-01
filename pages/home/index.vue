@@ -8,18 +8,17 @@ definePageMeta({
   <div class="h-100 bg-light">
     <WidgetsBalance />
     <div class="container-fluid py-3">
-      <div class="container p-1">
-        <div class="row g-0 align-items-center justify-content-center">
-          <div class="col-lg-5 mb-3">
-            <WidgetsQuickActions style="margin-top: -92.4px" class="mb-4"/>
-            <WidgetsActivities
-              class="rounded rounded-4 mb-5"
-              :data="useActivity().value.slice(0, 10)"
-              :header="true"
-              v-if="useActivity().value"
-            />
-            <Message caption="No activity found 😥" v-else />
-          </div>
+      <div class="row g-3 align-items-center justify-content-center">
+        <div class="col-lg-5">
+          <WidgetsQuickActions style="margin-top: -84.7px" />
+        </div>
+        <div class="col-lg-5">
+          <WidgetsActivities
+            :data="useActivity().value.slice(0, 10)"
+            :header="true"
+            v-if="useActivity().value"
+          />
+          <Message caption="No activity found 😥" v-else />
         </div>
       </div>
     </div>

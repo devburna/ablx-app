@@ -8,7 +8,7 @@ const trade = useTrade();
 
 <template>
   <div class="h-100 bg-light">
-    <div class="bg-primary">
+    <div class="sticky-top bg-primary">
       <Appbar :title="true" caption="What do you want to trade?" />
       <nav v-if="typeof trade === 'object'">
         <div
@@ -35,41 +35,39 @@ const trade = useTrade();
         </div>
       </nav>
     </div>
-    <div class="container-fluid py-3 h-100" id="trade">
-      <div class="container px-1">
-        <div class="row g-0 align-items-center justify-content-center">
-          <div class="col-lg-5">
-            <div v-if="typeof trade === 'object'">
-              <div v-for="(item, index) in trade" :key="index">
-                <div class="tab-content" id="nav-tabContent">
-                  <div
-                    :class="`tab-pane fade  ${
-                      index.toString() === 'Giftcard' ? 'show active' : ''
-                    }`"
-                    :id="`nav-${index}`"
-                    role="tabpanel"
-                    :aria-labelledby="`nav-${index}-tab`"
-                    tabindex="0"
-                  >
-                    <div class="row g-3">
+    <div class="container-fluid py-3" id="trade">
+      <div class="row g-0 align-items-center justify-content-center">
+        <div class="col-lg-5">
+          <div v-if="typeof trade === 'object'">
+            <div v-for="(item, index) in trade" :key="index">
+              <div class="tab-content" id="nav-tabContent">
+                <div
+                  :class="`tab-pane fade  ${
+                    index.toString() === 'Giftcard' ? 'show active' : ''
+                  }`"
+                  :id="`nav-${index}`"
+                  role="tabpanel"
+                  :aria-labelledby="`nav-${index}-tab`"
+                  tabindex="0"
+                >
+                  <div class="row g-3">
+                    <div
+                      class="col-3 col-lg-3"
+                      v-for="(asset, indexx) in item"
+                      :key="indexx"
+                    >
                       <div
-                        class="col-3 col-lg-3"
-                        v-for="(asset, indexx) in item"
-                        :key="indexx"
+                        class="card border-light text-center"
+                        data-bs-toggle="offcanvas"
+                        :data-bs-target="`#trade-${index}-${indexx}`"
                       >
-                        <div
-                          class="card border-light text-center"
-                          data-bs-toggle="offcanvas"
-                          :data-bs-target="`#trade-${index}-${indexx}`"
-                        >
-                          <div class="card-body">
-                            <img
-                              :src="asset.image.secure_url"
-                              :alt="asset.name"
-                              loading="lazy"
-                              class="logo"
-                            />
-                          </div>
+                        <div class="card-body">
+                          <img
+                            :src="asset.image.secure_url"
+                            :alt="asset.name"
+                            loading="lazy"
+                            class="logo"
+                          />
                         </div>
                       </div>
                     </div>
@@ -77,8 +75,8 @@ const trade = useTrade();
                 </div>
               </div>
             </div>
-            <Message caption="No trade available at the moment 😥" v-else />
           </div>
+          <Message caption="No trade available at the moment 😥" v-else />
         </div>
       </div>
     </div>

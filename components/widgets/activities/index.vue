@@ -4,12 +4,12 @@ useActivities();
 </script>
 
 <template>
-  <div class="list-group rounded-4 py-1 bg-white" id="listView">
+  <div class="list-group rounded-4 py-1 bg-white" id="activities">
     <div
-      class="list-group-item border-0 rounded-0 py-2"
+      class="list-group-item border-0 rounded-0"
       v-if="activitiesProps.header"
     >
-      <div class="row gy-0 g-3 align-items-center justify-content-between py-1">
+      <div class="row gy-0 g-3 align-items-center justify-content-between">
         <div class="col-auto"><span class="title">Recent</span></div>
         <div class="col-auto">
           <span class="caption"
@@ -19,13 +19,13 @@ useActivities();
       </div>
     </div>
     <button
-      class="list-group-item border-0 rounded-0 py-2 activity"
+      class="list-group-item border-0 rounded-0 activity"
       data-bs-toggle="offcanvas"
       :data-bs-target="`#activity-${index}`"
       v-for="(item, index) in activitiesProps.data"
       :key="index"
     >
-      <div class="row gy-0 g-3 align-items-center justify-content-center py-1">
+      <div class="row gy-0 g-3 align-items-center justify-content-between py-1">
         <div class="col-auto">
           <div
             :class="`ic-holder d-flex align-items-center justify-content-center rounded-circle bg-${item.status}`"
