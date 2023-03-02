@@ -5,11 +5,7 @@ const tradeForm = ref({
   amount: null,
   type: "Sell",
   value: 0,
-  rate: {
-    name: "Choose Rate",
-    buying_at: 0,
-    receipt: null,
-  },
+  rate: {},
   comment: null,
   receipt: null,
 });
@@ -40,35 +36,20 @@ const tradeHandler = async () => {
           v-if="assetContent.data.rates.length"
         >
           <div class="col-lg-12">
-            <div class="dropdown">
-              <button
-                class="form-control d-flex align-items-center justify-content-between dropdown-toggle w-100"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+            <select
+              class="form-select"
+              aria-label="Choose Rate"
+              v-model="tradeForm.rate"
+            >
+              <option selected :value="{}">Choose Rate</option>
+              <option
+                v-for="(item, index) in assetContent.data.rates"
+                :key="index"
+                :value="item"
               >
-                {{ tradeForm.rate.name }}
-              </button>
-              <ul
-                class="dropdown-menu border-light rounded-4 w-100 lh-lg"
-                v-if="assetContent.data.rates.length"
-              >
-                <li>
-                  <button
-                    type="button"
-                    class="dropdown-item title bg-transparent text-muted"
-                    @click="
-                      tradeForm.rate = item;
-                      setValue(tradeForm.amount, tradeForm.rate.buying_at);
-                    "
-                    v-for="(item, index) in assetContent.data.rates"
-                    :key="index"
-                  >
-                    {{ item.name }}
-                  </button>
-                </li>
-              </ul>
-            </div>
+                {{ item.name }}
+              </option>
+            </select>
           </div>
           <div class="col-lg-12">
             <input
@@ -91,7 +72,7 @@ const tradeHandler = async () => {
                   currency: "NGN",
                 })
               }}</strong>
-              <strong>{{ tradeForm.rate.buying_at }}</strong>
+              <strong>{{ tradeForm.rate.buying_at || "000" }}</strong>
             </div>
           </div>
           <div
@@ -187,18 +168,27 @@ const tradeHandler = async () => {
       </div>
     </div>
     <div class="text-center p-5" v-else>
-      <h6 class="mb-3">Congratulations!</h6>
-      <p
-        class="caption mb-4"
-        v-html="response.data.comment || response.message"
-      ></p>
-      <div class="btn-group gap-3">
+      <h6 class="">Congratulations!</h6>
+      <p class="caption" v-html="response.data.comment || response.message"></p>
+      <div
+        class="py-3"
+        v-if="response.data.invoice && response.data.invoice.address"
+      >
+        <qrcode-vue
+          :value="response.data.invoice.address"
+          :size="150"
+          level="H"
+          class="rounded"
+        />
+      </div>
+      <div class="btn-group gap-3 my-3">
         <button
           type="button"
           class="btn btn-success btn-sm rounded-4 lh-lg px-4"
-          v-if="response.data.invoice"
+          @click="$copy(response.data.invoice.address)"
+          v-if="response.data.invoice && response.data.invoice.address"
         >
-          Copy
+          Copy address
         </button>
         <button
           type="button"

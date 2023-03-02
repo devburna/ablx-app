@@ -10,6 +10,7 @@
     --bs-success: #38BC5D;
     --bs-danger: #FF6060;
     --bs-secondary: #8D949E;
+    --bs-light: #fafafe;
     --border-light: #dee2e642;
 }
 
@@ -49,7 +50,7 @@ form small a {
     font-weight: 500;
 }
 
-form .btn, form .form-control, .btn-lg {
+form .btn, form .form-control, .form-select, .btn-lg {
     height: 48px;
     font-size: 14px;
     border-radius: 16px;
@@ -78,15 +79,15 @@ h6 {
     box-shadow: unset !important;
 }
 
+.form-control, .form-select {
+    border-color: var(--bs-white) !important;
+}
+
 .auth {
     background: url('@/assets/img/pattern.webp'), var(--bs-primary);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-.form-control {
-    border-color: var(--bs-white) !important;
 }
 
 .list-group {
@@ -148,6 +149,10 @@ h6 {
 
 .bg-primary {
     background: var(--bs-primary) !important;
+}
+
+.bg-light {
+    background: var(--bs-light) !important;
 }
 
 .bg-info {
