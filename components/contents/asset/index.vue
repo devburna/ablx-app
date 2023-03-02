@@ -40,6 +40,7 @@ const tradeHandler = async () => {
               class="form-select"
               aria-label="Choose Rate"
               v-model="tradeForm.rate"
+              required
             >
               <option selected :value="{}">Choose Rate</option>
               <option
