@@ -3,9 +3,9 @@ definePageMeta({
   middleware: "is-logged-in",
 });
 
-useBill().all();
+useBills().all();
 
-const bills = useBills();
+const types = useBillTypes();
 
 const billForm = ref({
   type: {},
@@ -22,8 +22,8 @@ const billForm = ref({
       class="bg-primary sticky-top"
       caption="Pay Local & International"
     />
-    <div class="container-fluid py-4" id="trade">
-      <div class="container p-0">
+    <div class="container-fluid h-100 py-3" id="bills">
+      <div class="container p-1">
         <div class="row g-0 align-items-center justify-content-center">
           <div class="col-lg-5">
             <form
@@ -39,7 +39,7 @@ const billForm = ref({
                 >
                   <option selected :value="{}">Select Bill Type</option>
                   <option
-                    v-for="(item, index) in bills"
+                    v-for="(item, index) in types"
                     :key="index"
                     :value="item"
                   >

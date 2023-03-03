@@ -1,11 +1,11 @@
-export const useBill = () => {
-  const _bills = useBills();
+export const useBills = () => {
+  const _billTypes = useBillTypes();
 
   return {
     all: async () => {
       await useApi().get("/bills").then((res: any) => {
         if (res.data.value) {
-          _bills.value = res.data.value.data;
+          _billTypes.value = res.data.value.data;
         }
       });
     },

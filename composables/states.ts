@@ -5,4 +5,5 @@ export const useUser = () => useState<any>('user', () => null);
 export const useActivity = () => useState<any>('activity', () => []);
 export const useTrade = () => useState<any>('trade', () => []);
 export const useOrders = () => useState<any>('orders', () => []);
-export const useBills = () => useState<any>('bills', () => []);
+export const useBillTypes = () => useState<any>('billTypes', () => []);
+export const useBanks = () => useState<any>('banks', () => []);
