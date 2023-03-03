@@ -11,6 +11,7 @@ const banks = useBanks();
 
 const transferForm = ref({
   bank: "",
+  currency: "",
   account_name: null,
   account_number: null,
   amount: null,
@@ -44,6 +45,16 @@ const setAccountName = async (payload: any) => {
                 class="row g-3"
                 v-if="!preview"
               >
+                <div class="col-lg-12">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter Transfer Amount"
+                    v-model="transferForm.amount"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                    required
+                  />
+                </div>
                 <div class="col-lg-12">
                   <select
                     id="bank"
@@ -115,21 +126,44 @@ const setAccountName = async (payload: any) => {
                   >
                     <h6 class="caption text-capitalize mb-1">You Pay</h6>
                     <p class="title text-dark mb-0">
-                      {{ transferForm.amount }}
+                      {{
+                        Number(transferForm.amount || 0).toLocaleString(
+                          "en-NG",
+                          {
+                            style: "currency",
+                            currency: "NGN",
+                          }
+                        )
+                      }}
                     </p>
                   </div>
                   <div
                     class="list-group-item d-flex align-items-center justify-content-between border-0"
                   >
                     <h6 class="caption text-capitalize mb-1">Fees</h6>
-                    <p class="title text-dark mb-0">0</p>
+                    <p class="title text-dark mb-0">
+                      {{
+                        (0).toLocaleString("en-NG", {
+                          style: "currency",
+                          currency: "NGN",
+                        })
+                      }}
+                    </p>
                   </div>
                   <div
                     class="list-group-item d-flex align-items-center justify-content-between border-0"
                   >
                     <h6 class="caption text-capitalize mb-1">Receipent Gets</h6>
                     <p class="title text-dark mb-0">
-                      {{ transferForm.amount }}
+                      {{
+                        Number(transferForm.amount || 0).toLocaleString(
+                          "en-NG",
+                          {
+                            style: "currency",
+                            currency: "NGN",
+                          }
+                        )
+                      }}
                     </p>
                   </div>
                   <div
