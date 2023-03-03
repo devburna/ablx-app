@@ -175,7 +175,10 @@ const setAccountName = async (payload: any) => {
                 </div>
                 <button
                   type="button"
-                  @click="useTransfer().create(transferForm)"
+                  @click="
+                    preview = !preview;
+                    useTransfer().create(transferForm);
+                  "
                   class="btn btn-primary btn-lg w-100"
                 >
                   Confirm
