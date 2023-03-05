@@ -11,7 +11,7 @@ const banks = useBanks();
 
 const transferForm = ref({
   bank: "",
-  currency: "",
+  currency: "NGN",
   account_name: null,
   account_number: null,
   amount: null,
@@ -53,7 +53,9 @@ const setAccountName = async (payload: any) => {
                       <div
                         class="d-flex flex-column align-items-center justify-content-start text-start h-100 w-100"
                       >
-                        <label for="amount" class="text-muted w-100">Enter amount</label>
+                        <label for="amount" class="text-muted w-100"
+                          >Enter amount</label
+                        >
                         <input
                           type="text"
                           id="amount"
@@ -64,9 +66,6 @@ const setAccountName = async (payload: any) => {
                           required
                         />
                       </div>
-                    </div>
-                    <div class="col-auto h-100 p-2">
-                      <div class="vr border-light h-100"></div>
                     </div>
                     <div class="col-auto">
                       <img
