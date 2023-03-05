@@ -46,14 +46,36 @@ const setAccountName = async (payload: any) => {
                 v-if="!preview"
               >
                 <div class="col-lg-12">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter Transfer Amount"
-                    v-model="transferForm.amount"
-                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                    required
-                  />
+                  <div
+                    class="row gx-2 py-2 align-items-center justify-content-between amount bg-white border"
+                  >
+                    <div class="col h-100">
+                      <div
+                        class="d-flex flex-column align-items-center justify-content-start text-start h-100 w-100"
+                      >
+                        <label for="amount" class="text-muted w-100">Enter amount</label>
+                        <input
+                          type="text"
+                          id="amount"
+                          class="border-0 bg-transparent shadow-none fw-bold my-1 w-100 fs-6"
+                          placeholder="0.00"
+                          v-model="transferForm.amount"
+                          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-auto h-100 p-2">
+                      <div class="vr border-light h-100"></div>
+                    </div>
+                    <div class="col-auto">
+                      <img
+                        src="/img/flags/ng.png"
+                        alt="ng"
+                        class="ic-holder-img rounded-circle"
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div class="col-lg-12">
                   <select
@@ -205,4 +227,8 @@ const setAccountName = async (payload: any) => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+label {
+  font-size: 10px;
+}
+</style>

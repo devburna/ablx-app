@@ -71,15 +71,31 @@ h6 {
     font-size: 15px;
 }
 
+.amount {
+    height: 68px;
+    font-size: 14px;
+    border-radius: 16px;
+    padding-right: 15px;
+    padding-left: 15px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.amount input, .amount input:focus {
+    border: 0 !important;
+}
+
 .btn {
     font-weight: 500;
 }
 
-.btn, .form-control, .form-select {
+.btn, .form-control, .form-select, .amount {
     box-shadow: unset !important;
 }
 
-.form-control, .form-select {
+.form-control, .form-select, .amount {
     border-color: var(--bs-white) !important;
 }
 
@@ -196,9 +212,10 @@ h6 {
     color: var(--bs-primary) !important;
 }
 
-.border-light {
+.border-light, .vr {
     border-color: var(--border-light) !important;
 }
+
 
 .rounded-4 {
     border-radius: 16px !important;
@@ -211,6 +228,11 @@ h6 {
 .input-group-text:last-child {
     border-top-right-radius: 16px !important;
     border-bottom-right-radius: 16px !important;
+}
+
+.ic-holder-img {
+    height: 29px;
+    width: 29px;
 }
 
 .ic-holder {
