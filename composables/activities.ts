@@ -19,7 +19,8 @@ export const useActivities = () => {
             currency: "NGN",
           }),
           status: activity.status,
-          created_at: app.$timeAgo(activity.created_at)
+          created_at: app.$timeAgo(activity.created_at),
+          updated_at: app.$timeAgo(activity.created_at)
         }
 
         _activities.push(activity);
