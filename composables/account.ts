@@ -1,9 +1,10 @@
 export const useAccount = () => {
+  const app = useNuxtApp();
   const _user = useUser();
 
   return {
     me: async () => {
-      await useApi().get("/me").then((res: any) => {
+      await app.$get("/me").then((res: any) => {
         if (res.data.value) {
           _user.value = res.data.value.data;
 
@@ -14,14 +15,14 @@ export const useAccount = () => {
       });
     },
     profile: async (payload: any) => {
-      await useApi().patch("/me/profile", payload).then((res: any) => {
+      await app.$patch("/me/profile", payload).then((res: any) => {
         if (res.data.value) {
           _user.value = res.data.value.data;
         }
       });
     },
     password: async (payload: any) => {
-      await useApi().patch("/me/password", payload).then((res: any) => {
+      await app.$patch("/me/password", payload).then((res: any) => {
         if (res.data.value) {
           _user.value = res.data.value.data;
         }

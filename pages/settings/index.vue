@@ -7,19 +7,19 @@ const settings = useUser();
 
 const options = [
   {
-    icon: "chat-dots",
+    icon: "chat-dots-fill",
     title: "Help Center",
     caption: "Have an issue? Speak to our team",
     route: "/help",
   },
   {
-    icon: "gift",
+    icon: "gift-fill",
     title: "Refer & Earn",
     caption: "Invite your friends and get a bonus",
     route: "/earn",
   },
   {
-    icon: "lock",
+    icon: "lock-fill",
     title: "Update Password",
     caption: null,
     route: "/settings/password",
@@ -59,51 +59,19 @@ const options = [
               v-for="(item, index) in options"
               :key="index"
             >
-              <div
-                class="row row-cols-2 gy-0 g-3 align-items-center justify-content-between py-1"
-              >
-                <div class="col-auto">
-                  <div
-                    class="ic-holder d-flex align-items-center justify-content-center rounded-circle bg-light"
-                  >
-                    <i
-                      :class="`bi bi-${item.icon}-fill icon text-primary-dark`"
-                    ></i>
-                  </div>
-                </div>
-                <div class="col-auto me-auto">
-                  <h6 class="title mb-0">{{ item.title }}</h6>
-                  <small class="caption text-muted" v-if="item.caption">
-                    {{ item.caption }}
-                  </small>
-                </div>
-                <div class="col-auto text-end">
-                  <i class="bi bi-chevron-right caption"></i>
-                </div>
-              </div>
+              <ListView
+                :icon="item.icon"
+                :title="item.title"
+                :caption="item.caption"
+                :route="true"
+              />
             </NuxtLink>
             <button
               type="button"
               class="list-group-item border-0 rounded-0"
               @click="useAuth().logout()"
             >
-              <div
-                class="row row-cols-3 g-3 align-items-center justify-content-between py-1"
-              >
-                <div class="col-auto">
-                  <div
-                    class="ic-holder d-flex align-items-center justify-content-center rounded-circle bg-light"
-                  >
-                    <i class="bi bi-door-closed-fill icon"></i>
-                  </div>
-                </div>
-                <div class="col-auto me-auto">
-                  <h6 class="title mb-0">Logout</h6>
-                </div>
-                <div class="col-auto text-end">
-                  <i class="bi bi-chevron-right caption"></i>
-                </div>
-              </div>
+              <ListView icon="door-closed-fill" title="Logout" :route="true" />
             </button>
           </div>
         </div>

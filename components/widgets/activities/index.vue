@@ -25,37 +25,16 @@ useActivities();
       v-for="(item, index) in activitiesProps.data"
       :key="index"
     >
-      <div class="row gy-0 g-3 align-items-center justify-content-between py-1">
-        <div class="col-auto">
-          <div
-            :class="`ic-holder d-flex align-items-center justify-content-center rounded-circle bg-${item.status}`"
-          >
-            <div
-              class="ic-holder-inner d-flex align-items-center justify-content-center rounded-circle bg-white"
-            >
-              <i
-                :class="`bi bi-${
-                  ['Order'].includes(item.channel) ? 'lightning' : 'send'
-                }-fill text-${item.status} icon`"
-              ></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 me-auto text-start">
-          <h6 class="title mb-0 text-truncate">
-            {{ item.narration }}
-          </h6>
-          <small class="caption">{{ $timeAgo(item.created_at) }}</small>
-        </div>
-        <div class="col-auto text-end">
-          <h6 class="title mb-0">
-            {{ item.amount }}
-          </h6>
-          <small :class="`caption text-${item.status}`">
-            {{ item.status }}
-          </small>
-        </div>
-      </div>
+      <ListView
+        :icon="`${
+          ['Order'].includes(item.channel) ? 'lightning-fill' : 'send-fill'
+        }`"
+        :title="item.narration"
+        :caption="item.created_at"
+        :trailing="item.amount"
+        :subTrailing="item.status"
+        :status="item.status"
+      />
     </button>
   </div>
 </template>

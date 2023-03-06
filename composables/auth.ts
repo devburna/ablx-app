@@ -1,6 +1,7 @@
 export const useAuth = () => {
   const userToken = useToken();
   const user = useUser();
+  const app = useNuxtApp();
 
   const grantAccess = (data: any) => {
     const { token, user } = data;
@@ -13,31 +14,31 @@ export const useAuth = () => {
 
   return {
     register: async (payload: any) => {
-      await useApi().post("/register", payload).then((res: any) => {
+      await app.$post("/register", payload).then((res: any) => {
         if (res.data.value) {
           grantAccess(res.data.value.data);
         }
       });
     },
     login: async (payload: any) => {
-      await useApi().post("/login", payload).then((res: any) => {
+      await app.$post("/login", payload).then((res: any) => {
         if (res.data.value) {
           grantAccess(res.data.value.data);
         }
       });
     },
     recover: async (payload: any) => {
-      await useApi().post("/recover", payload).then((res: any) => {
+      await app.$post("/recover", payload).then((res: any) => {
         if (res.data.value) {
           grantAccess(res.data.value.data);
         }
       });
     },
     emailVerificationRequest: async () => {
-      await useApi().get("/verify-email");
+      await app.$get("/verify-email");
     },
     verifyEmailVerificationCode: async (payload: any) => {
-      await useApi().post("/verify-email", payload).then((res: any) => {
+      await app.$post("/verify-email", payload).then((res: any) => {
         if (res.data.value) {
           user.value = res.data.value.data;
           navigateTo('/home')

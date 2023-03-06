@@ -1,7 +1,8 @@
 export const useActivities = () => {
   const activities = useActivity();
+  const app = useNuxtApp();
 
-  useApi().get("/activities").then((res: any) => {
+  app.$get("/activities").then((res: any) => {
     if (res.data.value) {
       const _activities: any = [];
 
@@ -18,7 +19,7 @@ export const useActivities = () => {
             currency: "NGN",
           }),
           status: activity.status,
-          created_at: activity.created_at
+          created_at: app.$timeAgo(activity.created_at)
         }
 
         _activities.push(activity);
