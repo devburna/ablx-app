@@ -53,26 +53,24 @@ const options = [
         </div>
         <div class="col-lg-5">
           <div class="list-group rounded-4 py-1 bg-white">
-            <NuxtLink
+            <ListView
+              :icon="item.icon"
+              :title="item.title"
+              :caption="item.caption"
+              :route="true"
+              icHolder="light"
               :to="item.route"
-              class="list-group-item border-0 rounded-0"
               v-for="(item, index) in options"
               :key="index"
-            >
-              <ListView
-                :icon="item.icon"
-                :title="item.title"
-                :caption="item.caption"
-                :route="true"
-              />
-            </NuxtLink>
-            <button
-              type="button"
-              class="list-group-item border-0 rounded-0"
+              @click="$router.push(item.route)"
+            />
+            <ListView
+              icon="door-closed-fill"
+              title="Logout"
+              :route="true"
+              icHolder="light"
               @click="useAuth().logout()"
-            >
-              <ListView icon="door-closed-fill" title="Logout" :route="true" />
-            </button>
+            />
           </div>
         </div>
       </div>

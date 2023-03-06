@@ -23,28 +23,19 @@ const quickActions = [
 
 <template>
   <div class="list-group rounded-4 py-1 bg-white" id="quickActions">
-    <button
-      class="list-group-item border-0 border-bottom border-light rounded-0"
+    <ListView
+      class="list-group-item border-0 rounded-0 border-bottom border-light"
+      :icon="`${item.icon}-fill`"
+      :title="item.title"
+      :caption="item.caption"
+      :borderBottom="true"
+      icHolder="primary"
+      icHolderInner="warning"
+      icHolderInnerIcon="primary"
       v-for="(item, index) in quickActions"
       :key="index"
       @click="$router.push(item.route)"
-    >
-      <div class="d-flex align-items-center gap-3 py-1">
-        <div
-          class="ic-holder d-flex align-items-center justify-content-center rounded-circle bg-primary"
-        >
-          <div
-            class="ic-holder-inner d-flex align-items-center justify-content-center rounded-circle bg-warning"
-          >
-            <i :class="`bi bi-${item.icon}-fill text-primary icon`"></i>
-          </div>
-        </div>
-        <div class="text-start">
-          <h6 class="title mb-0">{{ item.title }}</h6>
-          <small class="caption">{{ item.caption }}</small>
-        </div>
-      </div>
-    </button>
+    />
   </div>
 </template>
 

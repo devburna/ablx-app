@@ -4,7 +4,7 @@ export const useTrader = () => {
 
   return {
     assets: async () => {
-      await app.get("/assets").then((res: any) => {
+      await app.$get("/assets").then((res: any) => {
         if (res.data.value) {
           _trade.value = res.data.value.data;
         }
