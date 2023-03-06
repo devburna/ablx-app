@@ -10,7 +10,7 @@ definePageMeta({
       :title="true"
       :hasPrev="true"
       class="bg-primary sticky-top"
-      name="Assets"
+      name="Customers"
     />
   </div>
 </template>

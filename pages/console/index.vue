@@ -22,7 +22,7 @@ const options = [
     icon: "people-fill",
     title: "Customers",
     caption: "View and manage customers",
-    route: "/console/users",
+    route: "/console/customers",
   },
   {
     icon: "file-earmark-text-fill",
