@@ -19,6 +19,12 @@ const options = [
     route: "/earn",
   },
   {
+    icon: "person-fill-gear",
+    title: "Admin Console",
+    caption: "Manage assets, trades, users etc",
+    route: "/console",
+  },
+  {
     icon: "lock-fill",
     title: "Update Password",
     caption: null,
