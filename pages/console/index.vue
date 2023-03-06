@@ -55,7 +55,6 @@ const options = [
         </div>
       </div>
     </div>
-    <BottomNav />
   </div>
 </template>
 
