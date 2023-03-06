@@ -14,7 +14,7 @@ const options = [
   },
   {
     icon: "currency-exchange",
-    title: "Trades",
+    title: "Orders",
     caption: "View and manage customers orders",
     route: "/console/orders",
   },
