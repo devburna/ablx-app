@@ -16,12 +16,7 @@ useActivities();
       }`"
       :title="item.user.name"
       :caption="$timeAgo(item.created_at)"
-      :trailing="
-        Number(item.amount).toLocaleString('en-NG', {
-          style: 'currency',
-          currency: 'NGN',
-        })
-      "
+      :trailing="item.amount"
       :subTrailing="item.status"
       :status="item.status"
       data-bs-toggle="offcanvas"

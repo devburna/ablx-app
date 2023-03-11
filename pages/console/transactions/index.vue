@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 definePageMeta({
-  middleware: "is-logged-in",
+  middleware: ["is-logged-in", "is-admin"],
 });
 </script>
 

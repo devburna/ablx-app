@@ -19,12 +19,6 @@ const options = [
     route: "/earn",
   },
   {
-    icon: "person-fill-gear",
-    title: "Admin Console",
-    caption: "Manage assets, trades, users etc",
-    route: "/console",
-  },
-  {
     icon: "lock-fill",
     title: "Update Password",
     caption: null,
@@ -69,6 +63,14 @@ const options = [
               v-for="(item, index) in options"
               :key="index"
               @click="$router.push(item.route)"
+            />
+            <ListView
+              icon="person-fill-gear"
+              title="Admin Console"
+              caption="Manage assets, trades, users etc"
+              @click="$router.push('/console')"
+              icHolder="light"
+              v-if="settings?.isAdmin"
             />
             <ListView
               icon="door-closed-fill"

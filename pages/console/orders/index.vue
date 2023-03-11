@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 definePageMeta({
-  middleware: "is-logged-in",
+  middleware: ["is-logged-in", "is-admin"],
 });
 
 useOrder().all();
@@ -32,7 +32,7 @@ useOrder().all();
         :uuid="index"
         :content="`activity-${index}`"
         :data="item"
-        title="Activity Details"
+        title="Order details"
         dialog="offcanvas-bottom h-75"
       />
     </div>

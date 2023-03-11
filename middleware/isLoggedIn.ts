@@ -1,4 +1,4 @@
-export default defineNuxtRouteMiddleware((to, from) => {
+export default defineNuxtRouteMiddleware(async (to, from) => {
     const token = useToken();
     const user = useUser();
 
@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
         return useAuth().logout()
     } else {
         if (!user.value) {
-            useAccount().me()
+            await useAccount().me()
         }
     };
 })

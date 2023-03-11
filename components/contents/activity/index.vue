@@ -17,7 +17,7 @@ const user = useUser();
             :class="`bi bi-${
               ['Order'].includes(appDrawerContent.data.channel)
                 ? 'lightning'
-                : 'send'
+                : 'bag-check'
             }-fill text-${appDrawerContent.data.status} icon`"
           ></i>
         </div>

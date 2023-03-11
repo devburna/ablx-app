@@ -26,7 +26,7 @@ definePageMeta({
         :uuid="index"
         :content="`activity-${index}`"
         :data="item"
-        title="Activity Details"
+        title="Activity details"
         dialog="offcanvas-bottom h-75"
       />
     </div>
