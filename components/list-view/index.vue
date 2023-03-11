@@ -36,7 +36,7 @@ const listView = useAttrs();
     </div>
     <div class="text-end py-1">
       <i class="bi bi-chevron-right caption" v-if="listView.route"></i>
-      <div v-if="listView.trailing && listView.subTrailing">
+      <div v-if="listView.trailing || listView.subTrailing">
         <h6 class="title mb-0" v-if="listView.trailing">
           {{ listView.trailing }}
         </h6>
