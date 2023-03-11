@@ -10,13 +10,16 @@ const userBalance = useUser();
       >
         <div class="col-lg-12">
           <strong class="balance text-white">
-            {{ userBalance?.wallet.balance }}
+            {{
+              Number(userBalance?.wallet.balance).toLocaleString("en-NG", {
+                style: "currency",
+                currency: "NGN",
+              })
+            }}
           </strong>
         </div>
         <div class="col-lg-12 mb-3">
-          <small class="caption d-block"
-            >Available balance ({{ userBalance?.wallet.currency }})</small
-          >
+          <small class="caption d-block">Available balance</small>
         </div>
       </div>
     </div>
