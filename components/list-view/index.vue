@@ -6,7 +6,7 @@ const listView = useAttrs();
   <div
     class="list-group-item d-flex align-items-center justify-content-center border-0 gap-3"
   >
-    <div class=" py-1" v-if="listView.icon">
+    <div class="py-1" v-if="listView.icon">
       <div
         :class="`ic-holder d-flex align-items-center justify-content-center rounded-circle bg-${
           listView.status || listView.icHolder || 'muted'

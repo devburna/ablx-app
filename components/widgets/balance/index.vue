@@ -11,7 +11,7 @@ const userBalance = useUser();
         <div class="col-lg-12">
           <strong class="balance text-white">
             {{
-              Number(userBalance?.wallet.balance).toLocaleString("en-NG", {
+              Number(userBalance.wallet.balance).toLocaleString("en-NG", {
                 style: "currency",
                 currency: "NGN",
               })
