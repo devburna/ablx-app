@@ -58,7 +58,9 @@ const options = [
               :title="item.title"
               :caption="item.caption"
               :route="true"
-              icHolder="light"
+              icHolder="primary"
+              icHolderInner="warning"
+              icHolderInnerIcon="primary"
               :to="item.route"
               v-for="(item, index) in options"
               :key="index"
@@ -69,14 +71,18 @@ const options = [
               title="Admin Console"
               caption="Manage assets, trades, users etc"
               @click="$router.push('/console')"
-              icHolder="light"
+              icHolder="primary"
+              icHolderInner="warning"
+              icHolderInnerIcon="primary"
               v-if="settings?.isAdmin"
             />
             <ListView
               icon="door-closed-fill"
               title="Logout"
               :route="true"
-              icHolder="light"
+              icHolder="primary"
+              icHolderInner="warning"
+              icHolderInnerIcon="primary"
               @click="useAuth().logout()"
             />
           </div>

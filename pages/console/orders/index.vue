@@ -14,7 +14,7 @@ useOrder().all();
       class="bg-primary sticky-top"
       name="Orders"
     />
-    <div class="container-fluid py-3" id="activities">
+    <div class="container-fluid py-3" id="orders">
       <div class="row g-0 align-items-center justify-content-center">
         <div class="col-lg-5">
           <WidgetsActivities
