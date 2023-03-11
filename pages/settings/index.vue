@@ -54,6 +54,16 @@ const options = [
         <div class="col-lg-5">
           <div class="list-group rounded-4 py-1 bg-white">
             <ListView
+              icon="person-fill-gear"
+              title="Admin Console"
+              caption="Manage assets, trades, users etc"
+              @click="$router.push('/console')"
+              icHolder="primary"
+              icHolderInner="warning"
+              icHolderInnerIcon="primary"
+              v-if="settings?.isAdmin"
+            />
+            <ListView
               :icon="item.icon"
               :title="item.title"
               :caption="item.caption"
@@ -65,16 +75,6 @@ const options = [
               v-for="(item, index) in options"
               :key="index"
               @click="$router.push(item.route)"
-            />
-            <ListView
-              icon="person-fill-gear"
-              title="Admin Console"
-              caption="Manage assets, trades, users etc"
-              @click="$router.push('/console')"
-              icHolder="primary"
-              icHolderInner="warning"
-              icHolderInnerIcon="primary"
-              v-if="settings?.isAdmin"
             />
             <ListView
               icon="door-closed-fill"
