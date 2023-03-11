@@ -12,11 +12,16 @@ useActivities();
     />
     <ListView
       :icon="`${
-        ['Order'].includes(item.channel) ? 'lightning-fill' : 'send-fill'
+        ['Order'].includes(item.channel) ? 'lightning-fill' : 'bag-check-fill'
       }`"
-      :title="item.narration"
-      :caption="item.created_at"
-      :trailing="item.amount"
+      :title="item.user.name"
+      :caption="$timeAgo(item.created_at)"
+      :trailing="
+        Number(item.amount).toLocaleString('en-NG', {
+          style: 'currency',
+          currency: 'NGN',
+        })
+      "
       :subTrailing="item.status"
       :status="item.status"
       data-bs-toggle="offcanvas"

@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 const appDrawerContent = useAttrs();
+
+const user = useUser();
 </script>
 
 <template>
@@ -13,7 +15,9 @@ const appDrawerContent = useAttrs();
         >
           <i
             :class="`bi bi-${
-              ['Order'].includes(appDrawerContent.data.channel) ? 'lightning' : 'send'
+              ['Order'].includes(appDrawerContent.data.channel)
+                ? 'lightning'
+                : 'send'
             }-fill text-${appDrawerContent.data.status} icon`"
           ></i>
         </div>
@@ -33,9 +37,19 @@ const appDrawerContent = useAttrs();
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-lg w-100">
+    <button
+      type="submit"
+      class="btn btn-primary btn-lg w-100 mb-4"
+      v-if="!user.isAdmin"
+    >
       Share Receipt
     </button>
+    <div class="btn-group w-100">
+      <button type="submit" class="btn btn-success btn-lg w-100">
+        Approve
+      </button>
+      <button type="submit" class="btn btn-danger btn-lg w-100">Reject</button>
+    </div>
   </div>
 </template>
 
