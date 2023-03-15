@@ -1,14 +1,16 @@
 export const useAuth = () => {
-  const userToken = useToken();
-  const user = useUser();
+  const _token = useToken();
+  const _user = useUser();
   const app = useNuxtApp();
 
   const grantAccess = (data: any) => {
     const { token, user } = data;
 
-    userToken.value = token;
     localStorage.setItem('token', token)
-    user.value = user;
+
+    _token.value = token;
+    _user.value = user;
+    
     navigateTo('/home')
   }
 
@@ -40,13 +42,13 @@ export const useAuth = () => {
     verifyEmailVerificationCode: async (payload: any) => {
       await app.$post("/verify-email", payload).then((res: any) => {
         if (res.data.value) {
-          user.value = res.data.value.data;
+          _user.value = res.data.value.data;
           navigateTo('/home')
         }
       });
     },
     logout: async () => {
-      user.value = null;
+      _token.value = null;
       localStorage.clear()
       return navigateTo('/login');
     },
