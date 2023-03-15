@@ -17,7 +17,7 @@ const trade = useTrade();
           role="tablist"
         >
           <button
-            :class="`nav-link border-0 border-light w-50 ${
+            :class="`nav-link rounded-0 border-0 border-light w-50 ${
               index.toString() === 'Giftcard' ? 'active' : ''
             }`"
             :id="`nav-${index}-tab`"
