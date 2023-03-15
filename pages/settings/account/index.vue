@@ -19,7 +19,7 @@ const accountForm = {
       class="bg-primary sticky-top"
       name="Account Information"
     />
-    <div class="container-fluid h-100 py-4" id="account">
+    <div class="container-fluid h-100 p-3" id="account">
       <div class="row g-0 align-items-center justify-content-center">
         <div class="col-lg-5">
           <form
