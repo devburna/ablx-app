@@ -21,7 +21,7 @@ useCustomer().all();
             :data="useCustomers().value"
             v-if="useCustomers().value"
           />
-          <Message caption="No activity found 😥" v-else />
+          <Message caption="No customer found 😥" v-else />
         </div>
       </div>
     </div>

@@ -6,11 +6,18 @@ const listView = useAttrs();
   <div
     class="list-group-item d-flex align-items-center justify-content-center border-0 gap-3"
   >
-    <div class="py-1" v-if="listView.icon">
+    <div class="py-1" v-if="listView.icon || listView.img">
+      <img
+        :src="listView.img"
+        alt="image"
+        class="ic-holder"
+        v-if="listView.img"
+      />
       <div
         :class="`ic-holder d-flex align-items-center justify-content-center rounded-circle bg-${
           listView.status || listView.icHolder || 'muted'
         }`"
+        v-else
       >
         <div
           :class="`ic-holder-inner d-flex align-items-center justify-content-center rounded-circle bg-${

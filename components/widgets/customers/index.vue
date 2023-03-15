@@ -6,11 +6,6 @@ useCustomers();
 <template>
   <div class="list-group rounded-4 py-1 bg-white" id="customers">
     <ListView
-      title="Recent"
-      subTrailing="Show all"
-      v-if="customersProps.header"
-    />
-    <ListView
       icon="person-fill"
       :title="item.name"
       :caption="item.email"
