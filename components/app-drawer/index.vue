@@ -40,6 +40,11 @@ const appDrawer = useAttrs();
             :content="appDrawer.content"
             :data="appDrawer.data"
           />
+          <ContentsCustomer
+            v-if="appDrawer.content === `customer-${appDrawer.uuid}`"
+            :content="appDrawer.content"
+            :data="appDrawer.data"
+          />
           <ContentsAsset
             v-if="
               appDrawer.content ===

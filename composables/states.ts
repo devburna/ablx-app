@@ -7,4 +7,4 @@ export const useTrade = () => useState<any>('trade', () => []);
 export const useOrders = () => useState<any>('orders', () => []);
 export const useBillTypes = () => useState<any>('billTypes', () => []);
 export const useBanks = () => useState<any>('banks', () => []);
-export const useCustomers = () => useState<any>('customers', () => null);
+export const useCustomers = () => useState<any>('customers', () => []);
