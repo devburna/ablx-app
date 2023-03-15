@@ -101,20 +101,4 @@ const trade = useTrade();
   </div>
 </template>
 
-<style scoped>
-.nav-link {
-  border: 0;
-  font-size: 14px;
-  border-radius: 0;
-  background-color: transparent !important;
-  color: aliceblue;
-}
-
-.nav-link:first-of-type {
-  border-right: 1px solid var(--border-light) !important;
-}
-
-.nav-tabs .nav-link.active {
-  color: var(--bs-warning);
-}
-</style>
+<style scoped></style>

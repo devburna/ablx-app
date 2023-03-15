@@ -23,10 +23,10 @@ const user = useUser();
         </div>
       </div>
       <h6 class="mb-1">
-        {{ appDrawerContent.data.amount }}
+        {{ $currency(appDrawerContent.data.amount, "NGN") }}
       </h6>
       <p class="caption">
-        {{ appDrawerContent.data.narration }}
+        {{ appDrawerContent.data.narration || appDrawerContent.data.comment }}
       </p>
     </div>
     <div class="list-group rounded-4 py-1 bg-white mb-4">

@@ -27,7 +27,15 @@ useTrader()
     <div class="container-fluid py-3" id="assets">
       <div class="row g-0 align-items-center justify-content-center">
         <div class="col-lg-5">
-          {{ asset }}
+          <div class="list-group" v-if="asset">
+            <div
+              class="list-group-item"
+              v-for="(item, index) in asset.rates"
+              :key="index"
+            >
+              {{ item }}
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ const listView = useAttrs();
         :src="listView.img"
         alt="image"
         class="ic-holder"
+        loading="lazy"
         v-if="listView.img"
       />
       <div

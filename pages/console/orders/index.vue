@@ -21,7 +21,7 @@ useOrder().all();
             :data="useOrders().value"
             v-if="useOrders().value"
           />
-          <Message caption="No activity found 😥" v-else />
+          <Message caption="No order found 😥" v-else />
         </div>
       </div>
     </div>
