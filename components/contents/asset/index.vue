@@ -168,7 +168,7 @@ const tradeHandler = async () => {
         </button>
       </div>
     </div>
-    <div class="text-center p-5" v-else>
+    <div class="text-center py-5" v-else>
       <h6 class="">Congratulations!</h6>
       <p class="caption" v-html="response.data.comment || response.message"></p>
       <div
@@ -185,7 +185,7 @@ const tradeHandler = async () => {
       <div class="btn-group gap-3 my-3">
         <button
           type="button"
-          class="btn btn-success btn-sm rounded-4 lh-lg px-4"
+          class="btn btn-success btn-sm rounded lh-lg px-4"
           @click="$copy(response.data.invoice.address)"
           v-if="response.data.invoice && response.data.invoice.address"
         >
@@ -193,7 +193,7 @@ const tradeHandler = async () => {
         </button>
         <button
           type="button"
-          class="btn btn-primary btn-sm rounded-4 lh-lg px-4"
+          class="btn btn-primary btn-sm rounded lh-lg px-4"
           @click="response = null"
         >
           Trade again
