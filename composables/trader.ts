@@ -3,12 +3,15 @@ export const useTrader = () => {
   const _trade = useTrade();
 
   return {
-    assets: async () => {
-      await app.$get("/assets").then((res: any) => {
+    assets: async (payload?: string) => {
+      await app.$get("/assets", payload).then((res: any) => {
         if (res.data.value) {
           _trade.value = res.data.value.data;
         }
       });
+    },
+    asset: async (payload?: string) => {
+      return await app.$get(`/assets/${payload}`);
     }
   }
 }
