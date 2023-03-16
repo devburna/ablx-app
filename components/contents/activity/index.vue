@@ -37,7 +37,7 @@ const user = useUser();
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-primary btn-lg w-100 mb-4">
+    <button type="button" class="btn btn-success btn-lg w-100 mb-4">
       Share Receipt
     </button>
     <div

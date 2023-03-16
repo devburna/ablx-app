@@ -10,7 +10,7 @@ const activities = useAttrs();
       :icon="`${
         ['Order'].includes(item.channel) ? 'lightning-fill' : 'bag-check-fill'
       }`"
-      :title="item.user.name"
+      :title="item.narration || item.rate.name"
       :caption="$timeAgo(item.created_at)"
       :trailing="$currency(item.amount, 'NGN')"
       :subTrailing="item.status"
