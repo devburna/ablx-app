@@ -118,7 +118,7 @@ const tradeHandler = async () => {
             :src="assetContent.data.image.secure_url"
             :alt="assetContent.data.name"
             loading="lazy"
-            class="ic-holder mb-3"
+            class="ic-holder ic-holder-lg mx-auto mb-3"
           />
           <h6 class="mb-1">
             {{

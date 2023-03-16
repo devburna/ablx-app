@@ -27,7 +27,7 @@ const billForm = ref({
         <div class="row g-0 align-items-center justify-content-center">
           <div class="col-lg-5">
             <form
-              @submit.prevent="useBill().validate(billForm.type)"
+              @submit.prevent="useBills().validate(billForm.type)"
               class="row g-3"
             >
               <div class="col-lg-12">
@@ -64,7 +64,7 @@ const billForm = ref({
                   class="form-control"
                   :placeholder="billForm.type.label_name"
                   v-model="billForm.customer"
-                  v-on:change="billForm.type.customer = billForm.customer"
+                  v-on:keyup="billForm.type.customer = billForm.customer"
                   required
                 />
               </div>

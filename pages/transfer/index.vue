@@ -103,7 +103,7 @@ const setAccountName = async (payload: any) => {
           <div v-else>
             <div class="text-center py-3">
               <div
-                class="ic-holder d-flex align-items-center justify-content-center rounded-circle bg-success mx-auto mb-3"
+                class="ic-holder ic-holder-lg d-flex align-items-center justify-content-center rounded-circle bg-success mx-auto mb-3"
               >
                 <div
                   class="ic-holder-inner d-flex align-items-center justify-content-center rounded-circle bg-white"

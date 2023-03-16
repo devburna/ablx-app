@@ -8,7 +8,7 @@ const user = useUser();
   <div class="pb-5">
     <div class="py-2 text-center">
       <div
-        :class="`ic-holder d-flex align-items-center justify-content-center rounded-circle bg-${appDrawerContent.data.status} mx-auto mb-3`"
+        :class="`ic-holder ic-holder-lg d-flex align-items-center justify-content-center rounded-circle bg-${appDrawerContent.data.status} mx-auto mb-3`"
       >
         <div
           class="ic-holder-inner d-flex align-items-center justify-content-center rounded-circle bg-white"
