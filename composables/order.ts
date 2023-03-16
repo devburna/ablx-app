@@ -10,6 +10,9 @@ export const useOrder = () => {
         }
       });
     },
+    create: async (payload: any) => {
+      return await app.$post("/orders", payload);
+    },
     update: async (payload: any) => {
       if (payload.status) {
         if (!confirm(`You are making this order as ${payload.status}, proceed?`)) {

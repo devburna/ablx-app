@@ -17,6 +17,7 @@
 
 <style scoped>
 #loading {
+  z-index: 9000;
   background: rgba(0, 0, 0, 0.8);
 }
 </style>

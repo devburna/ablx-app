@@ -53,7 +53,7 @@ export default defineNuxtConfig({
         }
     },
 
-    css: ['@/assets/css/dropify.css', '@/assets/css/main.css'],
+    css: ['@/assets/css/spinkit.min.css', '@/assets/css/dropify.css', '@/assets/css/main.css'],
 
     runtimeConfig: {
         apiKey: process.env.APP_KEY,
