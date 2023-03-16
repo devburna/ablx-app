@@ -17,8 +17,8 @@ const activities = useActivity();
       </div>
       <div class="col-lg-5">
         <WidgetsActivities
+          class="mb-4 mx-3"
           :data="activities.slice(0, 5)"
-          class="rounded-4 bg-white mb-4 mx-3"
           v-if="activities.length"
         />
         <Message caption="No activity found 😥" v-else />
