@@ -28,6 +28,6 @@ const userBalance = useUser();
 
 <style scoped>
 .balance {
-  font-size: 40px;
+  font-size: 35px;
 }
 </style>
