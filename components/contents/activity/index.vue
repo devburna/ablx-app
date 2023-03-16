@@ -44,7 +44,7 @@ const user = useUser();
     >
       Share Receipt
     </button>
-    <div class="btn-group w-100">
+    <div class="btn-group w-100" v-else>
       <button type="submit" class="btn btn-success btn-lg w-100">
         Approve
       </button>
