@@ -15,14 +15,20 @@ const listView = useAttrs();
         v-if="listView.img"
       />
       <div
-        :class="`ic-holder ic-holder-lg rounded-circle bg-${listView.icHolder || listView.status}`"
+        :class="`ic-holder ic-holder-lg rounded-circle bg-${
+          listView.icHolder || listView.status
+        }`"
         v-else
       >
         <div
-          :class="`ic-holder-inner rounded-circle bg-${listView.icHolderInner || listView.status}`"
+          :class="`ic-holder-inner rounded-circle bg-${
+            listView.icHolderInner || listView.status
+          }`"
         >
           <i
-            :class="`bi bi-${listView.icon} text-${listView.icHolderInnerIcon || listView.status} caption`"
+            :class="`bi bi-${listView.icon} text-${
+              listView.icHolderInnerIcon || listView.status
+            } caption`"
           ></i>
         </div>
       </div>
@@ -41,8 +47,8 @@ const listView = useAttrs();
       <small
         :class="`caption text-${listView.status || 'muted'}`"
         v-if="listView.subTrailing"
+        v-html="listView.subTrailing"
       >
-        {{ listView.subTrailing }}
       </small>
     </div>
   </div>
