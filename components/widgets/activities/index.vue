@@ -10,25 +10,6 @@ useActivities();
       subTrailing="Show all"
       v-if="activitiesProps.header"
     />
-    <ListView
-      :icon="`${
-        ['Order'].includes(item.channel) ? 'lightning-fill' : 'bag-check-fill'
-      }`"
-      :title="item.user.name"
-      :caption="$timeAgo(item.created_at)"
-      :trailing="
-        Number(item.amount).toLocaleString('en-NG', {
-          style: 'currency',
-          currency: 'NGN',
-        })
-      "
-      :subTrailing="item.status"
-      :status="item.status"
-      data-bs-toggle="offcanvas"
-      :data-bs-target="`#activity-${index}`"
-      v-for="(item, index) in activitiesProps.data"
-      :key="index"
-    />
   </div>
 </template>
 

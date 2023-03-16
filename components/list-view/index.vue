@@ -3,58 +3,50 @@ const listView = useAttrs();
 </script>
 
 <template>
-  <div
-    class="list-group-item d-flex align-items-center justify-content-center border-0 gap-3"
-  >
-    <div class="py-1" v-if="listView.icon || listView.img">
+  <div class="row">
+    <div class="col-auto" v-if="listView.icon || listView.img">
       <img
-        :src="listView.img"
+        :src="`${listView.img}`"
         alt="image"
         class="ic-holder"
         loading="lazy"
         v-if="listView.img"
       />
       <div
-        :class="`ic-holder d-flex align-items-center justify-content-center rounded-circle bg-${
-          listView.status || listView.icHolder || 'muted'
-        }`"
+        :class="`ic-holder ic-holder-lg rounded-circle bg-${listView.icHolder}`"
         v-else
       >
         <div
-          :class="`ic-holder-inner d-flex align-items-center justify-content-center rounded-circle bg-${
-            listView.icHolderInner || 'white'
-          }`"
+          :class="`ic-holder-inner rounded-circle bg-${listView.icHolderInner}`"
         >
           <i
-            :class="`bi bi-${listView.icon} icon text-${
-              listView.status || listView.icHolderInnerIcon
-            }`"
+            :class="`bi bi-${listView.icon} icon text-${listView.icHolderInnerIcon}`"
           ></i>
         </div>
       </div>
     </div>
-    <div class="text-start me-auto py-1">
+    <div class="col-auto">
       <h6 class="title mb-0">{{ listView.title }}</h6>
-      <small
-        :class="`caption text-${listView.status}muted`"
-        v-if="listView.caption"
-      >
+      <small class="caption text-muted" v-if="listView.caption">
         {{ listView.caption }}
       </small>
     </div>
-    <div class="text-end py-1">
-      <i class="bi bi-chevron-right caption" v-if="listView.route"></i>
-      <div v-if="listView.trailing || listView.subTrailing">
-        <h6 class="title mb-0" v-if="listView.trailing">
-          {{ listView.trailing }}
-        </h6>
-        <small
-          :class="`caption text-${listView.status || 'muted'}`"
-          v-if="listView.subTrailing"
-        >
-          {{ listView.subTrailing }}
-        </small>
-      </div>
+    <div class="col-auto" v-if="listView.route">
+      <i class="bi bi-chevron-right caption"></i>
+    </div>
+    <div
+      class="col-auto text-end"
+      v-if="listView.trailing || listView.subTrailing"
+    >
+      <h6 class="title mb-0" v-if="listView.trailing">
+        {{ listView.trailing }}
+      </h6>
+      <small
+        :class="`caption text-${listView.status}muted`"
+        v-if="listView.subTrailing"
+      >
+        {{ listView.subTrailing }}
+      </small>
     </div>
   </div>
 </template>

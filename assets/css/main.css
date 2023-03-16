@@ -235,7 +235,13 @@ h6 {
     width: 29px;
 }
 
-.ic-holder {
+.ic-holder, .ic-holder-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ic-holder-lg {
     width: 39px;
     height: 39px;
 }
