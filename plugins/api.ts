@@ -25,8 +25,9 @@ export default defineNuxtPlugin((nuxtApp) => {
         },
         onResponseError({ request, response, options }) {
             // Handle the response errors
-            useToast('error', response._data.message)
             isLoading.value = false;
+            
+            useToast('error', response._data.message)
 
             if (([403].includes(response.status) && !user.value.email_verified_at)) {
                 navigateTo('verify-email');
