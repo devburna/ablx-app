@@ -4,7 +4,7 @@ const userBalance = useUser();
 
 <template>
   <div class="container-fluid bg-pattern py-5" id="balance">
-    <div class="container py-4">
+    <div class="container pt-3 pb-4">
       <div
         class="row g-0 align-items-center justify-content-center text-center"
       >
