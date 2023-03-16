@@ -3,8 +3,10 @@ const listView = useAttrs();
 </script>
 
 <template>
-  <div class="row">
-    <div class="col-auto" v-if="listView.icon || listView.img">
+  <div
+    :class="`list-group-item border-0 ${listView.custom} d-flex align-items-center gap-3`"
+  >
+    <div class="py-1" v-if="listView.icon || listView.img">
       <img
         :src="`${listView.img}`"
         alt="image"
@@ -20,24 +22,19 @@ const listView = useAttrs();
           :class="`ic-holder-inner rounded-circle bg-${listView.icHolderInner}`"
         >
           <i
-            :class="`bi bi-${listView.icon} icon text-${listView.icHolderInnerIcon}`"
+            :class="`bi bi-${listView.icon} text-${listView.icHolderInnerIcon} caption`"
           ></i>
         </div>
       </div>
     </div>
-    <div class="col-auto">
+    <div class="py-1">
       <h6 class="title mb-0">{{ listView.title }}</h6>
       <small class="caption text-muted" v-if="listView.caption">
         {{ listView.caption }}
       </small>
     </div>
-    <div class="col-auto" v-if="listView.route">
-      <i class="bi bi-chevron-right caption"></i>
-    </div>
-    <div
-      class="col-auto text-end"
-      v-if="listView.trailing || listView.subTrailing"
-    >
+    <div class="py-1 text-end ms-auto">
+      <i class="bi bi-chevron-right caption" v-if="listView.route"></i>
       <h6 class="title mb-0" v-if="listView.trailing">
         {{ listView.trailing }}
       </h6>
@@ -51,4 +48,11 @@ const listView = useAttrs();
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.title {
+  font-size: 13px;
+}
+.caption {
+  font-size: 12px;
+}
+</style>

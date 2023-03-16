@@ -22,13 +22,12 @@ const quickActions = [
 </script>
 
 <template>
-  <div class="list-group rounded-4 py-1 bg-white" id="quickActions">
+  <div class="list-group bg-white rounded-4 py-2">
     <ListView
-      class="list-group-item border-0 rounded-0 border-bottom border-light"
       :icon="`${item.icon}-fill`"
       :title="item.title"
       :caption="item.caption"
-      :borderBottom="true"
+      custom="border-bottom border-light"
       icHolder="primary"
       icHolderInner="warning"
       icHolderInnerIcon="primary"

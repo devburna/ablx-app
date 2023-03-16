@@ -71,6 +71,10 @@ h6 {
     font-size: 15px;
 }
 
+.container-fluid {
+    overflow-x: hidden;
+}
+
 .amount {
     height: 68px;
     font-size: 14px;
@@ -242,8 +246,8 @@ h6 {
 }
 
 .ic-holder-lg {
-    width: 39px;
-    height: 39px;
+    width: 38px;
+    height: 38px;
 }
 
 .ic-holder-inner {
