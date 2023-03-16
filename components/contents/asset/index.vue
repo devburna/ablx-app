@@ -32,7 +32,7 @@ const tradeHandler = async () => {
       <div v-if="!preview">
         <form
           @submit.prevent="preview = !preview"
-          class="row g-3 px-1"
+          class="row g-3"
           v-if="assetContent.data.rates.length"
         >
           <div class="col-lg-12">
