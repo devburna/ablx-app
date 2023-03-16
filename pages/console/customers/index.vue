@@ -3,8 +3,11 @@ definePageMeta({
   middleware: ["is-logged-in", "is-admin"],
 });
 
-useCustomer().all();
 const customers = useCustomers();
+
+if (!customers.value.length) {
+  useCustomer().all();
+}
 </script>
 
 <template>

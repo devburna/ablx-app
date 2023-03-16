@@ -3,8 +3,11 @@ definePageMeta({
   middleware: ["is-logged-in", "is-admin"],
 });
 
-useOrder().all();
 const orders = useOrders();
+
+if (!orders.value.length) {
+useOrder().all();
+}
 </script>
 
 <template>

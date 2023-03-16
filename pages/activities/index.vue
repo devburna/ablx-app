@@ -2,7 +2,12 @@
 definePageMeta({
   middleware: "is-logged-in",
 });
+
 const activities = useActivity();
+
+if (!activities.value.length) {
+  useActivities();
+}
 </script>
 
 <template>
