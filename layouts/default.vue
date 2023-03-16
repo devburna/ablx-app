@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const isLoading = useIsLoading();
 const activities = useActivity();
-const orders = useActivity();
+const orders = useOrders();
 const customers = useCustomers();
 const assets = useTrade();
 </script>

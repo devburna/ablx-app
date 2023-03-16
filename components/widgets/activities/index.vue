@@ -15,9 +15,7 @@ const activities = useAttrs();
       :trailing="$currency(item.amount, 'NGN')"
       :subTrailing="item.status"
       :status="item.status"
-      icHolder="warning"
       icHolderInner="white"
-      icHolderInnerIcon="warning"
       data-bs-toggle="offcanvas"
       :data-bs-target="`#activity-${index}`"
     />

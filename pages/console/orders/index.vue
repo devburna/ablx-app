@@ -4,7 +4,7 @@ definePageMeta({
 });
 
 useOrder().all();
-const orders = useActivity();
+const orders = useOrders();
 </script>
 
 <template>

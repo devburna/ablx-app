@@ -38,17 +38,37 @@ const user = useUser();
       </div>
     </div>
     <button
-      type="submit"
+      type="button"
       class="btn btn-primary btn-lg w-100 mb-4"
       v-if="!user.isAdmin"
     >
       Share Receipt
     </button>
-    <div class="btn-group w-100" v-else>
-      <button type="submit" class="btn btn-success btn-lg w-100">
+    <div class="btn-group gap-3 w-100" v-else>
+      <button
+        type="button"
+        class="btn btn-outline-success btn-sm rounded lh-lg"
+        @click="
+          useOrder().update({
+            id: appDrawerContent.data.id,
+            status: 'Approved',
+          })
+        "
+      >
         Approve
       </button>
-      <button type="submit" class="btn btn-danger btn-lg w-100">Reject</button>
+      <button
+        type="button"
+        class="btn btn-outline-danger btn-sm rounded lh-lg"
+        @click="
+          useOrder().update({
+            id: appDrawerContent.data.id,
+            status: 'Rejected',
+          })
+        "
+      >
+        Reject
+      </button>
     </div>
   </div>
 </template>

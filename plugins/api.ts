@@ -55,7 +55,7 @@ export default defineNuxtPlugin((nuxtApp) => {
                 return await useFetch(config.public.baseURL + url, {
                     ...interceptors,
                     method: 'patch',
-                    body: data
+                    params: data
                 })
             },
             delete: async (url: string) => {

@@ -2,9 +2,9 @@
 
 :root {
     --bs-white: aliceblue;
-    --bs-primary: #00468b;
-    --bs-primary-dark: #002140;
-    --bs-warning: #fdb633;
+    --bs-primary: #014790;
+    --bs-primary-dark: #014790;
+    --bs-warning: #e7b848;
     --bs-info: #019ce3;
     --bs-info-soft: #019ce322;
     --bs-success: #38BC5D;
@@ -119,7 +119,7 @@ h6 {
 }
 
 .modal-title, .offcanvas-title, .title {
-    color: var(--bs-primary-dark);
+    color: var(--bs-dark);
 }
 
 .title {
