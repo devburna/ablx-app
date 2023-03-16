@@ -139,7 +139,7 @@ h6 {
     background-repeat: no-repeat;
 }
 
-.text-dark {
+.text-dark, .text-Pending {
     color: var(--bs-dark) !important;
 }
 
