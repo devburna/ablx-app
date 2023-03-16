@@ -41,7 +41,7 @@ const listView = useAttrs();
     </div>
     <div class="py-1 text-end ms-auto">
       <i class="bi bi-chevron-right caption" v-if="listView.route"></i>
-      <h6 class="title mb-0" v-if="listView.trailing">
+      <h6 :class="`title text-${listView.status || 'dark'} mb-0`" v-if="listView.trailing">
         {{ listView.trailing }}
       </h6>
       <small
