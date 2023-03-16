@@ -50,9 +50,9 @@ const listView = useAttrs();
 
 <style scoped>
 .title {
-  font-size: 13px;
+  font-size: 14px;
 }
 .caption {
-  font-size: 12px;
+  font-size: 13px;
 }
 </style>

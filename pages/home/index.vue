@@ -17,7 +17,7 @@ if (!activities.value.length) {
         <WidgetsBalance />
       </div>
       <div class="col-lg-5">
-        <WidgetsQuickActions class="mx-3" style="margin-top: -88px" />
+        <WidgetsQuickActions class="mx-3" style="margin-top: -89.5px" />
       </div>
       <div class="col-lg-5">
         <WidgetsActivities
