@@ -11,8 +11,8 @@ const activities = useAttrs();
         ['Order'].includes(item.channel) ? 'lightning-fill' : 'bag-check-fill'
       }`"
       :title="item.user.name"
-      :caption="item.created_at"
-      :trailing="item.amount"
+      :caption="$timeAgo(item.created_at)"
+      :trailing="$currency(item.amount, 'NGN')"
       :subTrailing="item.status"
       :status="item.status"
       icHolder="warning"
@@ -24,8 +24,4 @@ const activities = useAttrs();
   </div>
 </template>
 
-<style scoped>
-.activity:last-of-type {
-  border-bottom: 0 !important;
-}
-</style>
+<style scoped></style>

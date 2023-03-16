@@ -4,17 +4,12 @@ useCustomers();
 </script>
 
 <template>
-  <div class="list-group rounded-4 py-1 bg-white" id="customers">
+  <div class="list-group bg-white rounded-4 py-2" id="customers">
     <ListView
       icon="person-fill"
       :title="item.name"
       :caption="item.email"
-      :trailing="
-        Number(item.wallet.balance).toLocaleString('en-NG', {
-          style: 'currency',
-          currency: 'NGN',
-        })
-      "
+      :route="true"
       icHolder="primary"
       icHolderInner="warning"
       icHolderInnerIcon="primary"
@@ -26,12 +21,4 @@ useCustomers();
   </div>
 </template>
 
-<style scoped>
-#listView {
-  overflow: hidden;
-}
-
-.activity:last-of-type {
-  border-bottom: 0 !important;
-}
-</style>
+<style scoped></style>

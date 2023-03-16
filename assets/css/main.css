@@ -75,6 +75,10 @@ h6 {
     overflow-x: hidden;
 }
 
+.h-52 {
+    height: 52px;
+}
+
 .amount {
     height: 68px;
     font-size: 14px;

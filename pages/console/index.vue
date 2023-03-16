@@ -32,48 +32,29 @@ const options = [
 </script>
 
 <template>
-  <div class="bg-light h-100">
-    <Appbar :title="true" :hasPrev="true" class="bg-primary sticky-top" />
-    <div class="container-fluid py-4" id="console">
-      <div class="row g-4 align-items-center justify-content-center">
-        <div class="col-lg-5">
-          <div class="list-group rounded-4 py-1 bg-white">
-            <ListView
-              :icon="item.icon"
-              :title="item.title"
-              :caption="item.caption"
-              :route="true"
-              icHolder="primary"
-              icHolderInner="warning"
-              icHolderInnerIcon="primary"
-              :to="item.route"
-              v-for="(item, index) in options"
-              :key="index"
-              @click="$router.push(item.route)"
-            />
-          </div>
+  <div class="container-fluid py-3" id="console">
+    <Appbar :title="true" :hasPrev="true" class="bg-primary fixed-top" />
+    <div class="h-52"></div>
+    <div class="row g-4 align-items-center justify-content-center">
+      <div class="col-lg-5">
+        <div class="list-group rounded-4 py-2 bg-white">
+          <ListView
+            :icon="item.icon"
+            :title="item.title"
+            :caption="item.caption"
+            :route="true"
+            icHolder="primary"
+            icHolderInner="warning"
+            icHolderInnerIcon="primary"
+            :to="item.route"
+            v-for="(item, index) in options"
+            :key="index"
+            @click="$router.push(item.route)"
+          />
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
-.avatar {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-}
-
-.list-group {
-  overflow: hidden;
-}
-
-.list-group-item {
-  border: 0;
-}
-
-.title {
-  font-weight: 500;
-}
-</style>
+<style scoped></style>
