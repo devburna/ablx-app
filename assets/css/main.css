@@ -167,7 +167,7 @@ h6 {
     color: var(--bs-success) !important;
 }
 
-.text-danger, .text-Failed {
+.text-danger, .text-Rejected, .text-Failed {
     color: var(--bs-danger) !important;
 }
 
@@ -195,7 +195,7 @@ h6 {
     background: var(--bs-success) !important;
 }
 
-.bg-danger, .bg-Failed {
+.bg-danger, .bg-Rejected, .bg-Failed {
     background: var(--bs-danger) !important;
 }
 

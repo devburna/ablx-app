@@ -33,7 +33,7 @@ const user = useUser();
       <div v-for="(item, index) in appDrawerContent.data" :key="index">
         <div class="list-group-item border-0" v-if="typeof item === 'string'">
           <h6 class="caption text-capitalize mb-1">{{ index }}</h6>
-          <p class="title text-dark mb-0">{{ item }}</p>
+          <p :class="`title text-${item} mb-0`">{{ item }}</p>
         </div>
       </div>
     </div>

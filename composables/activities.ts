@@ -8,13 +8,13 @@ export const useActivities = () => {
 
       res.data.value.data.forEach((activity: any) => {
         activity = {
-          ...activity,
           id: activity.id,
           channel: activity.kind,
           narration: ["Order"].includes(activity.kind)
             ? activity.rate.asset.name
             : activity.narration,
           status: activity.status,
+          ...activity,
         }
 
         _activities.push(activity);
