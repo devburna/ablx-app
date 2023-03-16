@@ -175,6 +175,10 @@ h6 {
     color: var(--bs-danger) !important;
 }
 
+.bg-Pending .text-Pending {
+    color: var(--bs-warning) !important;
+}
+
 .bg-primary {
     background: var(--bs-primary) !important;
 }
