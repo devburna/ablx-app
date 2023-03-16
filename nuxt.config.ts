@@ -55,10 +55,22 @@ export default defineNuxtConfig({
 
     css: ['@/assets/css/spinkit.min.css', '@/assets/css/dropify.css', '@/assets/css/main.css'],
 
+    // buildModules: [
+    //     '@nuxtjs/pwa',
+    // ],
+    // pwa: {
+    //     icon: false // disables the icon module
+    // }
+
     runtimeConfig: {
         apiKey: process.env.APP_KEY,
         public: {
             baseURL: process.env.APP_URL
-        }
+        },
+    },
+
+    sourcemap: {
+        server: false,
+        client: false
     }
 })
