@@ -29,7 +29,7 @@ const user = useUser();
         {{ appDrawerContent.data.narration || appDrawerContent.data.comment }}
       </p>
     </div>
-    <div class="list-group rounded-4 py-1 bg-white mb-4">
+    <div class="list-group rounded-4 py-2 bg-white mb-4">
       <div v-for="(item, index) in appDrawerContent.data" :key="index">
         <div class="list-group-item border-0" v-if="typeof item === 'string'">
           <h6 class="caption text-capitalize mb-1">{{ index }}</h6>
@@ -37,17 +37,16 @@ const user = useUser();
         </div>
       </div>
     </div>
-    <button
-      type="button"
-      class="btn btn-primary btn-lg w-100 mb-4"
-      v-if="!user.isAdmin"
-    >
+    <button type="button" class="btn btn-primary btn-lg w-100 mb-4">
       Share Receipt
     </button>
-    <div class="btn-group gap-3 w-100" v-else>
+    <div
+      class="btn-group gap-3 w-100"
+      v-if="user.isAdmin && ['Pending'].includes(appDrawerContent.data.status)"
+    >
       <button
         type="button"
-        class="btn btn-outline-success btn-sm rounded lh-lg"
+        class="btn btn-outline-success rounded-4 btn-lg rounded lh-lg"
         @click="
           useOrder().update({
             id: appDrawerContent.data.id,
@@ -59,7 +58,7 @@ const user = useUser();
       </button>
       <button
         type="button"
-        class="btn btn-outline-danger btn-sm rounded lh-lg"
+        class="btn btn-outline-danger rounded-4 btn-lg rounded lh-lg"
         @click="
           useOrder().update({
             id: appDrawerContent.data.id,
