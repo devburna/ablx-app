@@ -29,12 +29,12 @@ export default defineNuxtPlugin((nuxtApp) => {
 
             useToast('error', response._data.message)
 
-            if (([403].includes(response.status) && !user.value.email_verified_at)) {
-                navigateTo('verify-email');
-            }
-
             if ([500].includes(response.status)) {
                 useAuth().logout()
+            }
+
+            if (([403].includes(response.status) && !user.value.email_verified_at)) {
+                navigateTo('verify-email');
             }
         }
     }
