@@ -3,72 +3,118 @@ definePageMeta({
   middleware: "authenticated",
 });
 
-const loginForm = {
-  email: null,
-  password: null,
-};
+const features = [
+  {
+    img: "",
+    title: "Trade in your Bitcoin",
+    caption:
+      "The Abbeylinko Xchange system is built and tailored to serve and fully satisfy you.",
+  },
+  {
+    img: "",
+    title: "Trade in your Gift Cards",
+    caption: "Trade your gift cards with Abbeylinko Xchange at amazing rates.",
+  },
+  {
+    img: "",
+    title: "Start Trading",
+    caption: "We are online 24/7 and ready to do business with you.",
+  },
+];
+
+const defaultFeature = ref(features[0]);
 </script>
 
 <template>
-  <div class="container-fluid py-5 auth h-100">
-    <div class="container h-100">
-      <div class="row align-items-center justify-content-center h-100">
-        <div class="col-lg-4">
-          <form @submit.prevent="useAuth().login(loginForm)" class="row g-3">
-            <div class="col-lg-12">
-              <h3>Login</h3>
-              <p>Sign in to your abbeylinko account</p>
-            </div>
-            <div class="col-lg-12">
-              <input
-                type="email"
-                class="form-control"
-                placeholder="Email address"
-                v-model="loginForm.email"
-                required
-              />
-            </div>
-            <div class="col-lg-12">
-              <div class="position-relative">
-                <button
-                  type="button"
-                  class="btn btn-link w-auto position-absolute end-0"
-                  @click="useIsHidden().value = !useIsHidden().value"
-                >
-                  <i
-                    :class="`bi bi-${
-                      useIsHidden().value ? 'eye' : 'eye-slash'
-                    }-fill text-muted`"
-                  ></i>
-                </button>
-                <input
-                  :type="useIsHidden().value ? 'text' : 'password'"
-                  class="form-control"
-                  placeholder="Password"
-                  v-model="loginForm.password"
-                  required
-                />
+  <div class="h-100">
+    <div
+      :class="`container-fluid text-center bg-pattern h-100 ${
+        item.title === defaultFeature.title ? 'd-block' : 'd-none'
+      }`"
+      v-for="(item, index) in features"
+      :key="index"
+      id="overview"
+    >
+      <div class="container py-5 h-100">
+        <div class="row g-3 align-items-center justify-content-center h-100">
+          <div class="col-lg-5">
+            <img
+              src="https://abbeylinkoxchange.com/wp-content/uploads/2020/11/abbeylinko-logo-scaled.jpg"
+              alt="logo"
+              loading="lazy"
+              class="img-fluid"
+            />
+          </div>
+          <div></div>
+          <div class="col-lg-5">
+            <div class="d-flex align-items-center justify-content-center gap-2">
+              <div
+                class="indicator d-flex align-items-center justify-content-center bg-white"
+                @click="defaultFeature = features[count]"
+                v-for="(item, count) in features.length"
+                :key="count"
+              >
+                <div
+                  :class="`indicator-inner bg-${
+                    index == count ? 'primary' : 'warning'
+                  }`"
+                ></div>
               </div>
             </div>
-            <div class="col-lg-12">
-              <NuxtLink to="/recover">Need help?</NuxtLink>
-            </div>
-            <div class="col-lg-12">
-              <button type="submit" class="btn btn-warning w-100">
-                Continue
+          </div>
+          <div></div>
+          <div class="col-lg-5">
+            <h4 class="text-white mb-3">{{ item.title }}</h4>
+            <p class="text-white">
+              {{ item.caption }}
+            </p>
+          </div>
+          <div></div>
+          <div class="col-lg-5">
+            <button
+              type="button"
+              class="btn btn-warning w-100"
+              @click="defaultFeature = features[index + 1]"
+              v-if="index !== features.length - 1"
+            >
+              Next
+            </button>
+            <div v-else>
+              <button
+                type="button"
+                class="btn btn-warning w-100 mb-3"
+                @click="$router.push('/login')"
+              >
+                Login
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-light w-100"
+                @click="$router.push('/register')"
+              >
+                Create Account
               </button>
             </div>
-            <div class="col-lg-12 text-center py-3">
-              <small
-                >Don't have an account?
-                <NuxtLink to="/register">Create an account</NuxtLink></small
-              >
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.indicator,
+.indicator-inner {
+  border-radius: 50%;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+}
+
+.indicator-inner {
+  width: 6px;
+  height: 6px;
+}
+</style>

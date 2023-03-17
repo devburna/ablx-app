@@ -74,7 +74,7 @@ const registerForm = {
               <div class="col-lg-12 text-center py-3">
                 <small
                   >Already have an account?
-                  <NuxtLink to="/">Login</NuxtLink></small
+                  <NuxtLink to="/login">Login</NuxtLink></small
                 >
               </div>
             </form>
