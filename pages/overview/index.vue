@@ -83,7 +83,7 @@ const defaultFeature = ref(features[0]);
               <button
                 type="button"
                 class="btn btn-warning w-100 mb-3"
-                @click="$router.push('/login')"
+                @click="$router.push('/')"
               >
                 Login
               </button>

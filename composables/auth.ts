@@ -23,7 +23,7 @@ export const useAuth = () => {
       });
     },
     login: async (payload: any) => {
-      await app.$post("/login", payload).then((res: any) => {
+      await app.$post("/", payload).then((res: any) => {
         if (res.data.value) {
           grantAccess(res.data.value.data);
         }
@@ -50,7 +50,7 @@ export const useAuth = () => {
     logout: async () => {
       _token.value = null;
       localStorage.clear()
-      return navigateTo('/login');
+      return navigateTo('/');
     },
   }
 }
