@@ -37,16 +37,30 @@ const user = useUser();
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-success btn-lg w-100 mb-4">
-      Share Receipt
-    </button>
+    <div class="btn-group gap-3 w-100 mb-4">
+      <button
+        type="button"
+        class="btn btn-success btn-lg rounded-4"
+        v-if="
+          appDrawerContent.data.rate &&
+          ['Pending'].includes(appDrawerContent.data.status) &&
+          appDrawerContent.data.invoice
+        "
+        @click="$copy(appDrawerContent.data.invoice.address)"
+      >
+        Copy {{ appDrawerContent.data.invoice.short }} address
+      </button>
+      <button type="button" class="btn btn-primary btn-lg rounded-4">
+        Share Receipt
+      </button>
+    </div>
     <div
       class="btn-group gap-3 w-100"
       v-if="user.isAdmin && ['Pending'].includes(appDrawerContent.data.status)"
     >
       <button
         type="button"
-        class="btn btn-outline-success rounded-4 btn-lg rounded lh-lg"
+        class="btn btn-success rounded-4 btn-lg rounded lh-lg"
         @click="
           useOrder().update({
             id: appDrawerContent.data.id,
@@ -58,7 +72,7 @@ const user = useUser();
       </button>
       <button
         type="button"
-        class="btn btn-outline-danger rounded-4 btn-lg rounded lh-lg"
+        class="btn btn-danger rounded-4 btn-lg rounded lh-lg"
         @click="
           useOrder().update({
             id: appDrawerContent.data.id,
