@@ -77,6 +77,7 @@ const trade = useTrade();
         <Message caption="No asset found 😥" v-else />
       </div>
     </div>
+    <BottomNav />
   </div>
 </template>
 
