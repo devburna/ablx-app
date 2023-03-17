@@ -4,23 +4,23 @@ export const useActivities = () => {
 
   app.$get("/activities").then((res: any) => {
     if (res.data.value) {
-      const _activities: any = [];
+      const { data } = res.data.value;
 
-      res.data.value.data.forEach((activity: any) => {
-        activity = {
-          id: activity.id,
-          channel: activity.kind,
-          narration: ["Order"].includes(activity.kind)
-            ? activity.rate.asset.name
-            : activity.narration,
-          status: activity.status,
-          ...activity,
+      data.orders.forEach((order: any) => {
+        order = {
+          id: order.id,
+          channel: order.kind,
+          narration: ["Order"].includes(order.kind)
+            ? order.rate.asset.name
+            : order.narration,
+          status: order.status,
+          ...order,
         }
 
-        _activities.push(activity);
+        data.orders.push(order);
       });
 
-      activities.value = _activities;
+      activities.value = data
     }
   });
 }

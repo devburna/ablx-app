@@ -10,7 +10,7 @@ const listView = useAttrs();
       <img
         :src="`${listView.img}`"
         alt="image"
-        class="ic-holder"
+        class="ic-holder ic-holder-lg"
         loading="lazy"
         v-if="listView.img"
       />

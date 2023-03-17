@@ -10,9 +10,20 @@ const assets = useTrade();
   <div class="container-fluid bg-light p-0 h-100">
     <Loading v-if="isLoading" />
     <slot />
-    <div v-if="activities.length">
+    <div v-if="activities.orders">
       <AppDrawer
-        v-for="(item, index) in activities"
+        v-for="(item, index) in activities.orders"
+        :key="index"
+        :uuid="index"
+        :content="`activity-${index}`"
+        :data="item"
+        title="Order details"
+        dialog="offcanvas-bottom h-75"
+      />
+    </div>
+    <div v-if="activities.transactions">
+      <AppDrawer
+        v-for="(item, index) in activities.transactions"
         :key="index"
         :uuid="index"
         :content="`activity-${index}`"

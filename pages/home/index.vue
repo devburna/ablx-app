@@ -3,11 +3,8 @@ definePageMeta({
   middleware: "is-logged-in",
 });
 
+useActivities();
 const activities = useActivity();
-
-if (!activities.value.length) {
-  useActivities();
-}
 </script>
 
 <template>
@@ -22,10 +19,10 @@ if (!activities.value.length) {
       <div class="col-lg-5">
         <WidgetsActivities
           class="mb-4 mx-3"
-          :data="activities.slice(0, 5)"
-          v-if="activities.length"
+          :data="activities.orders.slice(0, 5)"
+          v-if="activities.orders"
         />
-        <Message caption="No activity found 😥" v-else />
+        <Message caption="No order found 😥" v-else />
       </div>
     </div>
     <BottomNav />

@@ -71,6 +71,10 @@ h6 {
     font-size: 15px;
 }
 
+img {
+    object-fit: fill;
+}
+
 .container-fluid {
     overflow-x: hidden;
 }
@@ -167,7 +171,7 @@ h6 {
     color: var(--bs-secondary) !important;
 }
 
-.text-success, .text-Success, .text-Approved {
+.text-success, .text-Success, .text-Approved, .text-Credit {
     color: var(--bs-success) !important;
 }
 
@@ -199,7 +203,7 @@ h6 {
     background: var(--bs-warning) !important;
 }
 
-.bg-success, .bg-Success, .bg-Approved {
+.bg-success, .bg-Success, .bg-Approved, .bg-Credit {
     background: var(--bs-success) !important;
 }
 
