@@ -33,7 +33,7 @@ export default defineNuxtPlugin((nuxtApp) => {
                 navigateTo('verify-email');
             }
 
-            if ([403].includes(response.status)) {
+            if ([500].includes(response.status)) {
                 useAuth().logout()
             }
         }
