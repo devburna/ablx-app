@@ -171,7 +171,14 @@ const tradeHandler = async () => {
     </div>
     <div class="text-center py-5" v-else>
       <h6 class="">Congratulations!</h6>
-      <p class="caption" v-html="response.data.comment || response.message"></p>
+      <p
+        class="caption"
+        v-html="
+          response.data.invoice
+            ? response.data.invoice.message
+            : response.data.comment || response.message
+        "
+      ></p>
       <div
         class="py-3"
         v-if="response.data.invoice && response.data.invoice.address"
@@ -190,7 +197,7 @@ const tradeHandler = async () => {
           @click="$copy(response.data.invoice.address)"
           v-if="response.data.invoice && response.data.invoice.address"
         >
-          Copy address
+          Copy {{ response.data.invoice.short }} address
         </button>
         <button
           type="button"
