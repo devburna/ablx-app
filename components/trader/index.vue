@@ -6,7 +6,7 @@ const trade = useTrade();
 <template>
   <div class="container-fluid py-4" id="trade">
     <div class="bg-primary fixed-top">
-      <Appbar :title="true" :hasPrev="true" name="Assets" />
+      <Appbar :hasPrev="true" caption="What would you like to trade?" />
       <nav v-if="typeof trade === 'object'">
         <div
           class="nav nav-tabs border-top border-light lh-lg"
