@@ -15,7 +15,7 @@ const activities = useAttrs();
         icHolderInner="white"
         data-bs-toggle="offcanvas"
         :data-bs-target="`#activity-${index}`"
-        v-if="['Order'].includes(item.kind)"
+        v-if="item.rate"
       />
       <ListView
         :icon="`${
