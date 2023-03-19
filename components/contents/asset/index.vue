@@ -22,7 +22,6 @@ const tradeHandler = async () => {
   if (data.value) {
     preview.value = !preview.value;
     response.value = data.value;
-    console.log(response.value);
   }
 };
 </script>
