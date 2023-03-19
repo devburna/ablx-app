@@ -6,7 +6,7 @@ const listView = useAttrs();
   <div
     :class="`list-group-item border-0 ${listView.custom} d-flex align-items-center gap-2`"
   >
-    <div class="py-1" v-if="listView.icon || listView.img">
+    <div class="py-1 me-1" v-if="listView.icon || listView.img">
       <img
         :src="`${listView.img}`"
         alt="image"
