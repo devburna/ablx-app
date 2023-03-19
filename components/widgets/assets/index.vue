@@ -6,7 +6,7 @@ useTrader().assets();
 <template>
   <div class="list-group rounded-4 py-1 bg-white" id="assets">
     <ListView
-      :img="item.secure_url"
+      :img="item.image_url"
       :title="item.name"
       :caption="item.type"
       v-for="(item, index) in assetsProps.data"
