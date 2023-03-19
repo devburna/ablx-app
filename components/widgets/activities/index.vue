@@ -5,7 +5,7 @@ const activities = useAttrs();
 <template>
   <div class="list-group bg-white rounded-4 py-2">
     <div v-for="(item, index) in activities.data" :key="index">
-      <ListView
+      <!-- <ListView
         :img="item.rate.asset.image_url"
         :title="item.narration || item.rate.name"
         :caption="$timeAgo(item.created_at)"
@@ -30,7 +30,7 @@ const activities = useAttrs();
         data-bs-toggle="offcanvas"
         :data-bs-target="`#activity-${index}`"
         v-else
-      />
+      /> -->
     </div>
   </div>
 </template>
