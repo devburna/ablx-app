@@ -61,7 +61,7 @@ const trade = useTrade();
                     >
                       <div class="card-body">
                         <img
-                          :src="asset.image.secure_url"
+                          :src="asset.image_url"
                           :alt="asset.name"
                           loading="lazy"
                           class="ic-holder ic-holder-lg mx-auto"

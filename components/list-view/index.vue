@@ -4,7 +4,7 @@ const listView = useAttrs();
 
 <template>
   <div
-    :class="`list-group-item border-0 ${listView.custom} d-flex align-items-center gap-3`"
+    :class="`list-group-item border-0 ${listView.custom} d-flex align-items-center gap-2`"
   >
     <div class="py-1" v-if="listView.icon || listView.img">
       <img
@@ -35,7 +35,7 @@ const listView = useAttrs();
     </div>
     <div class="py-1">
       <h6 class="title text-truncate mb-0">{{ listView.title }}</h6>
-      <small class="caption text-muted" v-if="listView.caption">
+      <small class="caption fw-normal text-muted" v-if="listView.caption">
         {{ listView.caption }}
       </small>
     </div>
@@ -48,7 +48,7 @@ const listView = useAttrs();
         {{ listView.trailing }}
       </h6>
       <small
-        :class="`caption text-${listView.status || 'muted'}`"
+        :class="`caption fw-normal text-${listView.status || 'muted'}`"
         v-if="listView.subTrailing"
         v-html="listView.subTrailing"
       >
