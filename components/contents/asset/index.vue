@@ -116,7 +116,7 @@ const tradeHandler = async () => {
       <div v-else>
         <div class="text-center mb-4">
           <img
-            :src="assetContent.data.image.secure_url"
+            :src="assetContent.data.secure_url"
             :alt="assetContent.data.name"
             loading="lazy"
             class="ic-holder ic-holder-lg mx-auto mb-3"
