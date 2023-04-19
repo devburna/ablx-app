@@ -169,7 +169,13 @@ const tradeHandler = async () => {
       </div>
     </div>
     <div class="text-center py-5" v-else>
-      <h6 class="">Congratulations!</h6>
+      <h6 class="">
+        {{
+          ["Crypto"].includes(response.data.rate.asset.type)
+            ? "Make Payment"
+            : "Thank You!"
+        }}
+      </h6>
       <p
         class="caption"
         v-html="
