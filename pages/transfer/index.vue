@@ -14,7 +14,7 @@ const transferForm = ref({
   currency: "NGN",
   account_name: null,
   account_number: null,
-  amount: 0,
+  amount: null,
 });
 
 const preview = ref(false);
@@ -103,7 +103,7 @@ const setAccountName = async (payload: any) => {
           <div v-else>
             <div class="text-center py-3">
               <div
-                class="ic-holder ic-holder-xl d-flex align-items-center justify-content-center rounded-circle bg-success mx-auto mb-3"
+                class="ic-holder ic-holder-lg d-flex align-items-center justify-content-center rounded-circle bg-success mx-auto mb-3"
               >
                 <div
                   class="ic-holder-inner d-flex align-items-center justify-content-center rounded-circle bg-white"
@@ -111,7 +111,7 @@ const setAccountName = async (payload: any) => {
                   <i class="bi bi-send-fill text-success icon"></i>
                 </div>
               </div>
-              <h6 class="fw-bold mb-1">
+              <h6 class="mb-1">
                 {{ transferForm.account_name }}
               </h6>
               <p class="caption">
@@ -120,30 +120,51 @@ const setAccountName = async (payload: any) => {
                 <span>{{ transferForm.account_number }}</span>
               </p>
             </div>
-            <div class="list-group rounded-4 py-1 mb-4 bg-white">
+            <div class="list-group rounded-4 py-1 bg-white mb-4">
               <div
-                class="list-group-item border-bottom border-light border-0 py-3"
+                class="list-group-item d-flex align-items-center justify-content-between border-0"
               >
-                <div class="row justify-content-between caption">
-                  <div class="col-auto">
-                    <span class="text-secondary">Amount</span>
-                  </div>
-                  <div class="col-auto">
-                    <span>{{
-                      $currency(transferForm.amount, transferForm.currency)
-                    }}</span>
-                  </div>
-                </div>
+                <h6 class="caption text-capitalize mb-1">You Pay</h6>
+                <p class="title text-dark mb-0">
+                  {{
+                    Number(transferForm.amount || 0).toLocaleString("en-NG", {
+                      style: "currency",
+                      currency: "NGN",
+                    })
+                  }}
+                </p>
               </div>
-              <div class="list-group-item border-0 py-3">
-                <div class="row justify-content-between caption">
-                  <div class="col-auto">
-                    <span class="text-secondary">Arriving in</span>
-                  </div>
-                  <div class="col-auto">
-                    <span>5 Minutes</span>
-                  </div>
-                </div>
+              <div
+                class="list-group-item d-flex align-items-center justify-content-between border-0"
+              >
+                <h6 class="caption text-capitalize mb-1">Fees</h6>
+                <p class="title text-dark mb-0">
+                  {{
+                    (0).toLocaleString("en-NG", {
+                      style: "currency",
+                      currency: "NGN",
+                    })
+                  }}
+                </p>
+              </div>
+              <div
+                class="list-group-item d-flex align-items-center justify-content-between border-0"
+              >
+                <h6 class="caption text-capitalize mb-1">Receipent Gets</h6>
+                <p class="title text-dark mb-0">
+                  {{
+                    Number(transferForm.amount || 0).toLocaleString("en-NG", {
+                      style: "currency",
+                      currency: "NGN",
+                    })
+                  }}
+                </p>
+              </div>
+              <div
+                class="list-group-item d-flex align-items-center justify-content-between border-0"
+              >
+                <h6 class="caption text-capitalize mb-1">Arriving</h6>
+                <p class="title text-dark mb-0">In a few minutes</p>
               </div>
             </div>
             <button
