@@ -25,7 +25,6 @@ const { data } = await useOrders().list();
         <Message caption="No orders found 😥" v-else />
       </div>
     </div>
-    <BottomNav />
     <div v-if="data && data.data.length">
       <AppDrawer
         v-for="(item, index) in data.data"
