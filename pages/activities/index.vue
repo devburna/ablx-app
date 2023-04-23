@@ -13,7 +13,7 @@ const activities = useActivity();
     <div class="h-52"></div>
     <div class="row g-0 align-items-center justify-content-center">
       <div class="col-lg-5">
-        <WidgetsActivities :data="activities.transactions" v-if="activities.transactions" />
+        <WidgetsActivities :data="activities.transactions" v-if="activities.orders && activities.orders.length" />
         <Message caption="No activity found 😥" v-else />
       </div>
     </div>
