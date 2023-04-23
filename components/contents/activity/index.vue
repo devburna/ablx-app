@@ -176,7 +176,7 @@ const user = useUser();
           </div>
         </div>
       </div>
-      <div class="list-group-item border-bottom border-light border-0 py-3">
+      <div class="list-group-item border-0 py-3">
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary">Created</span>

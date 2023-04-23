@@ -3,11 +3,7 @@ definePageMeta({
   middleware: ["is-logged-in", "is-admin"],
 });
 
-const customers = useCustomers();
-
-if (!customers.value.length) {
-  useCustomer().all();
-}
+const { data } = await useCustomers().list();
 </script>
 
 <template>
@@ -21,9 +17,20 @@ if (!customers.value.length) {
     <div class="h-52"></div>
     <div class="row g-0 align-items-center justify-content-center">
       <div class="col-lg-5">
-        <WidgetsCustomers :data="customers" v-if="customers" />
+        <WidgetsCustomers :data="data.data" v-if="data && data.data.length" />
         <Message caption="No customer found 😥" v-else />
       </div>
+    </div>
+    <div v-if="data && data.data.length">
+      <AppDrawer
+        v-for="(item, index) in data.data"
+        :key="index"
+        :uuid="index"
+        :content="`customer-${index}`"
+        :data="item"
+        :title="item.name"
+        dialog="offcanvas-bottom h-75"
+      />
     </div>
   </div>
 </template>

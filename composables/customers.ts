@@ -1,4 +1,4 @@
-export const useCustomer = () => {
+export const useCustomers = () => {
   const app = useNuxtApp();
 
   return {
