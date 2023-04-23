@@ -3,11 +3,11 @@ definePageMeta({
   middleware: "is-logged-in",
 });
 
-const { data } = await useTransactions().list();
+const { data } = await useOrders().list();
 </script>
 
 <template>
-  <div class="container-fluid py-3" id="activities">
+  <div class="container-fluid py-3" id="orders">
     <Appbar :title="true" class="bg-primary fixed-top" />
     <div class="h-52"></div>
     <div class="row g-0 align-items-center justify-content-center">
@@ -17,13 +17,13 @@ const { data } = await useTransactions().list();
           :data="data.data"
           v-if="data && data.data.length"
         />
-        <Message caption="No activity found 😥" v-else />
+        <Message caption="No order found 😥" v-else />
       </div>
     </div>
     <BottomNav />
     <div v-if="data && data.data.length">
       <AppDrawer
-        v-for="(item, index) in data.data.slice(0, 5)"
+        v-for="(item, index) in data.data"
         :key="index"
         :uuid="index"
         :content="`activity-${index}`"

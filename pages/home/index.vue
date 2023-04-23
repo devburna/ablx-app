@@ -3,8 +3,7 @@ definePageMeta({
   middleware: "is-logged-in",
 });
 
-useActivities();
-const activities = useActivity();
+const { data } = await useOrders().list();
 </script>
 
 <template>
@@ -16,12 +15,12 @@ const activities = useActivity();
       <div class="col-lg-5">
         <WidgetsQuickActions class="mx-3" style="margin-top: -89.5px" />
       </div>
-      <div class="col-12"></div>
+      <div class="col-12 mt-2"></div>
       <div class="col-lg-5">
         <WidgetsActivities
           class="mb-4 mx-3"
-          :data="activities.orders.slice(0, 5)"
-          v-if="activities.orders && activities.orders.length"
+          :data="data.data.slice(0, 5)"
+          v-if="data && data.data.length"
         />
         <Message
           title="No recent activities"
@@ -31,6 +30,17 @@ const activities = useActivity();
       </div>
     </div>
     <BottomNav />
+    <div v-if="data && data.data.length">
+      <AppDrawer
+        v-for="(item, index) in data.data.slice(0, 5)"
+        :key="index"
+        :uuid="index"
+        :content="`activity-${index}`"
+        :data="item"
+        title="Order details"
+        dialog="offcanvas-bottom h-75"
+      />
+    </div>
   </div>
 </template>
 

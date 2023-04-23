@@ -1,14 +1,9 @@
-export const useOrder = () => {
+export const useOrders = () => {
   const app = useNuxtApp();
-  const _orders = useOrders();
 
   return {
-    all: async () => {
-      await app.$get("/orders").then((res: any) => {
-        if (res.data.value) {
-          _orders.value = res.data.value.data;
-        }
-      });
+    list: async () => {
+      return await app.$get("/orders");
     },
     create: async (payload: any) => {
       return await app.$post("/orders", payload);
@@ -22,7 +17,7 @@ export const useOrder = () => {
 
       return await app.$patch(`/orders/${payload.id}`, payload).then(async (res: any) => {
         if (res.data.value) {
-          await useOrder().all()
+          await useOrder().list()
         }
       });
     }
