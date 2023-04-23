@@ -7,7 +7,7 @@ useTransfer().banks({
   country: "NG",
 });
 
-const { data } = await useTransfer().banks({
+const { data: banks } = await useTransfer().banks({
   country: "NG",
 });
 
@@ -39,7 +39,7 @@ const setAccountName = async (payload: any) => {
     <Appbar :title="true" :hasPrev="true" class="bg-primary fixed-top" />
     <div class="h-52"></div>
     <div class="row g-0 align-items-center justify-content-center">
-      <div class="col-lg-5">
+      <div class="col-lg-5" v-if="banks">
         <div v-if="!response">
           <form
             @submit.prevent="preview = !preview"
@@ -66,7 +66,7 @@ const setAccountName = async (payload: any) => {
               >
                 <option value="" selected>Bank</option>
                 <option
-                  v-for="(item, index) in data.data"
+                  v-for="(item, index) in banks.data"
                   :key="index"
                   :value="item"
                 >
@@ -195,6 +195,9 @@ const setAccountName = async (payload: any) => {
             </button>
           </div>
         </div>
+      </div>
+      <div class="col-lg-5">
+        <Message caption="Transfer not available, try again later" />
       </div>
     </div>
   </div>

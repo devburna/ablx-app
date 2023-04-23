@@ -3,7 +3,7 @@ definePageMeta({
   middleware: "is-logged-in",
 });
 
-const { data } = await useBills().list();
+const { data: bills } = await useBills().list();
 
 const billForm = ref({
   type: {},
@@ -27,6 +27,7 @@ const billForm = ref({
             <form
               @submit.prevent="useBills().validate(billForm.type)"
               class="row g-3"
+              v-if="bills"
             >
               <div class="col-lg-12">
                 <select
@@ -37,7 +38,7 @@ const billForm = ref({
                 >
                   <option selected :value="{}">Select Bill Type</option>
                   <option
-                    v-for="(item, index) in data.data"
+                    v-for="(item, index) in bills.data"
                     :key="index"
                     :value="item"
                   >
@@ -73,6 +74,7 @@ const billForm = ref({
                 </button>
               </div>
             </form>
+            <Message caption="No biller found, try again later" />
           </div>
         </div>
       </div>
