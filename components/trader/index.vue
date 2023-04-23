@@ -53,6 +53,8 @@ const trade = useTrade();
                     class="list-group-item border-0 border-bottom border-light"
                     v-for="(asset, indexx) in item"
                     :key="indexx"
+                    data-bs-toggle="offcanvas"
+                    :data-bs-target="`#trade-${index}-${indexx}`"
                   >
                     <div class="card border-0" style="max-width: 540px">
                       <div class="row align-items-center g-0">
@@ -92,5 +94,8 @@ const trade = useTrade();
 <style scoped>
 .list-group-item:last-of-type {
   border-bottom: 0 !important;
+}
+.img-fluid {
+  fill-opacity: fill;
 }
 </style>
