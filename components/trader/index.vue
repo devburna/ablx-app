@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data } = await useAssets().assets();
+const { data } = await useAssets().list();
 </script>
 
 <template>

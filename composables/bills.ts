@@ -1,14 +1,9 @@
 export const useBills = () => {
   const app = useNuxtApp();
-  const _billTypes = useBillTypes();
 
   return {
-    all: async () => {
-      await app.$get("/bills").then((res: any) => {
-        if (res.data.value) {
-          _billTypes.value = res.data.value.data;
-        }
-      });
+    list: async (payload?: any) => {
+      return await app.$get("/bills", payload);
     },
     validate: async (payload: any) => {
       return await app.$get("/bills/validate", payload);

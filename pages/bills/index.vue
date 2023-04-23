@@ -3,9 +3,7 @@ definePageMeta({
   middleware: "is-logged-in",
 });
 
-useBills().all();
-
-const types = useBillTypes();
+const { data } = await useBills().list();
 
 const billForm = ref({
   type: {},
@@ -39,7 +37,7 @@ const billForm = ref({
                 >
                   <option selected :value="{}">Select Bill Type</option>
                   <option
-                    v-for="(item, index) in types"
+                    v-for="(item, index) in data.data"
                     :key="index"
                     :value="item"
                   >

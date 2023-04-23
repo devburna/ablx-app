@@ -7,7 +7,7 @@ const { data } = await useOrders().list();
 </script>
 
 <template>
-  <div class="container-fluid py-3" id="orders">
+  <div class="container-fluid p-0 py-3" id="orders">
     <Appbar :title="true" class="bg-primary fixed-top" />
     <div class="h-52"></div>
     <div class="row g-0 align-items-center justify-content-center">

@@ -2,8 +2,8 @@ export const useOrders = () => {
   const app = useNuxtApp();
 
   return {
-    list: async () => {
-      return await app.$get("/orders");
+    list: async (payload?: any) => {
+      return await app.$get("/orders", payload);
     },
     create: async (payload: any) => {
       return await app.$post("/orders", payload);

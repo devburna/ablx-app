@@ -7,7 +7,7 @@ const { data } = await useTransactions().list();
 </script>
 
 <template>
-  <div class="container-fluid py-3" id="activities">
+  <div class="container-fluid p-0 py-3" id="activities">
     <Appbar :title="true" class="bg-primary fixed-top" />
     <div class="h-52"></div>
     <div class="row g-0 align-items-center justify-content-center">
