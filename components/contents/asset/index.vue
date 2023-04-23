@@ -78,7 +78,7 @@ const tradeHandler = async () => {
               class="form-control d-flex align-items-center justify-content-between text-primary bg-info-soft border-info"
             >
               <strong class="fs-6">{{
-                $currency(tradeForm.value, tradeForm.rate?.currency)
+                $currency(tradeForm.value, tradeForm.rate?.currency || "USD")
               }}</strong>
               <strong>{{ tradeForm.rate.buying_at || "000" }}</strong>
             </div>
@@ -128,7 +128,7 @@ const tradeHandler = async () => {
             class="ic-holder ic-holder-xl mx-auto mb-3"
           />
           <h6 class="fw-bold mb-1">
-            {{ $currency(tradeForm.amount, tradeForm.rate?.currency) }}
+            {{ $currency(tradeForm.amount, tradeForm.rate?.currency || "USD") }}
           </h6>
           <p class="caption">
             {{ tradeForm.rate.name }}
@@ -172,7 +172,7 @@ const tradeHandler = async () => {
               </div>
               <div class="col-auto">
                 <span>{{
-                  $currency(tradeForm.amount, tradeForm.rate?.currency)
+                  $currency(tradeForm.amount, tradeForm.rate?.currency || "USD")
                 }}</span>
               </div>
             </div>
@@ -194,7 +194,7 @@ const tradeHandler = async () => {
               </div>
               <div class="col-auto">
                 <span>{{
-                  $currency(tradeForm.value, tradeForm.rate?.currency)
+                  $currency(tradeForm.value, tradeForm.rate?.currency || "USD")
                 }}</span>
               </div>
             </div>
