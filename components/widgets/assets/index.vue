@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const assetsProps = useAttrs();
-useTrader().assets();
+const { data } = await useAssets().assets();
 </script>
 
 <template>
@@ -9,7 +9,7 @@ useTrader().assets();
       :img="item.image_url"
       :title="item.name"
       :caption="item.type"
-      v-for="(item, index) in assetsProps.data"
+      v-for="(item, index) in data.data"
       :key="index"
       @click="$router.push(`/console/assets/${item.id}`)"
     />

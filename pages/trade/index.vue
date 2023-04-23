@@ -2,7 +2,6 @@
 definePageMeta({
   middleware: "is-logged-in",
 });
-useTrader().assets();
 </script>
 
 <template>

@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 const isLoading = useIsLoading();
 const customers = useCustomers();
-const assets = useTrade();
 </script>
 
 <template>
@@ -18,23 +17,6 @@ const assets = useTrade();
         :title="item.name"
         dialog="offcanvas-bottom h-75"
       />
-    </div>
-    <div v-if="assets">
-      <div v-for="(item, index) in assets" :key="index">
-        <div v-if="item">
-          <AppDrawer
-            v-for="(asset, indexx) in item"
-            :key="indexx"
-            :uuid="indexx"
-            :content="`trade-${index}-${indexx}`"
-            :data="asset"
-            :title="asset.name"
-            :caption="asset.type"
-            dialog="offcanvas-bottom h-75"
-            backdrop="n"
-          />
-        </div>
-      </div>
     </div>
   </div>
 </template>

@@ -7,7 +7,9 @@ useTransfer().banks({
   country: "NG",
 });
 
-const banks = useBanks();
+const { data } = await useTransfer().banks({
+  country: "NG",
+});
 
 const transferForm = ref({
   bank: "",
@@ -64,7 +66,7 @@ const setAccountName = async (payload: any) => {
               >
                 <option value="" selected>Bank</option>
                 <option
-                  v-for="(item, index) in banks"
+                  v-for="(item, index) in data.data"
                   :key="index"
                   :value="item"
                 >
@@ -120,51 +122,52 @@ const setAccountName = async (payload: any) => {
                 <span>{{ transferForm.account_number }}</span>
               </p>
             </div>
-            <div class="list-group rounded-4 py-1 bg-white mb-4">
+            <div class="list-group rounded-4 py-1 mb-4 bg-white">
               <div
-                class="list-group-item d-flex align-items-center justify-content-between border-0"
+                class="list-group-item border-bottom border-light border-0 py-3"
               >
-                <h6 class="caption text-capitalize mb-1">You Pay</h6>
-                <p class="title text-dark mb-0">
-                  {{
-                    Number(transferForm.amount || 0).toLocaleString("en-NG", {
-                      style: "currency",
-                      currency: "NGN",
-                    })
-                  }}
-                </p>
+                <div class="row g-2 justify-content-between caption">
+                  <div class="col-auto">
+                    <span class="text-secondary">You Pay</span>
+                  </div>
+                  <div class="col-auto">
+                    <span>{{ $currency(transferForm.amount, "NGN") }}</span>
+                  </div>
+                </div>
               </div>
               <div
-                class="list-group-item d-flex align-items-center justify-content-between border-0"
+                class="list-group-item border-bottom border-light border-0 py-3"
               >
-                <h6 class="caption text-capitalize mb-1">Fees</h6>
-                <p class="title text-dark mb-0">
-                  {{
-                    (0).toLocaleString("en-NG", {
-                      style: "currency",
-                      currency: "NGN",
-                    })
-                  }}
-                </p>
+                <div class="row g-2 justify-content-between caption">
+                  <div class="col-auto">
+                    <span class="text-secondary">Fees</span>
+                  </div>
+                  <div class="col-auto">
+                    <span>{{ $currency(0, "NGN") }}</span>
+                  </div>
+                </div>
               </div>
               <div
-                class="list-group-item d-flex align-items-center justify-content-between border-0"
+                class="list-group-item border-bottom border-light border-0 py-3"
               >
-                <h6 class="caption text-capitalize mb-1">Receipent Gets</h6>
-                <p class="title text-dark mb-0">
-                  {{
-                    Number(transferForm.amount || 0).toLocaleString("en-NG", {
-                      style: "currency",
-                      currency: "NGN",
-                    })
-                  }}
-                </p>
+                <div class="row g-2 justify-content-between caption">
+                  <div class="col-auto">
+                    <span class="text-secondary">Receipent Gets</span>
+                  </div>
+                  <div class="col-auto">
+                    <span>{{ $currency(transferForm.amount, "NGN") }}</span>
+                  </div>
+                </div>
               </div>
-              <div
-                class="list-group-item d-flex align-items-center justify-content-between border-0"
-              >
-                <h6 class="caption text-capitalize mb-1">Arriving</h6>
-                <p class="title text-dark mb-0">In a few minutes</p>
+              <div class="list-group-item border-0 py-3">
+                <div class="row g-2 justify-content-between caption">
+                  <div class="col-auto">
+                    <span class="text-secondary">Arriving in</span>
+                  </div>
+                  <div class="col-auto">
+                    <span>5 Minutes</span>
+                  </div>
+                </div>
               </div>
             </div>
             <button

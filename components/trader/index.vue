@@ -1,14 +1,12 @@
 <script lang="ts" setup>
-const loading = useIsLoading();
-useTrader().assets();
-const trade = useTrade();
+const { data } = await useAssets().assets();
 </script>
 
 <template>
   <div class="container-fluid py-4 py-lg-5" id="trade">
     <div class="bg-primary fixed-top">
       <Appbar :hasPrev="true" caption="What would you like to trade?" />
-      <nav v-if="typeof trade === 'object'">
+      <nav v-if="typeof data.data === 'object'">
         <div
           class="nav nav-tabs border-top border-light lh-lg"
           id="nav-tab"
@@ -25,7 +23,7 @@ const trade = useTrade();
             role="tab"
             :aria-controls="`nav-${index}`"
             :aria-selected="index.toString() === 'Giftcard' ? true : false"
-            v-for="(item, index) in trade"
+            v-for="(item, index) in data.data"
             :key="index"
           >
             {{ index }}
@@ -37,8 +35,8 @@ const trade = useTrade();
     <div class="py-1"></div>
     <div class="row g-0 align-items-center justify-content-center">
       <div class="col-lg-5">
-        <div v-if="typeof trade === 'object'">
-          <div v-for="(item, index) in trade" :key="index">
+        <div v-if="typeof data.data === 'object'">
+          <div v-for="(item, index) in data.data" :key="index">
             <div class="tab-content" id="nav-tabContent">
               <div
                 :class="`tab-pane fade  ${
@@ -89,6 +87,23 @@ const trade = useTrade();
       </div>
     </div>
     <BottomNav />
+    <div v-if="data">
+      <div v-for="(item, index) in data.data" :key="index">
+        <div v-if="item">
+          <AppDrawer
+            v-for="(asset, indexx) in item"
+            :key="indexx"
+            :uuid="indexx"
+            :content="`trade-${index}-${indexx}`"
+            :data="asset"
+            :title="asset.name"
+            :caption="asset.type"
+            dialog="offcanvas-bottom h-75"
+            backdrop="n"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
