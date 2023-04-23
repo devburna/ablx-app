@@ -4,6 +4,12 @@ const activities = useAttrs();
 
 <template>
   <div class="list-group bg-white rounded-4 py-2">
+    <ListView
+      title="Recent"
+      subTrailing="See more"
+      @click="$router.push('/orders')"
+      v-if="activities.hasMore"
+    />
     <div v-for="(item, index) in activities.data" :key="index">
       <ListView
         :img="item.rate.asset.image_url"
@@ -19,7 +25,9 @@ const activities = useAttrs();
       />
       <ListView
         :icon="`${
-          ['Debit'].includes(item.type) ? 'cloud-arrow-down-fill' : 'cloud-arrow-up-fill'
+          ['Debit'].includes(item.type)
+            ? 'cloud-arrow-down-fill'
+            : 'cloud-arrow-up-fill'
         }`"
         :title="item.narration || item.rate.name"
         :caption="$timeAgo(item.created_at)"

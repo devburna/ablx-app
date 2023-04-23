@@ -5,7 +5,7 @@ const { data } = await useAssets().list();
 <template>
   <div class="container-fluid py-4 py-lg-5" id="trade">
     <div class="bg-primary fixed-top">
-      <Appbar :hasPrev="true" caption="What would you like to trade?" />
+      <Appbar caption="What would you like to trade?" />
       <nav v-if="typeof data.data === 'object'">
         <div
           class="nav nav-tabs border-top border-light lh-lg"

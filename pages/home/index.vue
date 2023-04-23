@@ -18,6 +18,7 @@ const { data } = await useOrders().list();
       <div class="col-12 mt-2"></div>
       <div class="col-lg-5">
         <WidgetsActivities
+          :hasMore="true"
           class="mb-4 mx-3"
           :data="data.data.slice(0, 5)"
           v-if="data && data.data.length"

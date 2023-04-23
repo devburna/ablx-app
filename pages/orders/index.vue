@@ -8,7 +8,7 @@ const { data } = await useOrders().list();
 
 <template>
   <div class="container-fluid p-0 py-3" id="orders">
-    <Appbar :title="true" class="bg-primary fixed-top" />
+    <Appbar :hasPrev="true" :title="true" class="bg-primary fixed-top" />
     <div class="h-52"></div>
     <div class="row g-0 align-items-center justify-content-center">
       <div class="col-lg-5">
@@ -20,7 +20,6 @@ const { data } = await useOrders().list();
         <Message caption="No order found 😥" v-else />
       </div>
     </div>
-    <BottomNav />
     <div v-if="data && data.data.length">
       <AppDrawer
         v-for="(item, index) in data.data"
