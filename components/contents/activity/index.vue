@@ -208,7 +208,12 @@ const user = useUser();
         <a
           class="dropdown-item bg-transparent text-success"
           href="#"
-          @click="useOrders().update({ status: 'Confirmed' })"
+          @click="
+            useOrders().update({
+              id: appDrawerContent.data.id,
+              status: 'Confirmed',
+            })
+          "
           >Approve</a
         >
       </li>
