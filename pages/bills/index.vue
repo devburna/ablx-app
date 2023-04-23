@@ -74,7 +74,7 @@ const billForm = ref({
                 </button>
               </div>
             </form>
-            <Message caption="No biller found, try again later" />
+            <Message caption="No biller found, try again later" v-else />
           </div>
         </div>
       </div>

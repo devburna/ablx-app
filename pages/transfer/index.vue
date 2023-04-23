@@ -196,7 +196,7 @@ const setAccountName = async (payload: any) => {
           </div>
         </div>
       </div>
-      <div class="col-lg-5">
+      <div class="col-lg-5" v-else>
         <Message caption="Transfer not available, try again later" />
       </div>
     </div>
