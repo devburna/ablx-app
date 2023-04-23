@@ -2,11 +2,11 @@
 const assetContent = useAttrs();
 
 const tradeForm = ref({
-  amount: null,
+  amount: 0,
   type: "Sell",
   value: 0,
   rate: {},
-  comment: null,
+  comment: "",
   receipt: null,
 });
 
@@ -33,7 +33,7 @@ const tradeHandler = async () => {
         <form
           @submit.prevent="preview = !preview"
           class="row g-3"
-          v-if="assetContent.data.rates.length"
+          v-if="assetContent.data?.rates.length"
         >
           <div class="col-lg-12">
             <select
@@ -54,12 +54,22 @@ const tradeHandler = async () => {
           </div>
           <div class="col-lg-12">
             <input
-              type="text"
+              type="number"
               class="form-control"
               placeholder="Enter Trade Amount"
               v-model="tradeForm.amount"
-              v-on:keyup="setValue(tradeForm.amount, tradeForm.rate.buying_at)"
+              v-on:keyup="setValue(tradeForm.amount, tradeForm.rate?.buying_at)"
               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+              :min="`${
+                ['Sell'].includes(tradeForm.type)
+                  ? tradeForm.rate?.min_buy
+                  : tradeForm.rate?.min_sell
+              }`"
+              :max="`${
+                ['Sell'].includes(tradeForm.type)
+                  ? tradeForm.rate?.max_buy
+                  : tradeForm.rate?.max_sell
+              }`"
               required
             />
           </div>
@@ -68,10 +78,7 @@ const tradeHandler = async () => {
               class="form-control d-flex align-items-center justify-content-between text-primary bg-info-soft border-info"
             >
               <strong class="fs-6">{{
-                (tradeForm.value || 0).toLocaleString("en-NG", {
-                  style: "currency",
-                  currency: "NGN",
-                })
+                $currency(tradeForm.value, tradeForm.rate?.currency)
               }}</strong>
               <strong>{{ tradeForm.rate.buying_at || "000" }}</strong>
             </div>
@@ -118,37 +125,88 @@ const tradeHandler = async () => {
             :src="assetContent.data.image_url"
             :alt="assetContent.data.name"
             loading="lazy"
-            class="ic-holder ic-holder-lg mx-auto mb-3"
+            class="ic-holder ic-holder-xl mx-auto mb-3"
           />
-          <h6 class="mb-1">
-            {{
-              Number(tradeForm.amount).toLocaleString("en-NG", {
-                style: "currency",
-                currency: "NGn",
-              })
-            }}
+          <h6 class="fw-bold mb-1">
+            {{ $currency(tradeForm.amount, tradeForm.rate?.currency) }}
           </h6>
           <p class="caption">
             {{ tradeForm.rate.name }}
           </p>
         </div>
-        <div class="list-group rounded-4 py-1 bg-white mb-4">
-          <div v-for="(item, index) in tradeForm" :key="index">
-            <div
-              class="list-group-item border-0"
-              v-if="typeof item === 'string'"
-            >
-              <h6 class="caption text-capitalize mb-1">{{ index }}</h6>
-              <p class="title text-dark mb-0">{{ item }}</p>
+        <div class="list-group rounded-4 py-1 mb-4 bg-white">
+          <div class="list-group-item border-bottom border-light border-0 py-3">
+            <div class="row justify-content-between caption">
+              <div class="col-auto">
+                <span class="text-secondary">Type</span>
+              </div>
+              <div class="col-auto">
+                <span>{{ tradeForm.type }}</span>
+              </div>
             </div>
           </div>
-          <div v-for="(item, index) in tradeForm.rate" :key="index">
-            <div
-              class="list-group-item border-0"
-              v-if="typeof item === 'string'"
-            >
-              <h6 class="caption text-capitalize mb-1">{{ index }}</h6>
-              <p class="title text-dark mb-0">{{ item }}</p>
+          <div class="list-group-item border-bottom border-light border-0 py-3">
+            <div class="row justify-content-between caption">
+              <div class="col-auto">
+                <span class="text-secondary">Item</span>
+              </div>
+              <div class="col-auto">
+                <span>{{ assetContent.data.name }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="list-group-item border-bottom border-light border-0 py-3">
+            <div class="row justify-content-between caption">
+              <div class="col-auto">
+                <span class="text-secondary">Category</span>
+              </div>
+              <div class="col-auto">
+                <span>{{ assetContent.data.type }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="list-group-item border-bottom border-light border-0 py-3">
+            <div class="row justify-content-between caption">
+              <div class="col-auto">
+                <span class="text-secondary">Amount</span>
+              </div>
+              <div class="col-auto">
+                <span>{{
+                  $currency(tradeForm.amount, tradeForm.rate?.currency)
+                }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="list-group-item border-bottom border-light border-0 py-3">
+            <div class="row justify-content-between caption">
+              <div class="col-auto">
+                <span class="text-secondary">Rate</span>
+              </div>
+              <div class="col-auto">
+                <span>{{ tradeForm.rate?.name }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="list-group-item border-bottom border-light border-0 py-3">
+            <div class="row justify-content-between caption">
+              <div class="col-auto">
+                <span class="text-secondary">Recipient gets</span>
+              </div>
+              <div class="col-auto">
+                <span>{{
+                  $currency(tradeForm.value, tradeForm.rate?.currency)
+                }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="list-group-item border-0 py-3">
+            <div class="row justify-content-between caption">
+              <div class="col-auto">
+                <span class="text-secondary">Arriving in</span>
+              </div>
+              <div class="col-auto">
+                <span>5 Minutes</span>
+              </div>
             </div>
           </div>
         </div>
@@ -162,7 +220,7 @@ const tradeHandler = async () => {
         <button
           type="button"
           @click="preview = !preview"
-          class="btn btn-link text-muted btn-lg w-100"
+          class="btn btn-link text-muted btn-lg mb-5 w-100"
         >
           Go Back
         </button>

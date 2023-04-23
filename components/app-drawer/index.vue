@@ -13,7 +13,7 @@ const appDrawer = useAttrs();
     <div class="offcanvas-header align-items-start">
       <div class="offcanvas-title w-100 p-1">
         <h6
-          class="mb-0 d-flex align-items-center justify-content-between"
+          class="mb-0 d-flex align-items-center justify-content-between fw-bold"
           :id="`${appDrawer.content}Label`"
         >
           {{ appDrawer.title }}
