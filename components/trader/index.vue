@@ -48,24 +48,32 @@ const trade = useTrade();
                 :aria-labelledby="`nav-${index}-tab`"
                 tabindex="0"
               >
-                <div class="row g-3">
+                <div class="list-group rounded-4">
                   <div
-                    class="col-3 col-lg-3"
+                    class="list-group-item border-0 border-bottom border-light"
                     v-for="(asset, indexx) in item"
                     :key="indexx"
                   >
-                    <div
-                      class="card border-light text-center"
-                      data-bs-toggle="offcanvas"
-                      :data-bs-target="`#trade-${index}-${indexx}`"
-                    >
-                      <div class="card-body">
-                        <img
-                          :src="asset.image_url"
-                          :alt="asset.name"
-                          loading="lazy"
-                          class="ic-holder ic-holder-lg mx-auto"
-                        />
+                    <div class="card border-0" style="max-width: 540px">
+                      <div class="row align-items-center g-0">
+                        <div class="col-auto">
+                          <img
+                            :src="`${asset.image_url}`"
+                            class="img-fluid rounded ic-holder-lg"
+                            :alt="`${asset.name}`"
+                            loading="eager"
+                          />
+                        </div>
+                        <div class="col">
+                          <div class="card-body">
+                            <h5 class="card-title title mb-0">
+                              {{ asset.name }}
+                            </h5>
+                          </div>
+                        </div>
+                        <div class="col-auto ms-auto">
+                          <i class="bi bi-chevron-right caption"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -81,4 +89,8 @@ const trade = useTrade();
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.list-group-item:last-of-type {
+  border-bottom: 0 !important;
+}
+</style>

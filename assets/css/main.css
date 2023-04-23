@@ -266,6 +266,11 @@ img {
     height: 32px;
 }
 
+.ic-holder-xl {
+    width: 40px;
+    height: 40px;
+}
+
 .ic-holder-inner {
     width: 22px;
     height: 22px;
