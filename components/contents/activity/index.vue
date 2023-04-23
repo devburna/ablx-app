@@ -265,30 +265,12 @@ const user = useUser();
       </li>
       <li
         v-if="
-          ['New'].includes(appDrawerContent.data.status) ||
-          (['Pending'].includes(appDrawerContent.data.status) &&
-            appDrawerContent.data.rate)
+          ['Pending'].includes(appDrawerContent.data.status) &&
+          appDrawerContent.data.rate &&
+          user.isAdmin
         "
       >
         <hr class="dropdown-divider border-light" />
-      </li>
-      <li
-        v-if="
-          ['New'].includes(appDrawerContent.data.status) &&
-          appDrawerContent.data.rate
-        "
-      >
-        <a
-          class="dropdown-item bg-transparent text-danger"
-          href="#"
-          @click="
-            useOrders().update({
-              id: appDrawerContent.data.id,
-              status: 'Failed',
-            })
-          "
-          >Cancel</a
-        >
       </li>
       <li
         v-if="
