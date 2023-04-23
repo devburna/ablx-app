@@ -17,7 +17,7 @@ const { data } = await useTransactions().list();
           :data="data.data"
           v-if="data && data.data.length"
         />
-        <Message caption="No activity found 😥" v-else />
+        <Message caption="No activities found 😥" v-else />
       </div>
     </div>
     <BottomNav />

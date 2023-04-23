@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 definePageMeta({
-  middleware: "is-logged-in",
+  middleware: ["is-logged-in", "is-admin"],
 });
 
 const { data } = await useOrders().list();
@@ -8,7 +8,12 @@ const { data } = await useOrders().list();
 
 <template>
   <div class="container-fluid p-0 py-3" id="orders">
-    <Appbar :title="true" class="bg-primary fixed-top" name="Orders" />
+    <Appbar
+      :hasPrev="true"
+      :title="true"
+      class="bg-primary fixed-top"
+      name="Orders"
+    />
     <div class="h-52"></div>
     <div class="row g-0 align-items-center justify-content-center">
       <div class="col-lg-5">
@@ -17,7 +22,7 @@ const { data } = await useOrders().list();
           :data="data.data"
           v-if="data && data.data.length"
         />
-        <Message caption="No order found 😥" v-else />
+        <Message caption="No orders found 😥" v-else />
       </div>
     </div>
     <BottomNav />

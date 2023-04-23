@@ -17,7 +17,7 @@ const { data } = await useOrders().list();
           :data="data.data"
           v-if="data && data.data.length"
         />
-        <Message caption="No order found 😥" v-else />
+        <Message caption="No orders found 😥" v-else />
       </div>
     </div>
     <div v-if="data && data.data.length">

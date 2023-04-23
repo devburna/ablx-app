@@ -18,7 +18,7 @@ const { data } = await useCustomers().list();
     <div class="row g-0 align-items-center justify-content-center">
       <div class="col-lg-5">
         <WidgetsCustomers :data="data.data" v-if="data && data.data.length" />
-        <Message caption="No customer found 😥" v-else />
+        <Message caption="No customers found 😥" v-else />
       </div>
     </div>
     <div v-if="data && data.data.length">
