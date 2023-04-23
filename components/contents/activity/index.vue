@@ -250,7 +250,12 @@ const user = useUser();
         <a
           class="dropdown-item bg-transparent text-danger"
           href="#"
-          @click="useOrders().update({ status: 'Failed' })"
+          @click="
+            useOrders().update({
+              id: appDrawerContent.data.id,
+              status: 'Failed',
+            })
+          "
           >Cancel</a
         >
       </li>
@@ -264,7 +269,12 @@ const user = useUser();
         <a
           class="dropdown-item bg-transparent text-danger"
           href="#"
-          @click="useOrders().update({ status: 'Failed' })"
+          @click="
+            useOrders().update({
+              id: appDrawerContent.data.id,
+              status: 'Failed',
+            })
+          "
           >Reject</a
         >
       </li>

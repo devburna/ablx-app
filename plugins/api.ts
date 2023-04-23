@@ -44,28 +44,29 @@ export default defineNuxtPlugin((nuxtApp) => {
             get: async (url: string, data?: any) => {
                 return await useFetch(config.public.baseURL + url, {
                     ...interceptors,
-                    method: 'get',
+                    method: 'GET',
                     query: data,
                 })
             },
             post: async (url: string, data?: any) => {
                 return await useFetch(config.public.baseURL + url, {
                     ...interceptors,
-                    method: 'post',
+                    method: 'POST',
                     body: data
                 })
             },
             patch: async (url: string, data?: any) => {
                 return await useFetch(config.public.baseURL + url, {
                     ...interceptors,
-                    method: 'patch',
-                    params: data
+                    method: 'PATCH',
+                    body: data
                 })
             },
-            delete: async (url: string) => {
+            delete: async (url: string, data?: any) => {
                 return await useFetch(config.public.baseURL + url, {
                     ...interceptors,
-                    method: 'delete'
+                    method: 'DELETE',
+                    body: data
                 })
             }
         }

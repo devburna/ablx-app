@@ -15,7 +15,10 @@ export const useOrders = () => {
         }
       }
 
-      return await app.$patch(`/orders/${payload.id}`, payload).then(async (res: any) => {
+      const id = payload.id;
+      delete (payload.id);
+      
+      return await app.$patch(`/orders/${id}`, payload).then(async (res: any) => {
         if (res.data.value) {
           await useOrder().list()
         }
