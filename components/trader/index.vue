@@ -1,10 +1,11 @@
 <script lang="ts" setup>
+const loading = useIsLoading();
 useTrader().assets();
 const trade = useTrade();
 </script>
 
 <template>
-  <div class="container-fluid py-4" id="trade">
+  <div class="container-fluid py-4 py-lg-5" id="trade">
     <div class="bg-primary fixed-top">
       <Appbar :hasPrev="true" caption="What would you like to trade?" />
       <nav v-if="typeof trade === 'object'">
