@@ -248,17 +248,17 @@ const tradeHandler = async () => {
       <p
         class="caption"
         v-html="
-          response.data.invoice
-            ? response.data.invoice.message
+          response.data?.invoice
+            ? response.data?.invoice.message
             : response.data.comment || response.message
         "
       ></p>
       <div
         class="py-3"
-        v-if="response.data.invoice && response.data.invoice.address"
+        v-if="response.data?.invoice && response.data?.invoice.address"
       >
         <qrcode-vue
-          :value="response.data.invoice.address"
+          :value="response.data?.invoice.address"
           :size="150"
           level="H"
           class="rounded"
@@ -268,10 +268,10 @@ const tradeHandler = async () => {
         <button
           type="button"
           class="btn btn-success btn-sm rounded lh-lg px-4"
-          @click="$copy(response.data.invoice.address)"
-          v-if="response.data.invoice && response.data.invoice.address"
+          @click="$copy(response.data?.invoice.address)"
+          v-if="response.data?.invoice && response.data?.invoice.address"
         >
-          Copy {{ response.data.invoice.short }} address
+          Copy {{ response.data?.invoice.short }} address
         </button>
         <button
           type="button"

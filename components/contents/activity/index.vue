@@ -189,9 +189,46 @@ const user = useUser();
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-primary btn-lg rounded-4 w-100">
+    <button
+      type="button"
+      class="btn btn-primary btn-lg rounded-4 w-100 mb-4"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
       More Actions
     </button>
+    <ul class="dropdown-menu border-0 title shadow-sm lh-lg">
+      <li v-if="user.isAdmin && appDrawerContent.data.rate">
+        <a class="dropdown-item bg-transparent text-success" href="#"
+          >Approve</a
+        >
+      </li>
+      <li>
+        <a class="dropdown-item bg-transparent text-muted" href="#"
+          >Share receipt</a
+        >
+      </li>
+      <li
+        v-if="
+          appDrawerContent.data.rate &&
+          appDrawerContent.data?.invoice &&
+          appDrawerContent.data?.invoice.address
+        "
+      >
+        <a
+          class="dropdown-item bg-transparent text-muted"
+          href="#"
+          @click="$copy(appDrawerContent.data?.invoice.address)"
+          >Copy address</a
+        >
+      </li>
+      <li v-if="appDrawerContent.data.rate">
+        <hr class="dropdown-divider border-light" />
+      </li>
+      <li v-if="appDrawerContent.data.rate">
+        <a class="dropdown-item bg-transparent text-danger" href="#">Cancel</a>
+      </li>
+    </ul>
   </div>
 </template>
 
