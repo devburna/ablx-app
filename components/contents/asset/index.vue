@@ -58,7 +58,14 @@ const tradeHandler = async () => {
               class="form-control"
               placeholder="Enter Trade Amount"
               v-model="tradeForm.amount"
-              v-on:keyup="setValue(tradeForm.amount, tradeForm.rate?.buying_at)"
+              v-on:keyup="
+                setValue(
+                  tradeForm.amount,
+                  ['Sell'].includes(tradeForm.type)
+                    ? tradeForm.rate?.buying_at
+                    : tradeForm.rate?.selling_at
+                )
+              "
               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
               :min="`${
                 ['Sell'].includes(tradeForm.type)
@@ -80,7 +87,11 @@ const tradeHandler = async () => {
               <strong class="fs-6">{{
                 $currency(tradeForm.value, tradeForm.rate?.currency || "USD")
               }}</strong>
-              <strong>{{ tradeForm.rate.buying_at || "000" }}</strong>
+              <strong>{{
+                (["Sell"].includes(tradeForm.type)
+                  ? tradeForm.rate?.buying_at
+                  : tradeForm.rate?.selling_at) || "000"
+              }}</strong>
             </div>
           </div>
           <div
