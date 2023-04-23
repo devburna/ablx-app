@@ -136,7 +136,7 @@ const tradeHandler = async () => {
         </div>
         <div class="list-group rounded-4 py-1 mb-4 bg-white">
           <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row justify-content-between caption">
+            <div class="row g-2 justify-content-between caption">
               <div class="col-auto">
                 <span class="text-secondary">Type</span>
               </div>
@@ -146,7 +146,7 @@ const tradeHandler = async () => {
             </div>
           </div>
           <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row justify-content-between caption">
+            <div class="row g-2 justify-content-between caption">
               <div class="col-auto">
                 <span class="text-secondary">Item</span>
               </div>
@@ -156,7 +156,7 @@ const tradeHandler = async () => {
             </div>
           </div>
           <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row justify-content-between caption">
+            <div class="row g-2 justify-content-between caption">
               <div class="col-auto">
                 <span class="text-secondary">Category</span>
               </div>
@@ -166,7 +166,7 @@ const tradeHandler = async () => {
             </div>
           </div>
           <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row justify-content-between caption">
+            <div class="row g-2 justify-content-between caption">
               <div class="col-auto">
                 <span class="text-secondary">Amount</span>
               </div>
@@ -178,7 +178,7 @@ const tradeHandler = async () => {
             </div>
           </div>
           <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row justify-content-between caption">
+            <div class="row g-2 justify-content-between caption">
               <div class="col-auto">
                 <span class="text-secondary">Rate</span>
               </div>
@@ -188,7 +188,7 @@ const tradeHandler = async () => {
             </div>
           </div>
           <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row justify-content-between caption">
+            <div class="row g-2 justify-content-between caption">
               <div class="col-auto">
                 <span class="text-secondary">Recipient gets</span>
               </div>
@@ -200,7 +200,7 @@ const tradeHandler = async () => {
             </div>
           </div>
           <div class="list-group-item border-0 py-3">
-            <div class="row justify-content-between caption">
+            <div class="row g-2 justify-content-between caption">
               <div class="col-auto">
                 <span class="text-secondary">Arriving in</span>
               </div>

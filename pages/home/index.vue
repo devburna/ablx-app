@@ -37,7 +37,7 @@ const { data } = await useOrders().list();
         :uuid="index"
         :content="`activity-${index}`"
         :data="item"
-        title="Order details"
+        title="Details"
         dialog="offcanvas-bottom h-75"
       />
     </div>
