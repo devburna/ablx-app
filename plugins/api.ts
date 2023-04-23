@@ -20,7 +20,7 @@ export default defineNuxtPlugin((nuxtApp) => {
             // Process the response data
             isLoading.value = false;
 
-            if (response._data.status && ['post', 'patch', 'delete'].includes(options.method)) useToast('success', response._data.message);
+            if (response._data.status && ['POST', 'PATCH', 'DELETE'].includes(options.method)) useToast('success', response._data.message);
             return response._data
         },
         onResponseError({ request, response, options }) {
