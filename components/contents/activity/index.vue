@@ -22,7 +22,13 @@ const user = useUser();
         </div>
       </div>
       <h6 class="fw-bold mb-1">
-        {{ $currency(appDrawerContent.data.amount, "NGN") }}
+        {{
+          $currency(
+            appDrawerContent.data.amount,
+            appDrawerContent.data?.currency ||
+              appDrawerContent.data.rate.currency
+          )
+        }}
       </h6>
       <p class="caption">
         {{ appDrawerContent.data.narration || appDrawerContent.data.comment }}
@@ -32,20 +38,17 @@ const user = useUser();
       <div class="list-group-item border-bottom border-light border-0 py-3">
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
-            <span class="text-secondary text-capitalize">Ref</span>
+            <span class="text-secondary">Ref</span>
           </div>
           <div class="col-auto">
             <span>{{ appDrawerContent.data.reference }}</span>
           </div>
         </div>
       </div>
-      <div
-        class="list-group-item border-bottom border-light border-0 py-3"
-        v-if="appDrawerContent.data.type"
-      >
+      <div class="list-group-item border-bottom border-light border-0 py-3">
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
-            <span class="text-secondary text-capitalize">Type</span>
+            <span class="text-secondary">Type</span>
           </div>
           <div class="col-auto">
             <span>{{ appDrawerContent.data.type }}</span>
@@ -58,7 +61,7 @@ const user = useUser();
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
-            <span class="text-secondary text-capitalize">Item</span>
+            <span class="text-secondary">Item</span>
           </div>
           <div class="col-auto">
             <span>{{ appDrawerContent.data.rate.asset.name }}</span>
@@ -71,7 +74,7 @@ const user = useUser();
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
-            <span class="text-secondary text-capitalize">Category</span>
+            <span class="text-secondary">Category</span>
           </div>
           <div class="col-auto">
             <span>{{ appDrawerContent.data.rate.asset.type }}</span>
@@ -81,13 +84,14 @@ const user = useUser();
       <div class="list-group-item border-bottom border-light border-0 py-3">
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
-            <span class="text-secondary text-capitalize">Amount</span>
+            <span class="text-secondary">Amount</span>
           </div>
           <div class="col-auto">
             <span>{{
               $currency(
                 appDrawerContent.data.amount,
-                appDrawerContent.data.rate.currency
+                appDrawerContent.data?.currency ||
+                  appDrawerContent.data.rate.currency
               )
             }}</span>
           </div>
@@ -99,7 +103,7 @@ const user = useUser();
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
-            <span class="text-secondary text-capitalize">Rate</span>
+            <span class="text-secondary">Rate</span>
           </div>
           <div class="col-auto">
             <span>{{ appDrawerContent.data.rate.name }}</span>
@@ -112,10 +116,17 @@ const user = useUser();
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
-            <span class="text-secondary text-capitalize">Recipient gets</span>
+            <span class="text-secondary">Recipient gets</span>
           </div>
           <div class="col-auto">
-            <span>{{ appDrawerContent.data.amount }}</span>
+            <span>{{
+              $currency(
+                appDrawerContent.data.amount *
+                  appDrawerContent.data.rate.buying_at,
+                appDrawerContent.data?.currency ||
+                  appDrawerContent.data.rate.currency
+              )
+            }}</span>
           </div>
         </div>
       </div>
@@ -125,7 +136,7 @@ const user = useUser();
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
-            <span class="text-secondary text-capitalize">Comment</span>
+            <span class="text-secondary">Comment</span>
           </div>
           <div class="col-auto">
             <span>{{ appDrawerContent.data.comment }}</span>
@@ -138,7 +149,7 @@ const user = useUser();
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
-            <span class="text-secondary text-capitalize">Narration</span>
+            <span class="text-secondary">Narration</span>
           </div>
           <div class="col-auto">
             <span>{{ appDrawerContent.data.narration }}</span>
@@ -148,7 +159,7 @@ const user = useUser();
       <div class="list-group-item border-bottom border-light border-0 py-3">
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
-            <span class="text-secondary text-capitalize">Status</span>
+            <span class="text-secondary">Status</span>
           </div>
           <div class="col-auto">
             <span :class="`text-${appDrawerContent.data.status}`">{{
@@ -160,7 +171,7 @@ const user = useUser();
       <div class="list-group-item border-bottom border-light border-0 py-3">
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
-            <span class="text-secondary text-capitalize">Created</span>
+            <span class="text-secondary">Created</span>
           </div>
           <div class="col-auto">
             <span>{{
