@@ -5,7 +5,7 @@ const messageNote = useAttrs();
 <template>
   <div class="p-5 text-center">
     <h4 class="title" v-if="messageNote?.title">{{ messageNote.title }}</h4>
-    <p class="caption" v-html="messageNote.caption"></p>
+    <p class="caption text-muted" v-html="messageNote.caption"></p>
   </div>
 </template>
 

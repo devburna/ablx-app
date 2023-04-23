@@ -35,7 +35,7 @@ const listView = useAttrs();
     </div>
     <div class="py-1">
       <h6 class="title text-truncate mb-0">{{ listView.title }}</h6>
-      <small class="caption fw-normal text-muted" v-if="listView.caption">
+      <small class="caption text-muted" v-if="listView.caption">
         {{ listView.caption }}
       </small>
     </div>
@@ -48,7 +48,7 @@ const listView = useAttrs();
         {{ listView.trailing }}
       </h6>
       <small
-        :class="`caption fw-normal text-${listView.status || 'muted'}`"
+        :class="`caption  text-${listView.status || 'muted'}`"
         v-if="listView.subTrailing"
         v-html="listView.subTrailing"
       >
