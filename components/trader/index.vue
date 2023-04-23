@@ -107,4 +107,7 @@ const { data } = await useAssets().list();
 .img-fluid {
   fill-opacity: fill;
 }
+.nav-tabs .nav-link.active {
+  font-weight: 600 !important;
+}
 </style>
