@@ -39,7 +39,10 @@ const user = useUser();
           </div>
         </div>
       </div>
-      <div class="list-group-item border-bottom border-light border-0 py-3">
+      <div
+        class="list-group-item border-bottom border-light border-0 py-3"
+        v-if="appDrawerContent.data.type"
+      >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary text-capitalize">Type</span>
@@ -49,7 +52,10 @@ const user = useUser();
           </div>
         </div>
       </div>
-      <div class="list-group-item border-bottom border-light border-0 py-3">
+      <div
+        class="list-group-item border-bottom border-light border-0 py-3"
+        v-if="appDrawerContent.data.rate"
+      >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary text-capitalize">Item</span>
@@ -59,7 +65,10 @@ const user = useUser();
           </div>
         </div>
       </div>
-      <div class="list-group-item border-bottom border-light border-0 py-3">
+      <div
+        class="list-group-item border-bottom border-light border-0 py-3"
+        v-if="appDrawerContent.data.rate"
+      >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary text-capitalize">Category</span>
@@ -84,7 +93,10 @@ const user = useUser();
           </div>
         </div>
       </div>
-      <div class="list-group-item border-bottom border-light border-0 py-3">
+      <div
+        class="list-group-item border-bottom border-light border-0 py-3"
+        v-if="appDrawerContent.data.rate"
+      >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary text-capitalize">Rate</span>
@@ -94,7 +106,10 @@ const user = useUser();
           </div>
         </div>
       </div>
-      <div class="list-group-item border-bottom border-light border-0 py-3">
+      <div
+        class="list-group-item border-bottom border-light border-0 py-3"
+        v-if="appDrawerContent.data.rate"
+      >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary text-capitalize">Recipient gets</span>
@@ -104,13 +119,29 @@ const user = useUser();
           </div>
         </div>
       </div>
-      <div class="list-group-item border-bottom border-light border-0 py-3">
+      <div
+        class="list-group-item border-bottom border-light border-0 py-3"
+        v-if="appDrawerContent.data.rate"
+      >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary text-capitalize">Comment</span>
           </div>
           <div class="col-auto">
             <span>{{ appDrawerContent.data.comment }}</span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="list-group-item border-bottom border-light border-0 py-3"
+        v-if="appDrawerContent.data.narration"
+      >
+        <div class="row g-2 justify-content-between caption">
+          <div class="col-auto">
+            <span class="text-secondary text-capitalize">Narration</span>
+          </div>
+          <div class="col-auto">
+            <span>{{ appDrawerContent.data.narration }}</span>
           </div>
         </div>
       </div>
