@@ -8,7 +8,7 @@ const quickActions = [
   },
   {
     icon: "file-earmark-text",
-    title: "Pay Bills",
+    title: "Pay bills",
     caption: "Buy airtime or pay utility bills",
     route: "/bills",
   },
