@@ -35,7 +35,7 @@ const verifyEmailForm = {
             <div class="col-lg-12">
               <input
                 type="text"
-                class="form-control"
+                class="form-control text-center"
                 placeholder="6 digits code"
                 maxlength="6"
                 v-model="verifyEmailForm.code"
