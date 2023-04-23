@@ -163,7 +163,7 @@ img {
     color: var(--bs-info) !important;
 }
 
-.text-warning {
+.text-warning, .text-Pending {
     color: var(--bs-warning) !important;
 }
 
@@ -179,7 +179,7 @@ img {
     color: var(--bs-danger) !important;
 }
 
-.bg-Pending .text-Pending {
+.bg-Pending {
     color: var(--bs-warning) !important;
 }
 
