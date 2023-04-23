@@ -159,7 +159,7 @@ img {
     color: var(--bs-white) !important;
 }
 
-.text-info {
+.text-info, .text-New {
     color: var(--bs-info) !important;
 }
 
@@ -191,7 +191,7 @@ img {
     background: var(--bs-light) !important;
 }
 
-.bg-info {
+.bg-info, .bg-New {
     background: var(--bs-info) !important;
 }
 
