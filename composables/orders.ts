@@ -20,7 +20,7 @@ export const useOrders = () => {
       
       return await app.$patch(`/orders/${id}`, payload).then(async (res: any) => {
         if (res.data.value) {
-          await useOrder().list()
+          await useOrders().list()
         }
       });
     }

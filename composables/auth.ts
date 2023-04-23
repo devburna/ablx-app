@@ -10,7 +10,7 @@ export const useAuth = () => {
 
     _token.value = token;
     _user.value = user;
-    
+
     navigateTo('/home')
   }
 
@@ -37,7 +37,13 @@ export const useAuth = () => {
       });
     },
     emailVerificationRequest: async () => {
-      await app.$get("/verify-email");
+      await app.$get("/verify-email").then((res: any) => {
+        if (res.data.value) {
+          const { message } = res.data.value
+
+          useToast('success', message)
+        }
+      });
     },
     verifyEmailVerificationCode: async (payload: any) => {
       await app.$post("/verify-email", payload).then((res: any) => {
