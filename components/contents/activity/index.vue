@@ -198,18 +198,20 @@ const user = useUser();
       More Actions
     </button>
     <ul class="dropdown-menu border-0 title shadow-sm lh-lg">
-      <li v-if="user.isAdmin && appDrawerContent.data.rate">
+      <li
+        v-if="
+          ['Pending'].includes(appDrawerContent.data.status) &&
+          appDrawerContent.data.rate &&
+          user.isAdmin
+        "
+      >
         <a class="dropdown-item bg-transparent text-success" href="#"
           >Approve</a
         >
       </li>
-      <li>
-        <a class="dropdown-item bg-transparent text-muted" href="#"
-          >Share receipt</a
-        >
-      </li>
       <li
         v-if="
+          ['New'].includes(appDrawerContent.data.status) &&
           appDrawerContent.data.rate &&
           appDrawerContent.data?.invoice &&
           appDrawerContent.data?.invoice.address
@@ -222,11 +224,46 @@ const user = useUser();
           >Copy address</a
         >
       </li>
-      <li v-if="appDrawerContent.data.rate">
+      <li>
+        <a class="dropdown-item bg-transparent text-muted" href="#"
+          >Share receipt</a
+        >
+      </li>
+      <li
+        v-if="
+          ['New'].includes(appDrawerContent.data.status) ||
+          (['Pending'].includes(appDrawerContent.data.status) &&
+            appDrawerContent.data.rate)
+        "
+      >
         <hr class="dropdown-divider border-light" />
       </li>
-      <li v-if="appDrawerContent.data.rate">
-        <a class="dropdown-item bg-transparent text-danger" href="#">Cancel</a>
+      <li
+        v-if="
+          ['New'].includes(appDrawerContent.data.status) &&
+          appDrawerContent.data.rate
+        "
+      >
+        <a
+          class="dropdown-item bg-transparent text-danger"
+          href="#"
+          @click="useOrders().update({ status: 'Cancelled' })"
+          >Cancel</a
+        >
+      </li>
+      <li
+        v-if="
+          ['Pending'].includes(appDrawerContent.data.status) &&
+          appDrawerContent.data.rate &&
+          user.isAdmin
+        "
+      >
+        <a
+          class="dropdown-item bg-transparent text-danger"
+          href="#"
+          @click="useOrders().update({ status: 'Rejected' })"
+          >Reject</a
+        >
       </li>
     </ul>
   </div>
