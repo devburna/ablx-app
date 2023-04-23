@@ -110,4 +110,8 @@ const { data } = await useAssets().list();
 .nav-tabs .nav-link.active {
   font-weight: 600 !important;
 }
+
+.nav-tabs .nav-link:hover{
+  color: var(--bs-warning);
+}
 </style>
