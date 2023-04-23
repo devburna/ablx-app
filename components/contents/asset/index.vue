@@ -18,7 +18,7 @@ const preview = ref(false);
 const response = ref();
 
 const tradeHandler = async () => {
-  const { data } = await useOrder().create(tradeForm);
+  const { data } = await useOrders().create(tradeForm);
   if (data.value) {
     preview.value = !preview.value;
     response.value = data.value;
