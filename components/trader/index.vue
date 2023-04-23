@@ -3,15 +3,10 @@ const { data } = await useAssets().list();
 </script>
 
 <template>
-  <div class="container-fluid py-4 py-lg-5" id="trade">
-    <div class="bg-primary fixed-top">
-      <Appbar caption="What would you like to trade?" />
+  <div class="container-fluid p-0" id="trade">
+    <div class="bg-primary sticky-top">
       <nav v-if="typeof data.data === 'object'">
-        <div
-          class="nav nav-tabs border-top border-light lh-lg"
-          id="nav-tab"
-          role="tablist"
-        >
+        <div class="nav nav-tabs border-light py-2" id="nav-tab" role="tablist">
           <button
             :class="`nav-link rounded-0 border-0 border-light w-50 ${
               index.toString() === 'Giftcard' ? 'active' : ''
@@ -31,8 +26,6 @@ const { data } = await useAssets().list();
         </div>
       </nav>
     </div>
-    <div class="h-52 mb-4"></div>
-    <div class="py-1"></div>
     <div class="row g-0 align-items-center justify-content-center">
       <div class="col-lg-5">
         <div v-if="typeof data.data === 'object'">
@@ -47,7 +40,7 @@ const { data } = await useAssets().list();
                 :aria-labelledby="`nav-${index}-tab`"
                 tabindex="0"
               >
-                <div class="list-group rounded-4">
+                <div class="list-group rounded-4 m-3">
                   <div
                     class="list-group-item border-0 border-bottom border-light"
                     v-for="(asset, indexx) in item"
