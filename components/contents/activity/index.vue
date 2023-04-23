@@ -6,8 +6,16 @@ const user = useUser();
 <template>
   <div class="pb-5">
     <div class="py-2 text-center">
+      <img
+        :src="appDrawerContent.data.rate.asset.image_url"
+        :alt="appDrawerContent.data.rate.asset.name"
+        loading="lazy"
+        class="ic-holder ic-holder-xl mx-auto mb-3"
+        v-if="appDrawerContent.data.rate"
+      />
       <div
         :class="`ic-holder ic-holder-xl d-flex align-items-center justify-content-center rounded-circle bg-${appDrawerContent.data.status} mx-auto mb-3`"
+        v-else
       >
         <div
           class="ic-holder-inner d-flex align-items-center justify-content-center rounded-circle bg-white"
