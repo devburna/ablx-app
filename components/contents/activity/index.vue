@@ -205,7 +205,10 @@ const user = useUser();
           user.isAdmin
         "
       >
-        <a class="dropdown-item bg-transparent text-success" href="#"
+        <a
+          class="dropdown-item bg-transparent text-success"
+          href="#"
+          @click="useOrders().update({ status: 'Confirmed' })"
           >Approve</a
         >
       </li>
@@ -247,7 +250,7 @@ const user = useUser();
         <a
           class="dropdown-item bg-transparent text-danger"
           href="#"
-          @click="useOrders().update({ status: 'Cancelled' })"
+          @click="useOrders().update({ status: 'Failed' })"
           >Cancel</a
         >
       </li>
@@ -261,7 +264,7 @@ const user = useUser();
         <a
           class="dropdown-item bg-transparent text-danger"
           href="#"
-          @click="useOrders().update({ status: 'Rejected' })"
+          @click="useOrders().update({ status: 'Failed' })"
           >Reject</a
         >
       </li>
