@@ -61,7 +61,7 @@ const navItems = [
 }
 
 small {
-  font-size: 10px;
+  font-size: 11px;
 }
 .icon {
   font-size: 20px;
