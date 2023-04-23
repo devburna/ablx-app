@@ -16,13 +16,18 @@ const activities = useActivity();
       <div class="col-lg-5">
         <WidgetsQuickActions class="mx-3" style="margin-top: -89.5px" />
       </div>
+      <div class="col-12"></div>
       <div class="col-lg-5">
         <WidgetsActivities
           class="mb-4 mx-3"
           :data="activities.orders.slice(0, 5)"
-          v-if="activities.orders"
+          v-if="activities.orders && activities.orders.length"
         />
-        <Message caption="No order found 😥" v-else />
+        <Message
+          title="No recent activities"
+          caption="All your recent activities will show up here"
+          v-else
+        />
       </div>
     </div>
     <BottomNav />
