@@ -12,24 +12,13 @@ const activities = useAttrs();
     />
     <div v-for="(item, index) in activities.data" :key="index">
       <ListView
-        :img="item.rate.asset.image_url"
-        :title="item.narration || item.rate.name"
-        :caption="$timeAgo(item.created_at)"
-        :trailing="$currency(item.amount, 'NGN')"
-        :subTrailing="'&nbsp;'"
-        :status="item.status"
-        icHolderInner="white"
-        data-bs-toggle="offcanvas"
-        :data-bs-target="`#activity-${index}`"
-        v-if="item.rate"
-      />
-      <ListView
         :icon="`${
           ['Debit'].includes(item.type)
             ? 'cloud-arrow-down-fill'
             : 'cloud-arrow-up-fill'
         }`"
-        :title="item.narration || item.rate.name"
+        :img="item?.rate.asset.image_url || null"
+        :title="item.narration || item?.rate.asset.name"
         :caption="$timeAgo(item.created_at)"
         :trailing="$currency(item.amount, 'NGN')"
         :subTrailing="'&nbsp;'"
@@ -37,7 +26,6 @@ const activities = useAttrs();
         icHolderInner="white"
         data-bs-toggle="offcanvas"
         :data-bs-target="`#activity-${index}`"
-        v-else
       />
     </div>
   </div>
