@@ -68,14 +68,14 @@ const tradeHandler = async () => {
               "
               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
               :min="`${
-                (['Sell'].includes(tradeForm.type)
+                ['Sell'].includes(tradeForm.type)
                   ? tradeForm.rate?.min_buy
-                  : tradeForm.rate?.min_sell) || 100000
+                  : tradeForm.rate?.min_sell
               }`"
               :max="`${
-                ['Sell'].includes(tradeForm.type)
+                (['Sell'].includes(tradeForm.type)
                   ? tradeForm.rate?.max_buy
-                  : tradeForm.rate?.max_sell
+                  : tradeForm.rate?.max_sell) || 100000
               }`"
               required
             />
