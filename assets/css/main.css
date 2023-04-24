@@ -181,7 +181,7 @@ h3, h6, .title, .fw-bold, .btn, .form-control, .form-select, .nav-link, .link, .
     color: var(--bs-secondary) !important;
 }
 
-.text-success, .text-Success, .text-Approved, .text-Credit {
+.text-success, .text-Success, .text-Approved, .text-Credit, .text-Confirmed {
     color: var(--bs-success) !important;
 }
 
