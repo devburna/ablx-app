@@ -205,7 +205,7 @@ const tradeHandler = async () => {
               </div>
               <div class="col-auto">
                 <span>{{
-                  $currency(tradeForm.value, tradeForm.rate?.currency || "USD")
+                  $currency(tradeForm.value, tradeForm.rate?.currency || "NGN")
                 }}</span>
               </div>
             </div>
