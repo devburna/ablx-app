@@ -214,83 +214,85 @@ const user = useUser();
         </div>
       </div>
     </div>
-    <button
-      type="button"
-      class="btn btn-primary btn-lg rounded-4 w-100 mb-4"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      More Actions
-    </button>
-    <ul class="dropdown-menu border-0 title shadow-sm lh-lg">
-      <li
-        v-if="
-          ['Pending'].includes(appDrawerContent.data.status) &&
-          appDrawerContent.data?.rate &&
-          user.isAdmin
-        "
+    <div class="dropup">
+      <button
+        type="button"
+        class="btn btn-primary btn-lg rounded-4 w-100 mb-4"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
       >
-        <a
-          class="dropdown-item bg-transparent text-success"
-          href="#"
-          @click="
-            useOrders().update({
-              id: appDrawerContent.data.id,
-              status: 'Confirmed',
-            })
+        More Actions
+      </button>
+      <ul class="dropdown-menu border-0 title shadow-sm lh-lg w-100 mb-3">
+        <li
+          v-if="
+            ['Pending'].includes(appDrawerContent.data.status) &&
+            appDrawerContent.data?.rate &&
+            user.isAdmin
           "
-          >Approve</a
         >
-      </li>
-      <li
-        v-if="
-          ['New'].includes(appDrawerContent.data.status) &&
-          appDrawerContent.data?.rate &&
-          appDrawerContent.data?.invoice &&
-          appDrawerContent.data?.invoice.address
-        "
-      >
-        <a
-          class="dropdown-item bg-transparent text-muted"
-          href="#"
-          @click="$copy(appDrawerContent.data?.invoice.address)"
-          >Copy address</a
-        >
-      </li>
-      <li>
-        <a class="dropdown-item bg-transparent text-muted" href="#"
-          >Share receipt</a
-        >
-      </li>
-      <li
-        v-if="
-          ['Pending'].includes(appDrawerContent.data.status) &&
-          appDrawerContent.data?.rate &&
-          user.isAdmin
-        "
-      >
-        <hr class="dropdown-divider border-light" />
-      </li>
-      <li
-        v-if="
-          ['Pending'].includes(appDrawerContent.data.status) &&
-          appDrawerContent.data?.rate &&
-          user.isAdmin
-        "
-      >
-        <a
-          class="dropdown-item bg-transparent text-danger"
-          href="#"
-          @click="
-            useOrders().update({
-              id: appDrawerContent.data.id,
-              status: 'Failed',
-            })
+          <a
+            class="dropdown-item bg-transparent text-success"
+            href="#"
+            @click="
+              useOrders().update({
+                id: appDrawerContent.data.id,
+                status: 'Confirmed',
+              })
+            "
+            >Approve</a
+          >
+        </li>
+        <li
+          v-if="
+            ['New'].includes(appDrawerContent.data.status) &&
+            appDrawerContent.data?.rate &&
+            appDrawerContent.data?.invoice &&
+            appDrawerContent.data?.invoice.address
           "
-          >Reject</a
         >
-      </li>
-    </ul>
+          <a
+            class="dropdown-item bg-transparent text-muted"
+            href="#"
+            @click="$copy(appDrawerContent.data?.invoice.address)"
+            >Copy address</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item bg-transparent text-muted" href="#"
+            >Share receipt</a
+          >
+        </li>
+        <li
+          v-if="
+            ['Pending'].includes(appDrawerContent.data.status) &&
+            appDrawerContent.data?.rate &&
+            user.isAdmin
+          "
+        >
+          <hr class="dropdown-divider border-light" />
+        </li>
+        <li
+          v-if="
+            ['Pending'].includes(appDrawerContent.data.status) &&
+            appDrawerContent.data?.rate &&
+            user.isAdmin
+          "
+        >
+          <a
+            class="dropdown-item bg-transparent text-danger"
+            href="#"
+            @click="
+              useOrders().update({
+                id: appDrawerContent.data.id,
+                status: 'Failed',
+              })
+            "
+            >Reject</a
+          >
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
