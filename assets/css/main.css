@@ -169,7 +169,7 @@ h3, h6, .title, .fw-bold, .btn, .form-control, .form-select, .nav-link, .link, .
     color: var(--bs-white) !important;
 }
 
-.text-info {
+.text-info, .text-Resolved {
     color: var(--bs-info) !important;
 }
 
@@ -185,7 +185,7 @@ h3, h6, .title, .fw-bold, .btn, .form-control, .form-select, .nav-link, .link, .
     color: var(--bs-success) !important;
 }
 
-.text-danger, .text-Rejected, .text-Failed {
+.text-danger, .text-Rejected, .text-Failed, .text-Delayed {
     color: var(--bs-danger) !important;
 }
 
