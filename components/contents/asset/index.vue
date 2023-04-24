@@ -68,9 +68,9 @@ const tradeHandler = async () => {
               "
               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
               :min="`${
-                ['Sell'].includes(tradeForm.type)
+                (['Sell'].includes(tradeForm.type)
                   ? tradeForm.rate?.min_buy
-                  : tradeForm.rate?.min_sell
+                  : tradeForm.rate?.min_sell) || 100000
               }`"
               :max="`${
                 ['Sell'].includes(tradeForm.type)
