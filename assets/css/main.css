@@ -169,7 +169,7 @@ h3, h6, .title, .fw-bold, .btn, .form-control, .form-select, .nav-link, .link, .
     color: var(--bs-white) !important;
 }
 
-.text-info, .text-New {
+.text-info {
     color: var(--bs-info) !important;
 }
 
@@ -177,7 +177,7 @@ h3, h6, .title, .fw-bold, .btn, .form-control, .form-select, .nav-link, .link, .
     color: var(--bs-warning) !important;
 }
 
-.text-muted {
+.text-muted, .text-New {
     color: var(--bs-secondary) !important;
 }
 
