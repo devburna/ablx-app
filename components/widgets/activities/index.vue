@@ -14,10 +14,10 @@ const activities = useAttrs();
       <ListView
         :icon="`${
           ['Debit'].includes(item.type)
-            ? 'cloud-arrow-down-fill'
-            : 'cloud-arrow-up-fill'
+            ? 'cloud-arrow-up-fill'
+            : 'cloud-arrow-down-fill'
         }`"
-        :img="item?.rate.asset.image_url || null"
+        :img="item?.rate ? item?.rate.asset.image_url : null"
         :title="item.narration || item?.rate.asset.name"
         :caption="$timeAgo(item.created_at)"
         :trailing="$currency(item.amount, 'NGN')"

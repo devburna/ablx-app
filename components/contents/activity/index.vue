@@ -7,11 +7,11 @@ const user = useUser();
   <div class="pb-5">
     <div class="py-2 text-center">
       <img
-        :src="appDrawerContent.data.rate.asset.image_url"
-        :alt="appDrawerContent.data.rate.asset.name"
+        :src="appDrawerContent.data?.rate.asset.image_url"
+        :alt="appDrawerContent.data?.rate.asset.name"
         loading="lazy"
         class="ic-holder ic-holder-xl mx-auto mb-3"
-        v-if="appDrawerContent.data.rate"
+        v-if="appDrawerContent.data?.rate"
       />
       <div
         :class="`ic-holder ic-holder-xl d-flex align-items-center justify-content-center rounded-circle bg-${appDrawerContent.data.status} mx-auto mb-3`"
@@ -34,7 +34,7 @@ const user = useUser();
           $currency(
             appDrawerContent.data.amount,
             appDrawerContent.data?.currency ||
-              appDrawerContent.data.rate.currency
+              appDrawerContent.data?.rate.currency
           )
         }}
       </h6>
@@ -65,27 +65,27 @@ const user = useUser();
       </div>
       <div
         class="list-group-item border-bottom border-light border-0 py-3"
-        v-if="appDrawerContent.data.rate"
+        v-if="appDrawerContent.data?.rate"
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary">Item</span>
           </div>
           <div class="col-auto">
-            <span>{{ appDrawerContent.data.rate.asset.name }}</span>
+            <span>{{ appDrawerContent.data?.rate.asset.name }}</span>
           </div>
         </div>
       </div>
       <div
         class="list-group-item border-bottom border-light border-0 py-3"
-        v-if="appDrawerContent.data.rate"
+        v-if="appDrawerContent.data?.rate"
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary">Category</span>
           </div>
           <div class="col-auto">
-            <span>{{ appDrawerContent.data.rate.asset.type }}</span>
+            <span>{{ appDrawerContent.data?.rate.asset.type }}</span>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ const user = useUser();
               $currency(
                 appDrawerContent.data.amount,
                 appDrawerContent.data?.currency ||
-                  appDrawerContent.data.rate.currency
+                  appDrawerContent.data?.rate.currency
               )
             }}</span>
           </div>
@@ -107,20 +107,20 @@ const user = useUser();
       </div>
       <div
         class="list-group-item border-bottom border-light border-0 py-3"
-        v-if="appDrawerContent.data.rate"
+        v-if="appDrawerContent.data?.rate"
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary">Rate</span>
           </div>
           <div class="col-auto">
-            <span>{{ appDrawerContent.data.rate.name }}</span>
+            <span>{{ appDrawerContent.data?.rate.name }}</span>
           </div>
         </div>
       </div>
       <div
         class="list-group-item border-bottom border-light border-0 py-3"
-        v-if="appDrawerContent.data.rate"
+        v-if="appDrawerContent.data?.rate"
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
@@ -130,7 +130,7 @@ const user = useUser();
             <span>{{
               $currency(
                 appDrawerContent.data.amount *
-                  appDrawerContent.data.rate.buying_at,
+                  appDrawerContent.data?.rate.buying_at,
                 appDrawerContent.data?.currency || "NGN"
               )
             }}</span>
@@ -139,7 +139,7 @@ const user = useUser();
       </div>
       <div
         class="list-group-item border-bottom border-light border-0 py-3"
-        v-if="appDrawerContent.data.rate"
+        v-if="appDrawerContent.data?.rate"
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
@@ -226,7 +226,7 @@ const user = useUser();
       <li
         v-if="
           ['Pending'].includes(appDrawerContent.data.status) &&
-          appDrawerContent.data.rate &&
+          appDrawerContent.data?.rate &&
           user.isAdmin
         "
       >
@@ -245,7 +245,7 @@ const user = useUser();
       <li
         v-if="
           ['New'].includes(appDrawerContent.data.status) &&
-          appDrawerContent.data.rate &&
+          appDrawerContent.data?.rate &&
           appDrawerContent.data?.invoice &&
           appDrawerContent.data?.invoice.address
         "
@@ -265,7 +265,7 @@ const user = useUser();
       <li
         v-if="
           ['Pending'].includes(appDrawerContent.data.status) &&
-          appDrawerContent.data.rate &&
+          appDrawerContent.data?.rate &&
           user.isAdmin
         "
       >
@@ -274,7 +274,7 @@ const user = useUser();
       <li
         v-if="
           ['Pending'].includes(appDrawerContent.data.status) &&
-          appDrawerContent.data.rate &&
+          appDrawerContent.data?.rate &&
           user.isAdmin
         "
       >
