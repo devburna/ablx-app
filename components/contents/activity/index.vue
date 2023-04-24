@@ -131,8 +131,7 @@ const user = useUser();
               $currency(
                 appDrawerContent.data.amount *
                   appDrawerContent.data.rate.buying_at,
-                appDrawerContent.data?.currency ||
-                  appDrawerContent.data.rate.currency
+                appDrawerContent.data?.currency || "NGN"
               )
             }}</span>
           </div>
