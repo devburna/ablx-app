@@ -200,6 +200,19 @@ const user = useUser();
       </div>
       <div
         class="list-group-item border-bottom border-light border-0 py-3"
+        v-if="details.data?.channel"
+      >
+        <div class="row g-2 justify-content-between caption">
+          <div class="col-auto">
+            <span class="text-secondary">Channel</span>
+          </div>
+          <div class="col-auto">
+            <span>{{ details.data?.channel }}</span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="list-group-item border-bottom border-light border-0 py-3"
         v-if="details.data?.status"
       >
         <div class="row g-2 justify-content-between caption">
