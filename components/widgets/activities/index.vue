@@ -20,7 +20,9 @@ const activities = useAttrs();
         :img="item?.rate ? item?.rate.asset.image_url : null"
         :title="item.narration || item?.rate.asset.name"
         :caption="$timeAgo(item.created_at)"
-        :trailing="$currency(item.amount, 'NGN')"
+        :trailing="
+          $currency(item.amount, item?.currency || item?.rate.currency)
+        "
         :subTrailing="'&nbsp;'"
         :status="item.status"
         icHolderInner="white"
