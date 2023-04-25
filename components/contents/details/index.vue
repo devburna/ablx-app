@@ -14,7 +14,9 @@ const user = useUser();
         v-if="details.data?.rate"
       />
       <div
-        :class="`ic-holder ic-holder-xl d-flex align-items-center justify-content-center rounded-circle bg-${details.data?.status} mx-auto mb-3`"
+        :class="`ic-holder ic-holder-xl d-flex align-items-center justify-content-center rounded-circle bg-${
+          details.data?.status || 'primary'
+        } mx-auto mb-3`"
         v-else
       >
         <div
@@ -25,7 +27,7 @@ const user = useUser();
               ['Order'].includes(details.data?.channel)
                 ? 'lightning'
                 : 'bag-check'
-            }-fill text-${details.data?.status} icon`"
+            }-fill text-${details.data?.status || 'primary'} icon`"
           ></i>
         </div>
       </div>

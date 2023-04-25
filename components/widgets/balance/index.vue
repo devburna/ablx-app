@@ -4,7 +4,7 @@ const userBalance = useUser();
 
 <template>
   <div class="container-fluid bg-pattern py-5" id="balance">
-    <div class="container pt-3 pb-4">
+    <div class="container pt-1 pb-4">
       <div
         class="row g-0 align-items-center justify-content-center text-center"
       >
@@ -28,6 +28,6 @@ const userBalance = useUser();
 
 <style scoped>
 .balance {
-  font-size: 35px;
+  font-size: 34px;
 }
 </style>
