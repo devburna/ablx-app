@@ -7,11 +7,13 @@ const user = useUser();
   <div>
     <div class="pb-2 text-center">
       <img
-        :src="details.data?.rate.asset.image_url"
-        :alt="details.data?.rate.asset.name"
+        :src="
+          details.data?.rate?.asset?.image_url || details.data?.data?.image_url
+        "
+        :alt="details.data?.rate?.asset?.name"
         loading="lazy"
         class="ic-holder ic-holder-xl mx-auto mb-3"
-        v-if="details.data?.rate"
+        v-if="details.data?.rate || details.data?.data?.image_url"
       />
       <div
         :class="`ic-holder ic-holder-xl d-flex align-items-center justify-content-center rounded-circle bg-${
@@ -93,14 +95,16 @@ const user = useUser();
       </div>
       <div
         class="list-group-item border-bottom border-light border-0 py-3"
-        v-if="details.data?.rate"
+        v-if="details.data?.rate || details.data?.item"
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary">Item</span>
           </div>
           <div class="col-auto">
-            <span>{{ details.data?.rate.asset.name }}</span>
+            <span>{{
+              details.data?.rate?.asset?.name || details.data?.data.name
+            }}</span>
           </div>
         </div>
       </div>
@@ -113,7 +117,9 @@ const user = useUser();
             <span class="text-secondary">Category</span>
           </div>
           <div class="col-auto">
-            <span>{{ details.data?.rate.asset.type }}</span>
+            <span>{{
+              details.data?.rate?.asset?.type || details.data?.data.type
+            }}</span>
           </div>
         </div>
       </div>
@@ -129,7 +135,7 @@ const user = useUser();
             <span>{{
               $currency(
                 details.data?.amount,
-                details.data?.currency || details.data?.rate.currency
+                details.data?.currency || details.data?.rate?.currency
               )
             }}</span>
           </div>
@@ -144,7 +150,7 @@ const user = useUser();
             <span class="text-secondary">Rate</span>
           </div>
           <div class="col-auto">
-            <span>{{ details.data?.rate.name }}</span>
+            <span>{{ details.data?.rate?.name }}</span>
           </div>
         </div>
       </div>
@@ -159,7 +165,7 @@ const user = useUser();
           <div class="col-auto">
             <span>{{
               $currency(
-                details.data?.amount * details.data?.rate.buying_at,
+                details.data?.amount * details.data?.rate?.buying_at,
                 details.data?.currency || "NGN"
               )
             }}</span>
@@ -168,14 +174,14 @@ const user = useUser();
       </div>
       <div
         class="list-group-item border-bottom border-light border-0 py-3"
-        v-if="details.data?.rate"
+        v-if="details.data?.rate || details.data?.comment"
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
             <span class="text-secondary">Comment</span>
           </div>
           <div class="col-auto">
-            <span>{{ details.data?.comment }}</span>
+            <span>{{ details.data?.comment || "---" }}</span>
           </div>
         </div>
       </div>
@@ -243,6 +249,16 @@ const user = useUser();
           </div>
           <div class="col-auto">
             <span>{{ $timeAgo(new Date(details.data?.created_at)) }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="list-group-item border-0 py-3" v-if="details.data?.minute">
+        <div class="row g-2 justify-content-between caption">
+          <div class="col-auto">
+            <span class="text-secondary">Arrives in</span>
+          </div>
+          <div class="col-auto">
+            <span>{{ details.data?.minute }}</span>
           </div>
         </div>
       </div>

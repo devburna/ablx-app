@@ -131,96 +131,18 @@ const tradeHandler = async () => {
         </div>
       </div>
       <div v-else>
-        <div class="text-center mb-4">
-          <img
-            :src="assetContent.data.image_url"
-            :alt="assetContent.data.name"
-            loading="lazy"
-            class="ic-holder ic-holder-xl mx-auto mb-3"
-          />
-          <h6 class="fw-bold mb-1">
-            {{ $currency(tradeForm.amount, tradeForm.rate?.currency || "USD") }}
-          </h6>
-          <p class="caption">
-            {{ tradeForm.rate.name }}
-          </p>
-        </div>
-        <div class="list-group rounded-4 py-1 mb-4 bg-white">
-          <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row g-2 justify-content-between caption">
-              <div class="col-auto">
-                <span class="text-secondary">Type</span>
-              </div>
-              <div class="col-auto">
-                <span>{{ tradeForm.type }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row g-2 justify-content-between caption">
-              <div class="col-auto">
-                <span class="text-secondary">Item</span>
-              </div>
-              <div class="col-auto">
-                <span>{{ assetContent.data.name }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row g-2 justify-content-between caption">
-              <div class="col-auto">
-                <span class="text-secondary">Category</span>
-              </div>
-              <div class="col-auto">
-                <span>{{ assetContent.data.type }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row g-2 justify-content-between caption">
-              <div class="col-auto">
-                <span class="text-secondary">Amount</span>
-              </div>
-              <div class="col-auto">
-                <span>{{
-                  $currency(tradeForm.amount, tradeForm.rate?.currency || "USD")
-                }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row g-2 justify-content-between caption">
-              <div class="col-auto">
-                <span class="text-secondary">Rate</span>
-              </div>
-              <div class="col-auto">
-                <span>{{ tradeForm.rate?.name }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="list-group-item border-bottom border-light border-0 py-3">
-            <div class="row g-2 justify-content-between caption">
-              <div class="col-auto">
-                <span class="text-secondary">Recipient gets</span>
-              </div>
-              <div class="col-auto">
-                <span>{{
-                  $currency(tradeForm.value, tradeForm.rate?.currency || "NGN")
-                }}</span>
-              </div>
-            </div>
-          </div>
-          <div class="list-group-item border-0 py-3">
-            <div class="row g-2 justify-content-between caption">
-              <div class="col-auto">
-                <span class="text-secondary">Arriving in</span>
-              </div>
-              <div class="col-auto">
-                <span>5 Minutes</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ContentsDetails
+          :title="`${$currency(
+            tradeForm.amount,
+            tradeForm.rate?.currency || tradeForm?.currency
+          )}`"
+          :caption="`${tradeForm.rate.name}`"
+          :data="{
+            ...tradeForm,
+            ...assetContent,
+            minute: '5 minutes',
+          }"
+        />
         <button
           type="button"
           @click="tradeHandler"
