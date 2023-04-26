@@ -117,8 +117,24 @@ const tradeHandler = async () => {
               multiple
             />
           </div>
-          <div class="col-lg-12">
-            <span class="caption">Usually takes 5 minutes ⚡️ </span>
+          <div class="col-lg-12"></div>
+          <div class="col-lg-12 text-center">
+            <small
+              >By clicking on the "Start Trade" button, you agree to Ablxtrade's
+              <a
+                href="https://ablxtrade.com/terms-of-use"
+                target="_blank"
+                class="text-info"
+                >Terms of use</a
+              >
+              and
+              <a
+                href="https://ablxtrade.com/policy"
+                target="_blank"
+                class="text-info"
+                >Privacy policy</a
+              ></small
+            >
           </div>
           <div class="col-lg-12">
             <button type="submit" class="btn btn-primary w-100">
