@@ -75,7 +75,7 @@ const tradeHandler = async () => {
               :max="`${
                 ['Sell'].includes(tradeForm.type)
                   ? tradeForm.rate?.max_buy
-                  : tradeForm.rate?.max_sell || 100000
+                  : tradeForm.rate?.max_sell
               }`"
               required
             />
