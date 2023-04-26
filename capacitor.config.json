@@ -1,6 +1,6 @@
 {
   "appId": "com.ablxtrade.app",
   "appName": "Ablxtrade",
-  "webDir": "https://ablx.netlify.app",
+  "webDir": ".output/public",
   "bundledWebRuntime": false
 }
