@@ -27,9 +27,11 @@ const appDrawer = useAttrs();
             <i class="bi bi-x-circle-fill fs-6"></i>
           </button>
         </h6>
-        <p class="caption mb-0" v-if="appDrawer.caption">
-          {{ appDrawer.caption }}
-        </p>
+        <p
+          class="caption mb-0"
+          v-if="appDrawer.caption"
+          v-html="appDrawer.caption"
+        ></p>
       </div>
     </div>
     <div class="offcanvas-body py-0">

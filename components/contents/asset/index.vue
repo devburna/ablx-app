@@ -2,7 +2,7 @@
 const assetContent = useAttrs();
 
 const tradeForm = ref({
-  amount: 0,
+  amount: null,
   type: "Sell",
   value: 0,
   rate: {},
