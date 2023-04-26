@@ -90,7 +90,7 @@ const { data } = await useAssets().list();
             :content="`trade-${index}-${indexx}`"
             :data="asset"
             :title="asset.name"
-            :caption="asset.type"
+            :caption="asset.comment || asset.type"
             dialog="offcanvas-bottom h-75"
             backdrop="n"
           />
