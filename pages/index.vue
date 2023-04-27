@@ -8,12 +8,12 @@ const features = [
     img: "",
     title: "Trade in your Bitcoin",
     caption:
-      "The Abbeylinko Xchange system is built and tailored to serve and fully satisfy you.",
+      "The Ablxtrade is built and tailored to serve and fully satisfy you.",
   },
   {
     img: "",
     title: "Trade in your Gift Cards",
-    caption: "Trade your gift cards with Abbeylinko Xchange at amazing rates.",
+    caption: "Trade your gift cards with Ablxtrade at amazing rates.",
   },
   {
     img: "",
@@ -39,7 +39,7 @@ const defaultFeature = ref(features[0]);
         <div class="row g-3 align-items-center justify-content-center h-100">
           <div class="col-lg-5">
             <img
-              src="https://abbeylinkoxchange.com/wp-content/uploads/2020/11/abbeylinko-logo-scaled.jpg"
+              src="@/assets/icon.png"
               alt="logo"
               loading="lazy"
               class="img-fluid"

@@ -23,7 +23,7 @@ const registerForm = {
             >
               <div class="col-lg-12">
                 <h3>Create an account</h3>
-                <p>Sign in to your abbeylinko account</p>
+                <p>Sign in to your ablxtrade account</p>
               </div>
               <div class="col-lg-12">
                 <input

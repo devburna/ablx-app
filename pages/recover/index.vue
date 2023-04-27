@@ -69,7 +69,7 @@ const loginForm = {
               <div class="col-lg-12 text-center py-3">
                 <small
                   >Trouble Logging In?
-                  <a href="mailto:support@abbeylinkoxchange.com"
+                  <a href="mailto:support@ablxtrade.com"
                     >Contact Support</a
                   ></small
                 >
