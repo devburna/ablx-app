@@ -11,6 +11,10 @@ export const useAuth = () => {
     _token.value = token;
     _user.value = user;
 
+    if (!user.email_verified_at) {
+      navigateTo('/verify-email')
+    }
+
     navigateTo('/home')
   }
 
