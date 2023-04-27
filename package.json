@@ -12,9 +12,10 @@
     "nuxt": "^3.2.2"
   },
   "dependencies": {
-    "@capacitor/cli": "^4.7.3",
-    "@capacitor/core": "^4.7.3",
-    "@capacitor/ios": "^4.7.3",
+    "@capacitor/android": "^4.8.0",
+    "@capacitor/cli": "^4.8.0",
+    "@capacitor/core": "^4.8.0",
+    "@capacitor/ios": "^4.8.0",
     "javascript-time-ago": "^2.5.9",
     "qrcode.vue": "^3.3.3",
     "spinkit": "^2.0.1",
