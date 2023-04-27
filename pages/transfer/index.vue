@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import currency from "~/plugins/currency";
-
 definePageMeta({
   middleware: "is-logged-in",
 });
@@ -30,6 +28,12 @@ const setAccountName = async (payload: any) => {
     transferForm.value.account_name = data.value.data.account_name;
   }
 };
+
+const transferHandler = async (payload: object) => {
+  const { data, error } = await useTransfer().create(payload);
+
+  response.value = data.value || error.value;
+};
 </script>
 
 <template>
@@ -39,7 +43,28 @@ const setAccountName = async (payload: any) => {
         <Appbar :title="true" :hasPrev="true" class="bg-primary" />
       </div>
       <div class="col-lg-12">
-        <div class="row">
+        <div class="row" v-if="response">
+          <div class="col-lg-5 text-center">
+            <Message
+              :title="`${response?.data?.status ? 'Sent' : 'Failed'}`"
+              :caption="`${response?.data?.message}`"
+            />
+            <div class="btn-group gap-3">
+              <button
+                type="button"
+                class="btn btn-primary btn-sm rounded-4 lh-lg px-4"
+                @click="
+                  response?.data?.status
+                    ? (response = null)
+                    : transferHandler(transferForm)
+                "
+              >
+                {{ response?.data?.status ? "Send " : "Try " }}again
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row" v-else>
           <div class="col-lg-5" v-if="!preview">
             <form
               @submit.prevent="preview = !preview"
@@ -104,19 +129,6 @@ const setAccountName = async (payload: any) => {
             </form>
             <Message caption="Transfer not available, try again later" v-else />
           </div>
-          <div class="col-lg-5" v-else-if="response">
-            <h6 class="">Sent!</h6>
-            <p class="caption" v-html="response.message"></p>
-            <div class="btn-group gap-3 my-3">
-              <button
-                type="button"
-                class="btn btn-primary btn-sm rounded-4 lh-lg px-4"
-                @click="response = null"
-              >
-                Send again
-              </button>
-            </div>
-          </div>
           <div class="col-lg-5 p-4" v-else>
             <ContentsDetails
               :title="`${$currency(
@@ -138,10 +150,7 @@ const setAccountName = async (payload: any) => {
             />
             <button
               type="button"
-              @click="
-                preview = !preview;
-                useTransfer().create(transferForm);
-              "
+              @click="transferHandler(transferForm)"
               class="btn btn-primary btn-lg w-100"
             >
               Continue
