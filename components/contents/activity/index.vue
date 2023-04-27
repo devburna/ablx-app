@@ -13,7 +13,17 @@ const user = useUser();
       :caption="`${
         appDrawerContent.data.narration || appDrawerContent.data.comment
       }`"
-      :data="appDrawerContent.data"
+      :data="{
+        ...appDrawerContent.data,
+        bank: appDrawerContent.data?.meta?.bank?.name,
+        account_name: appDrawerContent.data?.meta?.account_name,
+        account_number: appDrawerContent.data?.meta?.account_number,
+      }"
+      :icon="`${
+        ['Debit'].includes(appDrawerContent.data.type)
+          ? 'cloud-arrow-up'
+          : 'cloud-arrow-down'
+      }`"
     />
     <div class="dropup">
       <button
@@ -27,9 +37,7 @@ const user = useUser();
       <ul class="dropdown-menu border-0 title shadow-sm lh-lg w-100 mb-3">
         <li
           v-if="
-            ['Pending'].includes(appDrawerContent.data.status) &&
-            appDrawerContent.data?.rate &&
-            user.isAdmin
+            ['Pending'].includes(appDrawerContent.data.status) && user.isAdmin
           "
         >
           <a
@@ -66,18 +74,14 @@ const user = useUser();
         </li>
         <li
           v-if="
-            ['Pending'].includes(appDrawerContent.data.status) &&
-            appDrawerContent.data?.rate &&
-            user.isAdmin
+            ['Pending'].includes(appDrawerContent.data.status) && user.isAdmin
           "
         >
           <hr class="dropdown-divider border-light" />
         </li>
         <li
           v-if="
-            ['Pending'].includes(appDrawerContent.data.status) &&
-            appDrawerContent.data?.rate &&
-            user.isAdmin
+            ['Pending'].includes(appDrawerContent.data.status) && user.isAdmin
           "
         >
           <a
