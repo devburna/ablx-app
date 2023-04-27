@@ -18,7 +18,14 @@ const preview = ref(false);
 const response = ref();
 
 const tradeHandler = async () => {
-  const { data } = await useOrders().create(tradeForm);
+  const formData = new FormData();
+  formData.append("amount", tradeForm.amount);
+  formData.append("type", tradeForm.type);
+  formData.append("rate", tradeForm.rate);
+  formData.append("comment", tradeForm.comment);
+  formData.append("receipt", tradeForm.receipt);
+
+  const { data } = await useOrders().create(formData);
   if (data.value) {
     preview.value = !preview.value;
     response.value = data.value;
@@ -32,6 +39,7 @@ const tradeHandler = async () => {
       <div v-if="!preview">
         <form
           @submit.prevent="preview = !preview"
+          enctype="multipart/form-data"
           class="row g-3"
           v-if="assetContent.data?.rates.length"
         >
@@ -114,7 +122,7 @@ const tradeHandler = async () => {
               type="file"
               class="form-control dropify dropify-receipt"
               id="upload"
-              multiple
+              v-on:change="tradeForm.receipt = $event.target.files[0]"
             />
           </div>
           <div class="col-lg-12"></div>
