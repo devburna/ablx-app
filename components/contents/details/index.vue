@@ -17,7 +17,7 @@ const user = useUser();
       />
       <div
         :class="`ic-holder ic-holder-xl d-flex align-items-center justify-content-center rounded-circle bg-${
-          details.data?.status || 'primary'
+          details.data?.status || details?.status || 'primary'
         } mx-auto mb-3`"
         v-else
       >
@@ -28,8 +28,8 @@ const user = useUser();
             :class="`bi bi-${
               ['Order'].includes(details.data?.channel)
                 ? 'lightning'
-                : 'bag-check'
-            }-fill text-${details.data?.status || 'primary'} icon`"
+                : details?.icon || 'bag-check'
+            }-fill text-${details.data?.status || details?.status || 'primary'} icon`"
           ></i>
         </div>
       </div>
@@ -143,6 +143,45 @@ const user = useUser();
       </div>
       <div
         class="list-group-item border-bottom border-light border-0 py-3"
+        v-if="details.data?.bank"
+      >
+        <div class="row g-2 justify-content-between caption">
+          <div class="col-auto">
+            <span class="text-secondary">Bank</span>
+          </div>
+          <div class="col-auto">
+            <span>{{ details.data?.bank }}</span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="list-group-item border-bottom border-light border-0 py-3"
+        v-if="details.data?.account_name"
+      >
+        <div class="row g-2 justify-content-between caption">
+          <div class="col-auto">
+            <span class="text-secondary">Account name</span>
+          </div>
+          <div class="col-auto">
+            <span>{{ details.data?.account_name }}</span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="list-group-item border-bottom border-light border-0 py-3"
+        v-if="details.data?.account_number"
+      >
+        <div class="row g-2 justify-content-between caption">
+          <div class="col-auto">
+            <span class="text-secondary">Account number</span>
+          </div>
+          <div class="col-auto">
+            <span>{{ details.data?.account_number }}</span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="list-group-item border-bottom border-light border-0 py-3"
         v-if="details.data?.rate"
       >
         <div class="row g-2 justify-content-between caption">
@@ -156,7 +195,7 @@ const user = useUser();
       </div>
       <div
         class="list-group-item border-bottom border-light border-0 py-3"
-        v-if="details.data?.rate"
+        v-if="details.data?.rate || details.data?.recipient"
       >
         <div class="row g-2 justify-content-between caption">
           <div class="col-auto">
@@ -165,7 +204,8 @@ const user = useUser();
           <div class="col-auto">
             <span>{{
               $currency(
-                details.data?.amount * details.data?.rate?.buying_at,
+                details.data?.amount * details.data?.rate?.buying_at ||
+                  details.data?.recipient,
                 details.data?.currency || "NGN"
               )
             }}</span>
