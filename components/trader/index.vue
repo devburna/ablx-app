@@ -48,7 +48,7 @@ const { data } = await useAssets().list();
                     data-bs-toggle="offcanvas"
                     :data-bs-target="`#trade-${index}-${indexx}`"
                   >
-                    <div class="card border-0" style="max-width: 540px">
+                    <div class="card border-0">
                       <div class="row align-items-center g-0">
                         <div class="col-auto">
                           <img

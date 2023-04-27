@@ -73,7 +73,7 @@ const defaultFeature = ref(features[0]);
           <div class="col-lg-5">
             <button
               type="button"
-              class="btn btn-warning w-100"
+              class="btn btn-warning btn-lg w-100"
               @click="defaultFeature = features[index + 1]"
               v-if="index !== features.length - 1"
             >
@@ -82,14 +82,14 @@ const defaultFeature = ref(features[0]);
             <div v-else>
               <button
                 type="button"
-                class="btn btn-warning w-100 mb-3"
+                class="btn btn-warning btn-lg w-100 mb-3"
                 @click="$router.push('/login')"
               >
                 Login
               </button>
               <button
                 type="button"
-                class="btn btn-outline-light w-100"
+                class="btn btn-outline-light btn-lg w-100"
                 @click="$router.push('/register')"
               >
                 Create Account

@@ -23,12 +23,9 @@ const passwordForm = {
         <div class="col-lg-5">
           <form
             @submit.prevent="useAccount().password(passwordForm)"
-            class="row g-3"
+            class="row g-3 py-1"
           >
             <div class="col-lg-12">
-              <label for="current-password" class="mb-1"
-                >Current password</label
-              >
               <div class="position-relative">
                 <button
                   type="button"
@@ -45,14 +42,13 @@ const passwordForm = {
                   :type="useIsHidden().value ? 'text' : 'password'"
                   id="current-password"
                   class="form-control"
-                  placeholder=""
+                  placeholder="Current password"
                   v-model="passwordForm.current_password"
                   required
                 />
               </div>
             </div>
             <div class="col-lg-12">
-              <label for="password" class="mb-1">New password</label>
               <div class="position-relative">
                 <button
                   type="button"
@@ -69,16 +65,13 @@ const passwordForm = {
                   :type="useIsHidden().value ? 'text' : 'password'"
                   id="password"
                   class="form-control"
-                  placeholder=""
+                  placeholder="New password"
                   v-model="passwordForm.password"
                   required
                 />
               </div>
             </div>
             <div class="col-lg-12">
-              <label for="password-confirmation" class="mb-1"
-                >Retype password</label
-              >
               <div class="position-relative">
                 <button
                   type="button"
@@ -95,7 +88,7 @@ const passwordForm = {
                   :type="useIsHidden().value ? 'text' : 'password'"
                   id="password-confirmation"
                   class="form-control"
-                  placeholder=""
+                  placeholder="Retype password"
                   v-model="passwordForm.password_confirmation"
                   required
                 />

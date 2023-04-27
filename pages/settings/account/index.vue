@@ -24,10 +24,10 @@ const accountForm = {
         <div class="col-lg-5">
           <form
             @submit.prevent="useAccount().profile(accountForm)"
-            class="row g-3"
+            class="row g-3 py-1"
           >
             <div class="col-lg-12">
-              <label for="name" class="mb-1">Name</label>
+              
               <input
                 type="text"
                 id="name"
@@ -38,7 +38,7 @@ const accountForm = {
               />
             </div>
             <div class="col-lg-12">
-              <label for="email" class="mb-1">Email address</label>
+              
               <input
                 type="email"
                 id="email"
