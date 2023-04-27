@@ -121,7 +121,7 @@ const transferHandler = async (payload: object) => {
                 />
               </div>
               <div class="col-lg-12"></div>
-              <div class="col-lg-12">
+              <div class="col-lg-12" v-if="transferForm.account_name">
                 <button type="submit" class="btn btn-primary w-100">
                   Continue
                 </button>

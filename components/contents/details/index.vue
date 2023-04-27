@@ -29,7 +29,9 @@ const user = useUser();
               ['Order'].includes(details.data?.channel)
                 ? 'lightning'
                 : details?.icon || 'bag-check'
-            }-fill text-${details.data?.status || details?.status || 'primary'} icon`"
+            }-fill text-${
+              details.data?.status || details?.status || 'primary'
+            } icon`"
           ></i>
         </div>
       </div>
@@ -176,7 +178,9 @@ const user = useUser();
             <span class="text-secondary">Account number</span>
           </div>
           <div class="col-auto">
-            <span>{{ details.data?.account_number }}</span>
+            <span @click="$copy(details.data?.account_number)">
+              {{ details.data?.account_number }}</span
+            >
           </div>
         </div>
       </div>

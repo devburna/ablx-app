@@ -44,10 +44,15 @@ const user = useUser();
             class="dropdown-item bg-transparent text-success"
             href="#"
             @click="
-              useOrders().update({
-                id: appDrawerContent.data.id,
-                status: 'Confirmed',
-              })
+              ['Payout'].includes(appDrawerContent.data?.channel)
+                ? useTransactions().update({
+                    id: appDrawerContent.data.id,
+                    status: 'Success',
+                  })
+                : useOrders().update({
+                    id: appDrawerContent.data.id,
+                    status: 'Confirmed',
+                  })
             "
             >Approve</a
           >
@@ -88,10 +93,15 @@ const user = useUser();
             class="dropdown-item bg-transparent text-danger"
             href="#"
             @click="
-              useOrders().update({
-                id: appDrawerContent.data.id,
-                status: 'Failed',
-              })
+              ['Payout'].includes(appDrawerContent.data?.channel)
+                ? useTransactions().update({
+                    id: appDrawerContent.data.id,
+                    status: 'Failed',
+                  })
+                : useOrders().update({
+                    id: appDrawerContent.data.id,
+                    status: 'Failed',
+                  })
             "
             >Reject</a
           >
