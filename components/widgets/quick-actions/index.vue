@@ -1,23 +1,23 @@
 <script lang="ts" setup>
 const quickActions = [
   {
-    icon: "lightning",
-    title: "Trade",
-    caption: "Click to start trading",
-    route: "/trade",
-  },
-  {
-    icon: "file-earmark-text",
-    title: "Pay bills",
-    caption: "Buy airtime or pay utility bills",
-    route: "/bills",
-  },
-  {
     icon: "send",
     title: "Transfer",
     caption: "Send money locally or abroad",
     route: "/transfer",
   },
+  {
+    icon: "lightning",
+    title: "Start trade",
+    caption: "Click to start trading",
+    route: "/trade",
+  },
+  // {
+  //   icon: "file-earmark-text",
+  //   title: "Pay bills",
+  //   caption: "Buy airtime or pay utility bills",
+  //   route: "/bills",
+  // },
 ];
 </script>
 
