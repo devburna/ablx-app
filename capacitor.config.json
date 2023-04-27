@@ -1,6 +1,6 @@
 {
   "appId": "com.ablxtrade.app",
   "appName": "Ablxtrade",
-  "webDir": "public",
+  "webDir": "dist",
   "bundledWebRuntime": false
 }
