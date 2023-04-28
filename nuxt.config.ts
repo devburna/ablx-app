@@ -8,6 +8,9 @@ export default defineNuxtConfig({
             viewport: 'width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=0',
             title: 'Ablxtrade',
             meta: [
+                {
+                    name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=0'
+                },
                 { name: 'description', content: 'Making trading easy and stress-less. Trade your digital currency and redeem your cards with us for the fastest payment, in minutes.' },
                 {
                     name: 'theme-color',
